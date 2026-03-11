@@ -642,6 +642,179 @@ img { max-width: 100%; display: block; }
   display: block;
 }
 
+/* ===================== RESPONSIVE OVERHAUL ===================== */
+
+/* --- Tablet landscape (1024px) --- */
+@media (max-width: 1024px) {
+  .wrap { padding: 0 20px; }
+  .portal-grid { grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); }
+  .penyuluh-grid { grid-template-columns: repeat(3, 1fr); }
+  .kontak-layout { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+
+/* --- Tablet portrait (768px) --- */
+@media (max-width: 768px) {
+  .wrap { padding: 0 16px; }
+  .sec { padding: 72px 0; }
+  .nav-inner { padding: 0 16px; }
+
+  /* Hero */
+  .hero { padding: 80px 16px 48px; }
+  .hero-h1 { font-size: clamp(32px, 8vw, 52px); }
+  .hero-sub { font-size: 16px; }
+  .hero-actions { flex-direction: column; align-items: center; gap: 12px; }
+  .cta-primary, .cta-secondary { width: 100%; max-width: 300px; text-align: center; justify-content: center; display: flex; }
+
+  /* Stats cards */
+  .hero-cards { flex-wrap: wrap; }
+  .hcard { flex: 1 1 calc(50% - 1px); min-width: 0; border-right: 1px solid rgba(255,255,255,0.08); }
+  .hcard:nth-child(2n) { border-right: none; }
+  .hcard:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.08); }
+  .hcard-n { font-size: 28px; }
+
+  /* Portal grid */
+  .portal-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .p-card { padding: 16px; }
+  .p-card h3 { font-size: 14px; }
+  .p-card p { font-size: 12px; }
+
+  /* GiLink */
+  .gilink-grid { grid-template-columns: 1fr; }
+
+  /* Penyuluh */
+  .penyuluh-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+  /* PPPK */
+  .pppk-grid { flex-direction: column; }
+  .pppk-card { max-width: 100%; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+  .footer { padding: 48px 0 24px; }
+
+  /* Kontak */
+  .kontak-layout { grid-template-columns: 1fr; gap: 24px; }
+  .kontak-map { height: 240px; }
+
+  /* Drawer */
+  .side-drawer { width: 280px; }
+
+  /* Section titles */
+  .sec-title { font-size: clamp(24px, 5vw, 36px); }
+
+  /* P-tabs */
+  .p-tabs { gap: 6px; }
+  .ptab { padding: 7px 14px; font-size: 12.5px; }
+}
+
+/* --- Mobile (480px) --- */
+@media (max-width: 480px) {
+  .wrap { padding: 0 14px; }
+  .sec { padding: 60px 0; }
+
+  /* Navbar */
+  .nav-inner { height: 58px; }
+  .brand-name { font-size: 16px; }
+  .brand-tagline { display: none; }
+  .nm-link { font-size: 14px; padding: 8px 10px; }
+  .nm-report, .nm-gilink { padding: 7px 12px; font-size: 13px; }
+
+  /* Hero */
+  .hero { padding: 70px 14px 40px; }
+  .hero-eyebrow { font-size: 10px; letter-spacing: 1px; padding: 5px 12px; }
+  .hero-h1 { font-size: clamp(28px, 9vw, 40px); margin-bottom: 14px; }
+  .hero-sub { font-size: 14.5px; margin-bottom: 24px; }
+
+  /* Stats - 2x2 grid */
+  .hero-cards { display: grid; grid-template-columns: 1fr 1fr; border-radius: 12px; }
+  .hcard { padding: 18px 12px; border-right: 1px solid rgba(255,255,255,0.08) !important; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .hcard:nth-child(2n) { border-right: none !important; }
+  .hcard:nth-child(3), .hcard:nth-child(4) { border-bottom: none; }
+  .hcard-n { font-size: 24px; }
+  .hcard-l { font-size: 9px; }
+
+  /* Portal */
+  .portal-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .p-card { padding: 12px; }
+  .p-icon { font-size: 20px; }
+  .p-card h3 { font-size: 12.5px; }
+  .p-card p { font-size: 11px; display: none; }
+  .p-url { font-size: 10px; }
+
+  /* Penyuluh */
+  .penyuluh-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .py-card { padding: 20px 12px; }
+  .py-card h3 { font-size: 13px; }
+  .py-jabatan { font-size: 10px; }
+  .py-meta span { font-size: 11px; }
+  .py-ava { width: 52px; height: 52px; font-size: 22px; }
+
+  /* Section */
+  .sec-title { font-size: clamp(22px, 6vw, 30px); }
+  .sec-desc { font-size: 14px; }
+  .sec-hd { margin-bottom: 32px; }
+
+  /* GiLink */
+  .gl-card { padding: 14px 16px; gap: 12px; }
+  .gl-body h3 { font-size: 14px; }
+  .gl-body p { font-size: 12px; }
+
+  /* Footer */
+  .f-logo { font-size: 17px; }
+  .f-brand p { font-size: 13px; }
+  .f-col h4 { font-size: 10px; }
+  .f-col ul li a { font-size: 13px; }
+  .footer-bottom { font-size: 12px; }
+
+  /* Hamburger */
+  .hero-hamburger { top: 10px; left: 10px; width: 42px; height: 42px; }
+
+  /* Admin trigger */
+  #adminTrigger { bottom: 16px; right: 16px; width: 44px; height: 44px; font-size: 18px; }
+
+  /* Drawer */
+  .side-drawer { width: 100%; max-width: 320px; }
+  .drawer-title { font-size: 16px; }
+  .drawer-link { font-size: 14px; padding: 10px 10px; }
+
+  /* P-tabs scroll */
+  .p-tabs { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+  .ptab { white-space: nowrap; flex-shrink: 0; }
+
+  /* Kontak map */
+  .kontak-map { height: 200px; }
+}
+
+/* --- Small mobile (360px) --- */
+@media (max-width: 360px) {
+  .hero-h1 { font-size: 26px; }
+  .portal-grid { grid-template-columns: 1fr; }
+  .penyuluh-grid { grid-template-columns: 1fr; }
+}
+
+/* ===================== FOOTER SOSMED ===================== */
+.f-medsos {
+  display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;
+}
+.f-sosmed-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: 20px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8); font-size: 13px; font-weight: 500;
+  transition: all 0.2s;
+}
+.f-sosmed-btn:hover {
+  background: rgba(255,255,255,0.16); color: #fff;
+  border-color: rgba(255,255,255,0.3);
+}
+.f-admin-info {
+  margin-top: 10px;
+}
+.f-admin-info small {
+  font-size: 11.5px; color: rgba(255,255,255,0.35);
+}
+
 
     :root {
       --ink:#1c2b22; --forest:#2a4a38; --jade:#3d7a5c; --sage:#6aab88;
@@ -1232,7 +1405,11 @@ img { max-width: 100%; display: block; }
       <div class="portal-grid" id="portalGrid">
 
         </div>
-      <p class="p-note">💡 Semua link membuka di tab baru. Hubungi admin jika ada link yang tidak aktif.</p>
+      <p class="p-note">💡 Semua link membuka di tab baru. Hubungi admin jika ada link yang tidak aktif — 
+        <a href="https://wa.me/62081340034193" target="_blank" rel="noopener" style="color:var(--sage);font-weight:600;">📞 WA Admin</a> · 
+        <a href="https://www.instagram.com/ppl.journal?igsh=djJvMXRvaWEzOXhq" target="_blank" rel="noopener" style="color:var(--sage);font-weight:600;">📸 Instagram</a> · 
+        <a href="https://www.tiktok.com/@cpplgenz?_r=1&_t=ZS-94DA5fI75j5" target="_blank" rel="noopener" style="color:var(--sage);font-weight:600;">🎵 TikTok</a>
+      </p>
     </div>
   </section>
 
@@ -1419,13 +1596,25 @@ img { max-width: 100%; display: block; }
         <div class="f-brand">
           <div class="f-logo">🌾 BPP Gilireng</div>
           <p>Balai Penyuluhan Pertanian Kecamatan Gilireng, Kabupaten Wajo, Sulawesi Selatan. Unit Kerja BPPSDMP Kementerian Pertanian RI.</p>
+          <div class="f-medsos">
+            <a href="https://www.instagram.com/ppl.journal?igsh=djJvMXRvaWEzOXhq" target="_blank" rel="noopener" class="f-sosmed-btn">
+              <span>📸</span> Instagram
+            </a>
+            <a href="https://www.tiktok.com/@cpplgenz?_r=1&_t=ZS-94DA5fI75j5" target="_blank" rel="noopener" class="f-sosmed-btn">
+              <span>🎵</span> TikTok
+            </a>
+          </div>
+          <div class="f-admin-info">
+            <small>Admin: Afradillah, S.P.</small>
+          </div>
         </div>
         <div class="f-col">
           <h4>Navigasi</h4>
           <ul>
             <li><a href="#beranda">Beranda</a></li>
-            <li><a href="#penyuluh">Penyuluh</a></li>
-            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#pelaporan">Portal Pelaporan</a></li>
+            <li><a href="#gilink">GiLink</a></li>
+            <li><a href="#kontak">Kontak</a></li>
           </ul>
         </div>
         <div class="f-col">
@@ -1439,13 +1628,12 @@ img { max-width: 100%; display: block; }
           </ul>
         </div>
         <div class="f-col">
-          <h4>GiLink Internal</h4>
+          <h4>Kontak</h4>
           <ul>
-            <li><a href="#gilink">Laporan Bulanan</a></li>
-            <li><a href="#gilink">Data Poktan</a></li>
-            <li><a href="#gilink">Jadwal Penyuluhan</a></li>
-            <li><a href="#gilink">Semua GiLink →</a></li>
-               </ul>
+            <li><a href="https://wa.me/6281342906277" target="_blank">📞 0813-4290-6277</a></li>
+            <li><a href="https://www.instagram.com/ppl.journal?igsh=djJvMXRvaWEzOXhq" target="_blank">📸 ppl.journal</a></li>
+            <li><a href="https://www.tiktok.com/@cpplgenz?_r=1&_t=ZS-94DA5fI75j5" target="_blank">🎵 @cpplgenz</a></li>
+          </ul>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1601,14 +1789,18 @@ img { max-width: 100%; display: block; }
     <div class="wrap">
 
       <!-- Deskripsi -->
-      <p class="desc-text">BPP Gilireng adalah unit pelaksana teknis penyuluhan pertanian di Kecamatan Gilireng, Kabupaten Wajo, yang berperan sebagai pusat kegiatan pembangunan pertanian, perikanan, dan kehutanan.</p>
+      <p class="desc-text">BPP Gilireng adalah unit pelaksana teknis penyuluhan pertanian di Kecamatan Gilireng, Kabupaten Wajo, yang berperan sebagai pusat kegiatan pembangunan pertanian dan peternakan.</p>
       <p class="desc-text">Kami hadir sebagai jembatan antara pemerintah dan petani — menghadirkan informasi teknologi, pendampingan lapang, dan fasilitasi akses pasar yang dibutuhkan petani untuk berkembang.</p>
 
       <!-- Info Blocks -->
       <div class="info-grid" style="margin-top:32px;">
         <div class="ib">
           <span class="ib-icon">🏛️</span>
-          <div><b>Kepala BPP</b><p>[Nama Kepala BPP]</p></div>
+          <div><b>Kepala BPP</b><p>Muhammad Firdaus, S.Pt</p></div>
+        </div>
+        <div class="ib">
+          <span class="ib-icon">🪪</span>
+          <div><b>NIP</b><p>198009242020011006</p></div>
         </div>
         <div class="ib">
           <span class="ib-icon">📍</span>
@@ -1616,11 +1808,7 @@ img { max-width: 100%; display: block; }
         </div>
         <div class="ib">
           <span class="ib-icon">📞</span>
-          <div><b>Kontak</b><p>[Nomor HP / WA]</p></div>
-        </div>
-        <div class="ib">
-          <span class="ib-icon">📧</span>
-          <div><b>Email</b><p>[email@bppgilireng.id]</p></div>
+          <div><b>WhatsApp</b><p><a href="https://wa.me/6281342906277" target="_blank" style="color:var(--jade);font-weight:600;">0813-4290-6277</a></p></div>
         </div>
         <div class="ib">
           <span class="ib-icon">⏰</span>
@@ -1628,7 +1816,7 @@ img { max-width: 100%; display: block; }
         </div>
         <div class="ib">
           <span class="ib-icon">🏢</span>
-          <div><b>Instansi Induk</b><p>Dinas Pertanian Kabupaten Wajo</p></div>
+          <div><b>Instansi</b><p>BPPSDMP Kementerian Pertanian RI</p></div>
         </div>
       </div>
 
@@ -1879,20 +2067,13 @@ img { max-width: 100%; display: block; }
 
 <script>
 
-// =======================================
-//   BPP GILIRENG — MAIN JS
-// =======================================
-
-// ----- Navbar scroll -----
 const navbar = document.getElementById('navbar');
 if (navbar) {
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 50);
   }, { passive: true });
 }
-
-// ----- Hamburger mobile menu -----
-const burger  = document.getElementById('burger');
+const burger = document.getElementById('burger');
 const navMenu = document.getElementById('navMenu');
 if (burger && navMenu) {
   burger.addEventListener('click', () => navMenu.classList.toggle('open'));
@@ -1900,10 +2081,8 @@ if (burger && navMenu) {
     l.addEventListener('click', () => navMenu.classList.remove('open'))
   );
 }
-
-// ----- Active nav on scroll -----
 const sections = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nm-link');
+const navLinks = document.querySelectorAll('.nm-link');
 const secObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -1914,11 +2093,7 @@ const secObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.35 });
 sections.forEach(s => secObserver.observe(s));
-
-// ----- Scroll reveal -----
-const revealItems = document.querySelectorAll(
-  '.p-card, .gl-card, .py-card, .w-card, .g-item, .ib, .k-item'
-);
+const revealItems = document.querySelectorAll('.p-card, .gl-card, .py-card, .w-card, .g-item, .ib, .k-item');
 revealItems.forEach(el => el.classList.add('reveal'));
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach((e, i) => {
@@ -1930,12 +2105,8 @@ const revealObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08 });
 revealItems.forEach(el => revealObserver.observe(el));
-
-// ----- Footer year -----
 const yr = document.getElementById('yr');
 if (yr) yr.textContent = new Date().getFullYear();
-
-// ===================== SIDE DRAWER =====================
 function openDrawer() {
   document.getElementById('sideDrawer').classList.add('open');
   document.getElementById('drawerOverlay').classList.add('active');
@@ -1951,7 +2122,6 @@ document.addEventListener('keydown', e => {
 });
 
 
-// ===================== PAGE NAVIGATION =====================
 function showPage(page) {
   ['main','evidence-lcs','profil-bpp','profil-penyuluh'].forEach(p => {
     const el = document.getElementById('page-' + p);
