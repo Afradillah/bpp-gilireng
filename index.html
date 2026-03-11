@@ -1011,13 +1011,19 @@ img { max-width: 100%; display: block; }
     }
 
     /* PRINT */
+    @page {
+      margin: 10mm;
+      size: A4;
+    }
     @media print {
       .topbar, .sidebar-actions, .table-controls, .row-actions, .remove-foto { display:none !important; }
-      body { background:#fff; }
-      .doc-wrapper { margin:0; box-shadow:none; padding:20px; border-radius:0; }
+      body { background:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .doc-wrapper { margin:0; box-shadow:none; padding:10mm; border-radius:0; }
       .main { margin:0; padding:0; }
       .foto-placeholder { border:1px dashed #ccc; }
       .evidence-table td, .evidence-table th { border:1px solid #333 !important; }
+      .evidence-table { page-break-inside: auto; }
+      tr { page-break-inside: avoid; }
     }
 
     @media(max-width:700px) {
