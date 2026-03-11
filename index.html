@@ -815,6 +815,59 @@ img { max-width: 100%; display: block; }
   font-size: 11.5px; color: rgba(255,255,255,0.35);
 }
 
+/* ===================== DARK MODE ===================== */
+body.dark-mode {
+  --cream: #0f1a13;
+  --rice: #162010;
+  --text: #e8f0e8;
+  --text-2: #b8d4b8;
+  --text-3: #7a9485;
+  --border: rgba(106,171,136,0.2);
+  --sh-sm: 0 2px 12px rgba(0,0,0,0.3);
+  --sh-md: 0 6px 32px rgba(0,0,0,0.4);
+  --sh-lg: 0 16px 56px rgba(0,0,0,0.5);
+  background: #0f1a13;
+  color: #e8f0e8;
+}
+body.dark-mode .sec { background: #0f1a13; }
+body.dark-mode .profil-sec,
+body.dark-mode .rice-sec { background: #162010; }
+body.dark-mode .wilayah-sec,
+body.dark-mode .gilink-sec,
+body.dark-mode .galeri-sec,
+body.dark-mode .kontak-sec,
+body.dark-mode .penyuluh-sec { background: #0f1a13; }
+body.dark-mode .w-card,
+body.dark-mode .ib,
+body.dark-mode .gl-card,
+body.dark-mode .py-card { background: #1a2e1a; border-color: rgba(106,171,136,0.2); }
+body.dark-mode .p-card { background: rgba(255,255,255,0.04); }
+body.dark-mode .sec-title,
+body.dark-mode .py-card h3,
+body.dark-mode .w-body h3 { color: #e8f0e8; }
+body.dark-mode .vm-box { background: linear-gradient(140deg, #0a1a0e, #162010); }
+body.dark-mode .pppk-card { background: #1a2e1a; border-color: rgba(106,171,136,0.2); }
+body.dark-mode .pppk-card h4 { color: #e8f0e8; }
+body.dark-mode .kontak-map { border-color: rgba(106,171,136,0.2); }
+body.dark-mode .map-ph { background: #1a2e1a; }
+body.dark-mode .k-item p,
+body.dark-mode .k-item b { color: #b8d4b8; }
+body.dark-mode .modal { background: #1a2e1a; }
+body.dark-mode .modal h3 { color: #e8f0e8; }
+body.dark-mode .modal ol { color: #b8d4b8; }
+/* Dark mode admin panel */
+body.dark-mode #adminPanel { background: #1a2e1a; }
+body.dark-mode .admin-item { background: #162010; border-color: rgba(106,171,136,0.2); }
+body.dark-mode .admin-item-info strong { color: #e8f0e8; }
+body.dark-mode .admin-form input,
+body.dark-mode .admin-form select,
+body.dark-mode .admin-form textarea { background: #0f1a13; border-color: rgba(106,171,136,0.3); color: #e8f0e8; }
+body.dark-mode #adminContent { background: #1a2e1a; }
+body.dark-mode #adminModalBox { background: #1a2e1a; }
+
+/* Theme toggle hover */
+#themeToggle:hover { background: rgba(255,255,255,0.2) !important; }
+
 
     :root {
       --ink:#1c2b22; --forest:#2a4a38; --jade:#3d7a5c; --sage:#6aab88;
@@ -1027,8 +1080,40 @@ img { max-width: 100%; display: block; }
     }
 
     @media(max-width:700px) {
-      .sidebar-actions { position:static; flex-direction:row; flex-wrap:wrap; margin-bottom:16px; }
-      .doc-wrapper { margin-left:0; padding:20px 12px; }
+      .sidebar-actions {
+        position:fixed; bottom:0; left:0; right:0; top:auto;
+        flex-direction:row; justify-content:space-around;
+        background:rgba(28,43,34,0.97); backdrop-filter:blur(10px);
+        padding:10px 16px; border-top:1px solid rgba(255,255,255,0.1);
+        z-index:900; gap:8px;
+      }
+      .sa-btn { min-width:0; flex:1; justify-content:center; padding:8px 6px; font-size:11px; }
+      .sa-btn:hover { transform:none; }
+      .doc-wrapper { margin-left:0; padding:16px 12px 80px; border-radius:0; box-shadow:none; }
+      .main { padding:8px 0 80px; }
+      .meta-label { width:110px; font-size:12px; }
+      .meta-colon { margin-right:6px; font-size:12px; }
+      .meta-input, .meta-select { font-size:12px; }
+      .doc-header h2 { font-size:13px; }
+      /* Stack table horizontally — hide eviden on mobile, show per row */
+      .evidence-table { font-size:11px; }
+      .evidence-table th { padding:6px 4px; font-size:10px; }
+      .foto-cell { width:80px; min-height:70px; }
+      .foto-placeholder { height:70px; font-size:10px; }
+      .foto-placeholder span { font-size:16px; }
+      .foto-preview { height:70px; }
+      .row-tanggal { width:80px; }
+      .row-tanggal input { font-size:11px; padding:6px 2px; }
+      .konten-input { font-size:11px; min-height:40px; }
+      .table-controls { gap:8px; }
+      .tbl-btn { padding:8px 14px; font-size:12px; }
+    }
+
+    @media(max-width:420px) {
+      /* On very small phones, hide foto columns & show simplified table */
+      .evidence-table .foto-cell { width:60px; }
+      .evidence-table .foto-placeholder span:first-child { display:none; }
+      .meta-label { width:90px; font-size:11px; }
     }
   
 
@@ -1280,6 +1365,11 @@ img { max-width: 100%; display: block; }
         <a href="#gilink"    class="nm-link nm-gilink">🔗 GiLink</a>
         <a href="#kontak"    class="nm-link">Kontak</a>
       </nav>
+      <button id="themeToggle" onclick="toggleTheme()" aria-label="Toggle tema" title="Ganti tema terang/gelap" style="
+        background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
+        color:#fff; width:36px; height:36px; border-radius:8px; cursor:pointer;
+        font-size:16px; display:flex; align-items:center; justify-content:center;
+        transition:all 0.2s; flex-shrink:0;">🌙</button>
     </div>
   </header>
 
@@ -1602,17 +1692,6 @@ img { max-width: 100%; display: block; }
         <div class="f-brand">
           <div class="f-logo">🌾 BPP Gilireng</div>
           <p>Balai Penyuluhan Pertanian Kecamatan Gilireng, Kabupaten Wajo, Sulawesi Selatan. Unit Kerja BPPSDMP Kementerian Pertanian RI.</p>
-          <div class="f-medsos">
-            <a href="https://www.instagram.com/ppl.journal?igsh=djJvMXRvaWEzOXhq" target="_blank" rel="noopener" class="f-sosmed-btn">
-              <span>📸</span> Instagram
-            </a>
-            <a href="https://www.tiktok.com/@cpplgenz?_r=1&_t=ZS-94DA5fI75j5" target="_blank" rel="noopener" class="f-sosmed-btn">
-              <span>🎵</span> TikTok
-            </a>
-          </div>
-          <div class="f-admin-info">
-            <small>Admin: Afradillah, S.P.</small>
-          </div>
         </div>
         <div class="f-col">
           <h4>Navigasi</h4>
@@ -1637,8 +1716,6 @@ img { max-width: 100%; display: block; }
           <h4>Kontak</h4>
           <ul>
             <li><a href="https://wa.me/6281342906277" target="_blank">📞 0813-4290-6277</a></li>
-            <li><a href="https://www.instagram.com/ppl.journal?igsh=djJvMXRvaWEzOXhq" target="_blank">📸 ppl.journal</a></li>
-            <li><a href="https://www.tiktok.com/@cpplgenz?_r=1&_t=ZS-94DA5fI75j5" target="_blank">🎵 @cpplgenz</a></li>
           </ul>
         </div>
       </div>
@@ -2258,16 +2335,65 @@ function showPage(page) {
 
     // ===================== PDF =====================
     function cetakPDF() {
-      // Hide non-print elements
-      document.querySelectorAll('.row-actions, .table-controls, .topbar, .sidebar-actions').forEach(el => {
-        el.dataset.origDisplay = el.style.display;
-        el.style.display = 'none';
+      var bulan   = document.getElementById('metaBulan').value;
+      var tahun   = document.getElementById('metaTahun').value;
+      var nama    = document.getElementById('metaNama').value || '-';
+      var nip     = document.getElementById('metaNIP').value || '-';
+      var wilayah = document.getElementById('metaWilayah').value || '-';
+
+      var rowsHTML = '';
+      document.querySelectorAll('#tableBody tr').forEach(function(row) {
+        var tgl    = row.querySelector('input[type=text]') ? row.querySelector('input[type=text]').value : '';
+        var konten = row.querySelector('.konten-input') ? row.querySelector('.konten-input').value : '';
+        var fotosHTML = '';
+        ['like','comen','share'].forEach(function(t) {
+          var cellId = row.id.replace('row-', 'foto-' + t + '-');
+          var cell   = document.getElementById(cellId);
+          var imgEl  = cell ? cell.querySelector('.foto-preview') : null;
+          if (imgEl) {
+            fotosHTML += '<td class="foto-cell"><img src="' + imgEl.src + '" style="width:100%;height:80px;object-fit:cover;display:block;"/></td>';
+          } else {
+            fotosHTML += '<td class="foto-cell"><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:80px;background:#f8f8f8;border:1px dashed #ccc;color:#aaa;font-size:10px;"><span>Foto</span><span>Eviden ' + t.charAt(0).toUpperCase() + t.slice(1) + '</span></div></td>';
+          }
+        });
+        rowsHTML += '<tr><td style="width:100px;text-align:center;font-size:12px;padding:8px 4px;border:1px solid #333;">' + tgl + '</td>'
+          + '<td style="border:1px solid #333;"><div style="font-size:12px;padding:6px 8px;min-height:50px;">' + konten + '</div></td>'
+          + fotosHTML + '</tr>';
       });
-      window.print();
-      // Restore
-      document.querySelectorAll('.row-actions, .table-controls, .topbar, .sidebar-actions').forEach(el => {
-        el.style.display = el.dataset.origDisplay || '';
-      });
+
+      var css = '@page{margin:10mm;size:A4 portrait}'
+        + '*{box-sizing:border-box;margin:0;padding:0}'
+        + 'body{font-family:Arial,sans-serif;font-size:13px}'
+        + '.header{text-align:center;margin-bottom:18px;border-bottom:2px solid #333;padding-bottom:12px}'
+        + '.header h2{font-size:13px;font-weight:700;text-transform:uppercase;line-height:1.5}'
+        + '.meta{margin-bottom:16px}'
+        + '.meta-row{display:flex;margin-bottom:5px}'
+        + '.lbl{font-size:12.5px;font-weight:700;width:130px;flex-shrink:0}'
+        + '.col{font-size:12.5px;margin-right:8px}'
+        + '.val{font-size:12.5px}'
+        + 'table{width:100%;border-collapse:collapse}'
+        + 'th{background:#3d3d3d;color:#fff;text-align:center;font-size:11px;font-weight:700;text-transform:uppercase;padding:8px 6px;border:1px solid #555}'
+        + 'th.ev{background:#2c2c2c}'
+        + '.foto-cell{width:110px;min-height:80px;border:1px solid #333;padding:0}';
+
+      var body = '<div class="header"><h2>LAPORAN PENDERASAN INFORMASI DAN PEMBANGUNAN PERTANIAN<br/>PENYULUH PERTANIAN TAHUN ' + tahun + '</h2></div>'
+        + '<div class="meta">'
+        + '<div class="meta-row"><span class="lbl">PERIODE</span><span class="col">:</span><span class="val">' + bulan + ' ' + tahun + '</span></div>'
+        + '<div class="meta-row"><span class="lbl">Nama Penyuluh</span><span class="col">:</span><span class="val">' + nama + '</span></div>'
+        + '<div class="meta-row"><span class="lbl">NIP.</span><span class="col">:</span><span class="val">' + nip + '</span></div>'
+        + '<div class="meta-row"><span class="lbl">Wilayah Binaan</span><span class="col">:</span><span class="val">' + wilayah + '</span></div>'
+        + '</div>'
+        + '<table><thead><tr>'
+        + '<th rowspan="2" style="width:100px">TANGGAL</th>'
+        + '<th rowspan="2">JUDUL KONTEN</th>'
+        + '<th colspan="3" class="ev">EVIDEN</th></tr><tr>'
+        + '<th style="width:110px">LIKE</th><th style="width:110px">COMEN</th><th style="width:110px">SHARE</th>'
+        + '</tr></thead><tbody>' + rowsHTML + '</tbody></table>';
+
+      var pw = window.open('', '_blank', 'width=900,height=700');
+      pw.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"/><title>Evidence LCS - BPP Gilireng</title><style>' + css + '</style></head><body>' + body + '</body></html>');
+      pw.document.close();
+      pw.onload = function() { setTimeout(function() { pw.focus(); pw.print(); }, 400); };
     }
 
     // ===================== RESET =====================
@@ -2813,6 +2939,23 @@ function adminResetData() {
   window._bppData = null;
   location.reload();
 }
+
+// ===================== DARK / LIGHT MODE =====================
+function toggleTheme() {
+  var isDark = document.body.classList.toggle('dark-mode');
+  var btn = document.getElementById('themeToggle');
+  if (btn) btn.textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('bpp_theme', isDark ? 'dark' : 'light');
+}
+// Apply saved theme on load
+(function() {
+  var saved = localStorage.getItem('bpp_theme');
+  if (saved === 'dark') {
+    document.body.classList.add('dark-mode');
+    var btn = document.getElementById('themeToggle');
+    if (btn) btn.textContent = '☀️';
+  }
+})();
 
 </script>
 </body>
