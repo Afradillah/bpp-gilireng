@@ -71,7 +71,7 @@ img { max-width: 100%; display: block; }
   height: 66px; display: flex; align-items: center; justify-content: space-between;
 }
 .nav-brand { display: flex; align-items: center; gap: 12px; }
-.brand-emblem { font-size: 26px; line-height: 1; }
+.brand-emblem { font-size: 26px; line-height: 1; display:flex; align-items:center; }
 .brand-name { font-family: 'DM Serif Display', serif; font-size: 19px; color: #fff; line-height: 1.1; }
 .brand-tagline { font-size: 10px; color: var(--sage); letter-spacing: 0.8px; text-transform: uppercase; }
 
@@ -407,31 +407,28 @@ img { max-width: 100%; display: block; }
 
 /* ===================== HERO HAMBURGER ===================== */
 .hero-hamburger {
-  position: fixed;
-  top: 14px;
-  left: 14px;
-  width: 46px;
-  height: 46px;
-  background: rgba(28,43,34,0.82);
-  border: 1.5px solid rgba(255,255,255,0.18);
-  border-radius: 12px;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 5px;
-  z-index: 950;
-  backdrop-filter: blur(8px);
+  flex-shrink: 0;
   transition: background 0.2s, transform 0.15s;
 }
 .hero-hamburger:hover {
-  background: rgba(28,43,34,0.97);
+  background: rgba(255,255,255,0.16);
   transform: scale(1.06);
 }
 .hero-hamburger span {
   display: block;
-  width: 20px;
+  width: 18px;
   height: 2px;
   background: #fff;
   border-radius: 2px;
@@ -770,7 +767,7 @@ img { max-width: 100%; display: block; }
   .footer-bottom { font-size: 12px; }
 
   /* Hamburger */
-  .hero-hamburger { top: 10px; left: 10px; width: 42px; height: 42px; }
+  .hero-hamburger { width: 38px; height: 38px; }
 
   /* Admin trigger */
   #adminTrigger { bottom: 16px; right: 16px; width: 44px; height: 44px; font-size: 18px; }
@@ -997,7 +994,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
     .btn-help:hover { background:#d68910; }
 
     /* MAIN LAYOUT */
-    .main { margin-top:56px; padding:24px 20px 60px; max-width:1200px; margin-left:auto; margin-right:auto; }
+    .main { margin-top:66px; padding:24px 20px 60px; max-width:1200px; margin-left:auto; margin-right:auto; }
 
     /* SIDEBAR ACTIONS */
     .sidebar-actions {
@@ -1438,8 +1435,16 @@ body.dark-mode .admin-section-title { color: #deeede; }
   <!-- NAVBAR -->
   <header class="navbar" id="navbar">
     <div class="nav-inner">
+      <button class="hero-hamburger" id="heroHamburger" onclick="openDrawer()" aria-label="Buka menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <a href="#beranda" class="nav-brand">
-        <div class="brand-emblem">🌾</div>
+        <div class="brand-emblem">
+          <img id="siteLogo" src="https://www.pertanian.go.id/assets/img/logo.png" alt="Logo Kementan" style="width:40px;height:40px;object-fit:contain;display:block;" onerror="this.style.display='none';document.getElementById('siteLogoEmoji').style.display='block'">
+          <span id="siteLogoEmoji" style="display:none;">🌾</span>
+        </div>
         <div>
           <div class="brand-name">BPP Gilireng</div>
           <div class="brand-tagline">Balai Penyuluhan Pertanian</div>
@@ -1463,16 +1468,11 @@ body.dark-mode .admin-section-title { color: #deeede; }
   <!-- SIDE DRAWER MENU -->
   <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
 
-  <!-- Hamburger Button FIXED -->
-  <button class="hero-hamburger" id="heroHamburger" onclick="openDrawer()" aria-label="Buka menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+  <!-- Hamburger dipindah ke dalam navbar -->
 
   <div class="side-drawer" id="sideDrawer">
     <div class="drawer-header">
-      <span class="drawer-logo">🌾</span>
+      <img class="drawer-logo" src="https://www.pertanian.go.id/assets/img/logo.png" alt="Logo" style="width:36px;height:36px;object-fit:contain;" onerror="this.style.display='none'">
       <span class="drawer-title">BPP Gilireng</span>
       <button class="drawer-close" onclick="closeDrawer()" aria-label="Tutup menu">✕</button>
     </div>
@@ -1498,10 +1498,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
         <span class="dl-icon">🗺️</span>
         <span>Geoportal Pertanian</span>
       </a>
-      <a href="https://scs1.brmpkementan.id/home" target="_blank" class="drawer-link">
-        <span class="dl-icon">🌿</span>
-        <span>SISCrop</span>
-      </a>
+
       <a href="https://ais.pertanian.go.id/sipandu/" target="_blank" class="drawer-link">
         <span class="dl-icon">📋</span>
         <span>SIPANDU</span>
@@ -1783,7 +1780,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
           <h4>Portal Cepat</h4>
           <ul>
             <li><a href="https://survey.pertanian.go.id/kelompencapir/" target="_blank">KELOMPENCAPIR</a></li>
-            <li><a href="https://epersonal.pertanian.go.id/login" target="_blank">E-PERSONAL</a></li>
+            <li><a href="https://epersonal.pertanian.go.id/login" target="_blank">e-PERSONAL</a></li>
             <li><a href="https://siapluh.id/" target="_blank">SIAPLUH</a></li>
             <li><a href="https://sipedas.pertanian.go.id/" target="_blank">SIPEDAS</a></li>
             <li><a href="#pelaporan">Semua Portal →</a></li>
@@ -2076,6 +2073,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
       <button class="atab"        data-tab="penyuluh" onclick="switchAdminTab('penyuluh')" style="padding:12px 18px; border:none; background:transparent; cursor:pointer; font-size:13.5px; font-weight:600; color:#555; border-bottom:2px solid transparent; font-family:'DM Sans',sans-serif;">👨‍🌾 Penyuluh</button>
       <button class="atab"        data-tab="stats"    onclick="switchAdminTab('stats')"    style="padding:12px 18px; border:none; background:transparent; cursor:pointer; font-size:13.5px; font-weight:600; color:#555; border-bottom:2px solid transparent; font-family:'DM Sans',sans-serif;">📈 Statistik</button>
       <button class="atab"        data-tab="kontak"   onclick="switchAdminTab('kontak')"   style="padding:12px 18px; border:none; background:transparent; cursor:pointer; font-size:13.5px; font-weight:600; color:#555; border-bottom:2px solid transparent; font-family:'DM Sans',sans-serif;">📞 Kontak</button>
+      <button class="atab"        data-tab="tampilan" onclick="switchAdminTab('tampilan')" style="padding:12px 18px; border:none; background:transparent; cursor:pointer; font-size:13.5px; font-weight:600; color:#555; border-bottom:2px solid transparent; font-family:'DM Sans',sans-serif;">🎨 Tampilan</button>
     </div>
     <input type="hidden" id="adminActiveTab" value="portal"/>
 
@@ -2100,7 +2098,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
 #opencam-app {
   font-family: 'Space Grotesk', sans-serif;
   background: #0d0f14;
-  min-height: calc(100vh - 58px);
+  min-height: calc(100vh - 66px);
 }
 
   
@@ -2494,7 +2492,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
   <!-- Grid background -->
   <div style="position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(0,229,160,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.03) 1px,transparent 1px);background-size:40px 40px;top:58px;"></div>
   <!-- App content -->
-  <div id="opencam-app" style="position:relative;z-index:1;padding-top:58px;">
+  <div id="opencam-app" style="position:relative;z-index:1;padding-top:66px;">
 
 
 
@@ -3401,9 +3399,9 @@ const DEFAULT_DATA = {
   ],
   portal: [
     { nama: 'Adm. Kepegawaian',    url: 'https://linktr.ee/admkepeg4',          icon: '🗂️', kategori: 'kepegawaian', deskripsi: 'Administrasi & Informasi Kepegawaian Terpadu' },
-    { nama: 'E-PERSONAL',          url: 'https://epersonal.pertanian.go.id/login', icon: '👤', kategori: 'kepegawaian', deskripsi: 'Sistem Informasi Kepegawaian Pertanian' },
-    { nama: 'E-PUSLUH',            url: 'https://dev.epusluh.id',                icon: '💻', kategori: 'nasional',    deskripsi: 'Sistem Informasi Penyuluhan Pertanian' },
-    { nama: 'E-PUSLUH Admin',      url: 'https://2025.epusluh.id/admin/login',   icon: '🛡️', kategori: 'nasional',    deskripsi: 'Panel Administrasi Pusat Penyuluhan 2025' },
+    { nama: 'e-PERSONAL',          url: 'https://epersonal.pertanian.go.id/login', icon: '👤', kategori: 'kepegawaian', deskripsi: 'Sistem Informasi Kepegawaian Pertanian' },
+    { nama: 'e-PUSLUH',            url: 'https://dev.epusluh.id',                icon: '💻', kategori: 'nasional',    deskripsi: 'Sistem Informasi Penyuluhan Pertanian' },
+    { nama: 'e-PUSLUH Admin',      url: 'https://2025.epusluh.id/admin/login',   icon: '🛡️', kategori: 'nasional',    deskripsi: 'Panel Administrasi Pusat Penyuluhan 2025' },
     { nama: 'EVIDENCE LCS',        url: 'https://www.bpptomoni.my.id/p/eviden-lcs-digital.html', icon: '📋', kategori: 'daerah', deskripsi: 'Form Laporan Penderasan Informasi & Bukti Interaksi Konten' },
     { nama: 'EVIDEN LCS Wajo',     url: 'https://drive.google.com/drive/folders/17SLWTK74rffzdldrnleE-eHA0ynAYRdz', icon: '📁', kategori: 'daerah', deskripsi: 'Folder Dokumen Evidensi & LCS Kabupaten Wajo' },
     { nama: 'EVERVAL',             url: 'https://everval.pertanian.go.id/',      icon: '🌿', kategori: 'nasional',    deskripsi: 'Verifikasi & Validasi Data Pupuk Bersubsidi' },
@@ -3413,7 +3411,9 @@ const DEFAULT_DATA = {
     { nama: 'SIAPLUH',             url: 'https://siapluh.id/',                   icon: '📊', kategori: 'nasional',    deskripsi: 'Sistem Aplikasi Penyuluhan' },
     { nama: 'SIPANDU',             url: 'https://ais.pertanian.go.id/sipandu/',  icon: '📋', kategori: 'nasional',    deskripsi: 'Sistem Informasi Penyuluhan & Pendampingan Pertanian' },
     { nama: 'SIPEDAS',             url: 'https://sipedas.pertanian.go.id/',      icon: '📈', kategori: 'nasional',    deskripsi: 'Sistem Pelaporan Data Statistik Pertanian' },
-    { nama: 'SISCROP',             url: 'https://scs1.brmpkementan.id/home',     icon: '🌿', kategori: 'nasional',    deskripsi: 'Sistem Informasi Sumber Daya Lahan & Pertanaman' },
+    { nama: 'e-RDKK',               url: 'https://erdkk25.pertanian.go.id/',      icon: '📋', kategori: 'nasional',    deskripsi: 'Rencana Definitif Kebutuhan Kelompok Pupuk Bersubsidi' },
+    { nama: 'Cek Subsidi Pupuk',    url: 'https://pupukbersubsidi.pertanian.go.id/ceksubsidi/search', icon: '🌱', kategori: 'nasional', deskripsi: 'Cek alokasi & realisasi pupuk bersubsidi petani' },
+    { nama: 'Prediksi Kemarau 2026',url: 'https://content.bmkg.go.id/wp-content/uploads/Buku-PMK26.pdf', icon: '☀️', kategori: 'nasional', deskripsi: 'Buku Prediksi Musim Kemarau 2026 — BMKG' },
   ],
   stats: { penyuluh: 5, desa: 9, gapoktan: 157, poktan: 9 },
   kontak: {
@@ -3456,8 +3456,11 @@ function renderPortal() {
     const onclick = 'target="_blank" rel="noopener"';
     const href      = item.internal ? '#' : item.url;
     const style     = item.internal ? 'style="border-color:var(--harvest)"' : '';
+    const iconHtml = item.logoUrl
+      ? `<img src="${item.logoUrl}" alt="${item.nama}" style="width:32px;height:32px;object-fit:contain;border-radius:6px;">`
+      : `<span class="p-icon">${item.icon}</span>`;
     return `<a href="${href}" ${onclick} class="p-card" data-cat="${item.kategori}" ${style}>
-      <div class="p-card-top"><span class="p-icon">${item.icon}</span><span class="p-badge ${badgeClass}">${badgeLabel}</span></div>
+      <div class="p-card-top">${iconHtml}<span class="p-badge ${badgeClass}">${badgeLabel}</span></div>
       <h3>${item.nama}</h3><p>${item.deskripsi}</p>
       <div class="p-url">${urlLabel}</div>
     </a>`;
@@ -3585,7 +3588,7 @@ function renderAdminContent(tab) {
         ${[...data.portal].sort((a,b)=>a.nama.localeCompare(b.nama)).map((item,i) => `
           <div class="admin-item">
             <div class="admin-item-info">
-              <strong>${item.icon} ${item.nama}</strong>
+              ${item.logoUrl ? `<img src="${item.logoUrl}" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;border-radius:3px;margin-right:4px;">` : item.icon + ' '}<strong style="vertical-align:middle">${item.nama}</strong>
               <span class="admin-badge ${item.kategori}">${item.kategori}</span>
               <small>${item.internal ? 'Internal' : item.url}</small>
             </div>
@@ -3658,7 +3661,88 @@ function renderAdminContent(tab) {
         <input type="text" id="pr_email" value="${pr.email}"/>
         <button class="abtn abtn-green" style="grid-column:1/-1;margin-top:8px" onclick="adminSaveKontak()">💾 Simpan</button>
       </div>`;
+
+  } else if (tab === 'tampilan') {
+    const savedLogo = localStorage.getItem('bpp_logo_url') || '';
+    area.innerHTML = `
+      <div class="admin-section-title">🎨 Logo Website</div>
+      <p style="font-size:13px;color:#7a9485;margin-bottom:16px;">
+        Masukkan URL gambar untuk logo BPP Gilireng di header dan drawer. 
+        Upload gambar dulu ke <a href="https://imgur.com/upload" target="_blank" style="color:var(--jade)">Imgur</a> 
+        atau <a href="https://drive.google.com" target="_blank" style="color:var(--jade)">Google Drive</a>, 
+        lalu paste link-nya di sini.
+      </p>
+
+      <!-- Preview saat ini -->
+      <div style="display:flex;align-items:center;gap:16px;padding:14px;background:#f5f9f1;border-radius:10px;border:1px solid #d0ddd0;margin-bottom:20px;">
+        <div style="width:56px;height:56px;border-radius:10px;background:#e8f0e8;display:flex;align-items:center;justify-content:center;overflow:hidden;border:2px solid #d0ddd0;flex-shrink:0;">
+          ${savedLogo ? `<img src="${savedLogo}" style="width:100%;height:100%;object-fit:contain;">` : `<span style="font-size:28px">🌾</span>`}
+        </div>
+        <div>
+          <p style="font-size:13px;font-weight:600;color:#1c2b22;">${savedLogo ? '✅ Logo kustom aktif' : '🌾 Menggunakan ikon default'}</p>
+          <p style="font-size:11px;color:#7a9485;word-break:break-all;">${savedLogo || 'Belum ada logo yang dipasang.'}</p>
+        </div>
+      </div>
+
+      <!-- Input URL -->
+      <div style="margin-bottom:16px;">
+        <label style="display:block;font-size:13px;font-weight:600;color:#3d5547;margin-bottom:6px;">URL Gambar Logo</label>
+        <input id="logoUrlInput" type="url" value="${savedLogo}"
+          placeholder="https://i.imgur.com/xxxx.png"
+          style="width:100%;padding:10px 12px;border:1.5px solid #d0ddd0;border-radius:8px;font-size:13px;font-family:'DM Sans',sans-serif;color:#1c2b22;outline:none;"
+          oninput="previewSiteLogo(this.value)">
+        <p style="font-size:11px;color:#7a9485;margin-top:4px;">
+          Tips: Di Imgur klik kanan gambar → "Copy image address". Di Google Drive, gunakan link direct viewer.
+        </p>
+      </div>
+
+      <!-- Preview baru -->
+      <div id="siteLogoNewPreview" style="${savedLogo ? '' : 'display:none;'}margin-bottom:16px;padding:10px;background:#f0f7f0;border-radius:8px;border:1px solid #b8d4b8;display:flex;align-items:center;gap:12px;">
+        <img id="siteLogoNewImg" src="${savedLogo}" style="width:48px;height:48px;object-fit:contain;border-radius:8px;border:1px solid #d0ddd0;background:#fff;">
+        <span style="font-size:12px;color:#3d7a5c;font-weight:600;">Preview logo baru</span>
+      </div>
+
+      <div style="display:flex;gap:10px;">
+        <button class="abtn abtn-green" onclick="adminSaveLogoUrl()" style="flex:2;">💾 Simpan Logo</button>
+        ${savedLogo ? `<button class="abtn abtn-red" onclick="adminRemoveLogoUrl()" style="flex:1;">🗑 Hapus</button>` : ''}
+      </div>`;
   }
+}
+
+// ---- Logo helper ----
+function previewPortalLogo(inputId, previewDivId, imgId) {
+  const url = (document.getElementById(inputId) || {}).value?.trim();
+  const div = document.getElementById(previewDivId);
+  const img = document.getElementById(imgId);
+  if (!div || !img) return;
+  if (url) { img.src = url; div.style.display = 'block'; }
+  else { div.style.display = 'none'; }
+}
+
+function previewSiteLogo(url) {
+  const preview = document.getElementById('siteLogoNewPreview');
+  const img     = document.getElementById('siteLogoNewImg');
+  if (!preview || !img) return;
+  if (url) { img.src = url; preview.style.display = 'flex'; }
+  else { preview.style.display = 'none'; }
+}
+
+function adminSaveLogoUrl() {
+  const url = (document.getElementById('logoUrlInput') || {}).value?.trim();
+  if (!url) { alert('Masukkan URL gambar terlebih dahulu.'); return; }
+  localStorage.setItem('bpp_logo_url', url);
+  applyLogo(url);
+  showAdminToast('✅ Logo berhasil disimpan!');
+  renderAdminContent('tampilan');
+}
+
+function adminRemoveLogoUrl() {
+  if (!confirm('Hapus logo dan kembali ke ikon 🌾?')) return;
+  localStorage.removeItem('bpp_logo_url');
+  localStorage.removeItem('bpp_logo');
+  applyLogo('');
+  showAdminToast('Logo dihapus.');
+  renderAdminContent('tampilan');
 }
 
 // ---- PORTAL CRUD ----
@@ -3668,13 +3752,21 @@ function adminAddPortal() {
     <div class="admin-form">
       <label>Nama</label><input id="fp_nama" placeholder="Nama sistem"/>
       <label>URL</label><input id="fp_url" placeholder="https://..."/>
-      <label>Icon</label>
+      <label>Icon Emoji</label>
       <div>
         <input id="fp_icon" value="🔗" style="width:50px;font-size:18px;text-align:center;border:1.5px solid #d0ddd0;border-radius:6px;padding:4px;"/>
         <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px;">
           ${['📋','📊','📈','📁','📂','📄','📝','🗂️','🗃️','💻','🖥️','📱','🌐','🔗','🔍','📌','🗺️','🌿','🌾','💧','🚜','🌱','🐄','👤','🏛️','🛡️','⚙️','📞','✅','🔑'].map(e =>
           `<button type="button" onclick="document.getElementById('fp_icon').value='${e}'" style="background:#f0f7f0;border:1px solid #d0ddd0;border-radius:4px;padding:3px 5px;cursor:pointer;font-size:16px;">${e}</button>`
         ).join('')}
+        </div>
+      </div>
+      <label>URL Logo</label>
+      <div>
+        <input id="fp_logoUrl" placeholder="https://... (opsional, ganti emoji dengan gambar)" style="font-size:12px;"/>
+        <p style="font-size:11px;color:#7a9485;margin-top:4px;">Jika diisi, gambar akan ditampilkan menggantikan emoji. Gunakan link gambar langsung (JPG/PNG/SVG).</p>
+        <div id="fp_logoPreview" style="margin-top:6px;display:none;">
+          <img id="fp_logoImg" style="width:40px;height:40px;object-fit:contain;border:1px solid #d0ddd0;border-radius:6px;">
         </div>
       </div>
       <label>Kategori</label>
@@ -3685,6 +3777,11 @@ function adminAddPortal() {
       <button class="abtn abtn-green" onclick="adminSavePortal(-1)">💾 Simpan</button>
       <button class="abtn abtn-gray"  onclick="closeAdminModal()">Batal</button>
     </div>`);
+  // Preview logo saat URL diketik
+  setTimeout(() => {
+    const inp = document.getElementById('fp_logoUrl');
+    if (inp) inp.addEventListener('input', () => previewPortalLogo('fp_logoUrl','fp_logoPreview','fp_logoImg'));
+  }, 100);
 }
 function adminEditPortal(i) {
   const item = getData().portal[i];
@@ -3693,13 +3790,21 @@ function adminEditPortal(i) {
     <div class="admin-form">
       <label>Nama</label><input id="fp_nama" value="${item.nama}"/>
       <label>URL</label><input id="fp_url" value="${item.url}"/>
-      <label>Icon</label>
+      <label>Icon Emoji</label>
       <div>
         <input id="fp_icon" value="${item.icon}" style="width:50px;font-size:18px;text-align:center;border:1.5px solid #d0ddd0;border-radius:6px;padding:4px;"/>
         <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px;">
           ${['📋','📊','📈','📁','📂','📄','📝','🗂️','🗃️','💻','🖥️','📱','🌐','🔗','🔍','📌','🗺️','🌿','🌾','💧','🚜','🌱','🐄','👤','🏛️','🛡️','⚙️','📞','✅','🔑'].map(e =>
           `<button type="button" onclick="document.getElementById('fp_icon').value='${e}'" style="background:#f0f7f0;border:1px solid #d0ddd0;border-radius:4px;padding:3px 5px;cursor:pointer;font-size:16px;">${e}</button>`
         ).join('')}
+        </div>
+      </div>
+      <label>URL Logo</label>
+      <div>
+        <input id="fp_logoUrl" value="${item.logoUrl || ''}" placeholder="https://... (opsional)" style="font-size:12px;"/>
+        <p style="font-size:11px;color:#7a9485;margin-top:4px;">Jika diisi, gambar menggantikan emoji. Gunakan link gambar langsung.</p>
+        <div id="fp_logoPreview" style="margin-top:6px;${item.logoUrl ? '' : 'display:none;'}">
+          <img id="fp_logoImg" src="${item.logoUrl || ''}" style="width:40px;height:40px;object-fit:contain;border:1px solid #d0ddd0;border-radius:6px;">
         </div>
       </div>
       <label>Kategori</label>
@@ -3714,13 +3819,19 @@ function adminEditPortal(i) {
       <button class="abtn abtn-green" onclick="adminSavePortal(${i})">💾 Simpan</button>
       <button class="abtn abtn-gray"  onclick="closeAdminModal()">Batal</button>
     </div>`);
+  setTimeout(() => {
+    const inp = document.getElementById('fp_logoUrl');
+    if (inp) inp.addEventListener('input', () => previewPortalLogo('fp_logoUrl','fp_logoPreview','fp_logoImg'));
+  }, 100);
 }
 function adminSavePortal(i) {
   const data = getData();
+  const logoUrl = (document.getElementById('fp_logoUrl') || {}).value?.trim() || '';
   const item = {
     nama: document.getElementById('fp_nama').value.trim(),
     url:  document.getElementById('fp_url').value.trim(),
     icon: document.getElementById('fp_icon').value.trim() || '🔗',
+    logoUrl: logoUrl,
     kategori: document.getElementById('fp_kat').value,
     deskripsi: document.getElementById('fp_desk').value.trim()
   };
@@ -3891,6 +4002,66 @@ function showAdminToast(msg) {
 }
 
 // ---- RESET TO DEFAULT ----
+// ---- LOGO ADMIN ----
+function adminPreviewLogo(input) {
+  if (!input.files || !input.files[0]) return;
+  var file = input.files[0];
+  if (file.size > 2 * 1024 * 1024) {
+    alert('Ukuran file terlalu besar. Maksimal 2MB.'); input.value = ''; return;
+  }
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var newPreview = document.getElementById('logoNewPreview');
+    var newImg = document.getElementById('logoNewImg');
+    if (newPreview) newPreview.style.display = 'block';
+    if (newImg) newImg.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function adminSaveLogo() {
+  var newImg = document.getElementById('logoNewImg');
+  if (!newImg || !newImg.src || newImg.src === window.location.href) {
+    alert('Pilih file logo terlebih dahulu.'); return;
+  }
+  var dataUrl = newImg.src;
+  localStorage.setItem('bpp_logo', dataUrl);
+  applyLogo(dataUrl);
+  showAdminToast('✅ Logo berhasil disimpan!');
+  renderAdminContent('tampilan');
+}
+
+function adminRemoveLogo() {
+  if (!confirm('Hapus logo dan kembali ke ikon default 🌾?')) return;
+  localStorage.removeItem('bpp_logo');
+  applyLogo('');
+  showAdminToast('Logo dihapus, kembali ke ikon default.');
+  renderAdminContent('tampilan');
+}
+
+function applyLogo(dataUrl) {
+  var logoImg   = document.getElementById('siteLogo');
+  var logoEmoji = document.getElementById('siteLogoEmoji');
+  var drawerLogo = document.querySelector('.drawer-logo');
+  if (dataUrl) {
+    if (logoImg)   { logoImg.src = dataUrl; logoImg.style.display = 'block'; }
+    if (logoEmoji) logoEmoji.style.display = 'none';
+    if (drawerLogo) { drawerLogo.innerHTML = `<img src="${dataUrl}" style="width:28px;height:28px;object-fit:contain;border-radius:4px;">`; }
+  } else {
+    if (logoImg)   { logoImg.src = ''; logoImg.style.display = 'none'; }
+    if (logoEmoji) logoEmoji.style.display = 'block';
+    if (drawerLogo) drawerLogo.innerHTML = '🌾';
+  }
+}
+
+// Load logo on page start
+const DEFAULT_LOGO_SVG = 'https://www.pertanian.go.id/assets/img/logo.png';
+(function() {
+  var saved = localStorage.getItem('bpp_logo_url') || localStorage.getItem('bpp_logo');
+  if (saved) applyLogo(saved);
+  // Logo default sudah di-set di HTML, tidak perlu applyLogo untuk default
+})();
+
 function adminResetData() {
   if (!confirm('Reset SEMUA data ke default? Semua perubahan akan hilang!')) return;
   localStorage.removeItem(STORAGE_KEY);
