@@ -4,15 +4,17 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BPP Gilireng — Balai Penyuluhan Pertanian</title>
+  <!-- Preconnect untuk percepat font loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <!-- Satu font request saja, display=swap agar tidak blocking -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 /* ================================================
    BPP GILIRENG — STYLE.CSS
    Tema: Earth & Harvest · DM Serif Display + DM Sans
    ================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 :root {
   /* Palette — Tanah & Panen */
@@ -815,58 +817,138 @@ img { max-width: 100%; display: block; }
   font-size: 11.5px; color: rgba(255,255,255,0.35);
 }
 
-/* ===================== DARK MODE ===================== */
+/* ===================== DARK MODE — COMPREHENSIVE ===================== */
 body.dark-mode {
-  --cream: #0f1a13;
-  --rice: #162010;
-  --text: #e8f0e8;
-  --text-2: #b8d4b8;
-  --text-3: #7a9485;
-  --border: rgba(106,171,136,0.2);
-  --sh-sm: 0 2px 12px rgba(0,0,0,0.3);
-  --sh-md: 0 6px 32px rgba(0,0,0,0.4);
-  --sh-lg: 0 16px 56px rgba(0,0,0,0.5);
-  background: #0f1a13;
-  color: #e8f0e8;
+  --cream: #111d14;
+  --rice:  #172119;
+  --ink:   #1a2e1d;
+  --text:  #deeede;
+  --text-2:#b0ccb4;
+  --text-3:#7a9a80;
+  --border:rgba(100,180,120,0.18);
+  --sh-sm: 0 2px 12px rgba(0,0,0,0.4);
+  --sh-md: 0 6px 32px rgba(0,0,0,0.55);
+  --sh-lg: 0 16px 56px rgba(0,0,0,0.65);
+  background: #111d14;
+  color: #deeede;
+  transition: background 0.3s, color 0.3s;
 }
-body.dark-mode .sec { background: #0f1a13; }
-body.dark-mode .profil-sec,
-body.dark-mode .rice-sec { background: #162010; }
-body.dark-mode .wilayah-sec,
-body.dark-mode .gilink-sec,
-body.dark-mode .galeri-sec,
-body.dark-mode .kontak-sec,
-body.dark-mode .penyuluh-sec { background: #0f1a13; }
-body.dark-mode .w-card,
-body.dark-mode .ib,
-body.dark-mode .gl-card,
-body.dark-mode .py-card { background: #1a2e1a; border-color: rgba(106,171,136,0.2); }
-body.dark-mode .p-card { background: rgba(255,255,255,0.04); }
-body.dark-mode .sec-title,
-body.dark-mode .py-card h3,
-body.dark-mode .w-body h3 { color: #e8f0e8; }
-body.dark-mode .vm-box { background: linear-gradient(140deg, #0a1a0e, #162010); }
-body.dark-mode .pppk-card { background: #1a2e1a; border-color: rgba(106,171,136,0.2); }
-body.dark-mode .pppk-card h4 { color: #e8f0e8; }
-body.dark-mode .kontak-map { border-color: rgba(106,171,136,0.2); }
-body.dark-mode .map-ph { background: #1a2e1a; }
-body.dark-mode .k-item p,
-body.dark-mode .k-item b { color: #b8d4b8; }
-body.dark-mode .modal { background: #1a2e1a; }
-body.dark-mode .modal h3 { color: #e8f0e8; }
-body.dark-mode .modal ol { color: #b8d4b8; }
-/* Dark mode admin panel */
-body.dark-mode #adminPanel { background: #1a2e1a; }
-body.dark-mode .admin-item { background: #162010; border-color: rgba(106,171,136,0.2); }
-body.dark-mode .admin-item-info strong { color: #e8f0e8; }
+
+/* Sections */
+body.dark-mode .sec                 { background: #111d14; }
+body.dark-mode .profil-sec          { background: #172119; }
+body.dark-mode .gilink-sec          { background: #111d14; }
+body.dark-mode .kontak-sec          { background: #172119; }
+body.dark-mode .penyuluh-sec        { background: #111d14; }
+body.dark-mode .galeri-sec          { background: #172119; }
+body.dark-mode .wilayah-sec         { background: #111d14; }
+
+/* Typography */
+body.dark-mode .sec-title           { color: #deeede; }
+body.dark-mode .sec-desc            { color: #7a9a80; }
+body.dark-mode .sec-tag             { color: #6aab88; }
+body.dark-mode .lead                { color: #b0ccb4; }
+body.dark-mode p                    { color: #b0ccb4; }
+
+/* Cards */
+body.dark-mode .w-card              { background: #1e2f20; border-color: rgba(100,180,120,0.18); }
+body.dark-mode .w-card:hover        { border-color: #6aab88; }
+body.dark-mode .w-num               { color: #2a4a30; }
+body.dark-mode .w-body h3           { color: #deeede; }
+body.dark-mode .w-body p            { color: #7a9a80; }
+body.dark-mode .w-body span         { color: #6aab88; }
+body.dark-mode .add-card            { background: #172119; }
+
+body.dark-mode .ib                  { background: #1e2f20; border-color: rgba(100,180,120,0.18); }
+body.dark-mode .ib b                { color: #7a9a80; }
+body.dark-mode .ib p                { color: #b0ccb4; }
+
+body.dark-mode .gl-card             { background: #1e2f20; border-color: rgba(100,180,120,0.18); }
+body.dark-mode .gl-card.gl-add      { background: #172119; }
+body.dark-mode .gl-body h3          { color: #deeede; }
+body.dark-mode .gl-body p           { color: #7a9a80; }
+
+body.dark-mode .py-card             { background: #1e2f20; border-color: rgba(100,180,120,0.18); }
+body.dark-mode .py-card.py-koordinator { background: linear-gradient(135deg,#1a3020,#1e2f20); border-color: #3d7a5c; }
+body.dark-mode .py-card h3          { color: #deeede; }
+body.dark-mode .py-jabatan          { background: rgba(61,122,92,0.25); color: #6aab88; }
+body.dark-mode .py-meta span        { color: #7a9a80; }
+
+body.dark-mode .pppk-section        { border-top-color: #2a4030; }
+body.dark-mode .pppk-card           { background: #1e2f20; border-color: rgba(100,180,120,0.18); }
+body.dark-mode .pppk-card h4        { color: #deeede; }
+body.dark-mode .pppk-card span      { color: #7a9a80; }
+body.dark-mode .pppk-tag            { background: #1a3020; color: #6aab88; border-color: #2a4030; }
+body.dark-mode .pppk-note           { color: #7a9a80; }
+
+/* Portal cards */
+body.dark-mode .p-card              { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
+body.dark-mode .p-card:hover        { background: rgba(255,255,255,0.08); border-color: #e8b84b; }
+body.dark-mode .p-card h3           { color: #fff; }
+body.dark-mode .p-card p            { color: rgba(255,255,255,0.55); }
+body.dark-mode .p-url               { color: rgba(255,255,255,0.25); }
+body.dark-mode .p-note              { color: rgba(255,255,255,0.4); }
+
+/* Tabs */
+body.dark-mode .ptab                { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); }
+body.dark-mode .ptab:hover          { border-color: #e8b84b; color: #e8b84b; }
+body.dark-mode .ptab.active         { background: #e8b84b; border-color: #e8b84b; color: #1c2b22; }
+
+/* Kontak */
+body.dark-mode .kontak-map          { border-color: rgba(100,180,120,0.2); }
+body.dark-mode .map-ph              { background: #1e2f20; color: #7a9a80; }
+body.dark-mode .k-icon              { opacity: 0.8; }
+body.dark-mode .k-item b            { color: #7a9a80; }
+body.dark-mode .k-item p            { color: #b0ccb4; }
+
+/* VM box */
+body.dark-mode .vm-box              { background: linear-gradient(140deg, #0d1e10, #172119); }
+
+/* Galeri */
+body.dark-mode .g-ph                { background: linear-gradient(135deg,#1a2e1a,#1e2f20); color: #7a9a80; }
+body.dark-mode .g-note              { color: #7a9a80; }
+body.dark-mode .g-note code         { background: #1e2f20; color: #b0ccb4; }
+
+/* Footer */
+body.dark-mode .footer              { background: #0d1610; }
+body.dark-mode .f-brand p           { color: rgba(255,255,255,0.4); }
+body.dark-mode .f-col ul li a       { color: rgba(255,255,255,0.45); }
+body.dark-mode .footer-bottom       { color: rgba(255,255,255,0.25); border-top-color: rgba(255,255,255,0.06); }
+
+/* Drawer */
+body.dark-mode .side-drawer         { background: #172119; }
+body.dark-mode .drawer-link         { color: #b0ccb4; }
+body.dark-mode .drawer-link:hover   { background: #1e2f20; color: #6aab88; }
+body.dark-mode .drawer-divider      { background: #2a4030; }
+body.dark-mode .drawer-section-label { color: #4a6a50; }
+
+/* Hero cards */
+body.dark-mode .hero-cards          { background: rgba(0,0,0,0.25); border-color: rgba(255,255,255,0.08); }
+body.dark-mode .hcard               { border-right-color: rgba(255,255,255,0.06); }
+
+/* Modals */
+body.dark-mode .modal               { background: #1e2f20; }
+body.dark-mode .modal h3            { color: #deeede; }
+body.dark-mode .modal ol            { color: #b0ccb4; }
+body.dark-mode .modal-close         { background: #3d7a5c; }
+
+/* Admin panel */
+body.dark-mode #adminPanel div[style*="background:#f5f5f5"] { background: #172119 !important; }
+body.dark-mode #adminContent        { background: #172119; color: #deeede; }
+body.dark-mode .admin-section-title { color: #deeede; }
+body.dark-mode .admin-item          { background: #1e2f20; border-color: rgba(100,180,120,0.2); }
+body.dark-mode .admin-item-info strong { color: #deeede; }
+body.dark-mode .admin-item-info small  { color: #7a9a80; }
+body.dark-mode .admin-form label    { color: #b0ccb4; }
 body.dark-mode .admin-form input,
 body.dark-mode .admin-form select,
-body.dark-mode .admin-form textarea { background: #0f1a13; border-color: rgba(106,171,136,0.3); color: #e8f0e8; }
-body.dark-mode #adminContent { background: #1a2e1a; }
-body.dark-mode #adminModalBox { background: #1a2e1a; }
+body.dark-mode .admin-form textarea { background: #111d14; border-color: rgba(100,180,120,0.3); color: #deeede; }
+body.dark-mode #adminModalBox       { background: #1e2f20; }
+body.dark-mode .admin-section-title { color: #deeede; }
 
-/* Theme toggle hover */
+/* Theme toggle */
 #themeToggle:hover { background: rgba(255,255,255,0.2) !important; }
+
 
 
     :root {
@@ -1065,18 +1147,23 @@ body.dark-mode #adminModalBox { background: #1a2e1a; }
 
     /* PRINT */
     @page {
-      margin: 10mm;
-      size: A4;
+      margin: 15mm 15mm 15mm 20mm;
+      size: A4 portrait;
     }
     @media print {
-      .topbar, .sidebar-actions, .table-controls, .row-actions, .remove-foto { display:none !important; }
-      body { background:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-      .doc-wrapper { margin:0; box-shadow:none; padding:10mm; border-radius:0; }
-      .main { margin:0; padding:0; }
-      .foto-placeholder { border:1px dashed #ccc; }
-      .evidence-table td, .evidence-table th { border:1px solid #333 !important; }
-      .evidence-table { page-break-inside: auto; }
-      tr { page-break-inside: avoid; }
+      .topbar, .sidebar-actions, .table-controls, .row-actions,
+      .remove-foto, #adminTrigger, #adminOverlay { display:none !important; }
+      html, body { background:#fff !important; color:#000 !important;
+        -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .doc-wrapper { margin:0 !important; box-shadow:none !important;
+        padding:0 !important; border-radius:0 !important; max-width:100% !important; }
+      .main { margin:0 !important; padding:0 !important; max-width:100% !important; }
+      .foto-placeholder { border:1px dashed #ccc !important; }
+      .evidence-table, .evidence-table td,
+      .evidence-table th { border:1px solid #333 !important; }
+      .evidence-table { page-break-inside:auto; width:100%; }
+      tr { page-break-inside:avoid; page-break-after:auto; }
+      .doc-header h2 { font-size:13px !important; }
     }
 
     @media(max-width:700px) {
@@ -1118,7 +1205,6 @@ body.dark-mode #adminModalBox { background: #1a2e1a; }
   
 
     /* === BASE === */
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
     :root {
       --ink:#1c2b22; --forest:#2a4a38; --jade:#3d7a5c; --sage:#6aab88;
       --mist:#d4edd9; --rice:#f5f9f1; --harvest:#e8b84b; --harvest-dk:#c99a2e;
@@ -1432,9 +1518,13 @@ body.dark-mode #adminModalBox { background: #1a2e1a; }
         <span class="dl-icon">📋</span>
         <span>SIPANDU</span>
       </a>
+      <a href="#" onclick="event.preventDefault();showPage('opencam')" class="drawer-link">
+        <span class="dl-icon">📸</span>
+        <span>Open Camera Custom</span>
+      </a>
       <div class="drawer-divider"></div>
       <p class="drawer-section-label">Lainnya</p>
-      <a href="#" onclick="event.preventDefault();showPage('evidence-lcs')" class="drawer-link" style="color:var(--harvest-dk);font-weight:600;" onclick="event.preventDefault();showPage('evidence-lcs')">
+      <a href="https://www.bpptomoni.my.id/p/eviden-lcs-digital.html" target="_blank" rel="noopener" class="drawer-link" style="color:var(--harvest-dk);font-weight:600;" onclick="closeDrawer()">
         <span class="dl-icon">📋</span>
         <span>Buat Evidence LCS</span>
       </a>
@@ -1503,8 +1593,8 @@ body.dark-mode #adminModalBox { background: #1a2e1a; }
         </div>
       <p class="p-note">💡 Semua link membuka di tab baru. Hubungi admin jika ada link yang tidak aktif — 
         <a href="https://wa.me/62081340034193" target="_blank" rel="noopener" style="color:var(--sage);font-weight:600;">📞 WA Admin</a> · 
-        <a href="https://www.instagram.com/ppl.journal?igsh=djJvMXRvaWEzOXhq" target="_blank" rel="noopener" style="color:var(--sage);font-weight:600;">📸 Instagram</a> · 
-        <a href="https://www.tiktok.com/@cpplgenz?_r=1&_t=ZS-94DA5fI75j5" target="_blank" rel="noopener" style="color:var(--sage);font-weight:600;">🎵 TikTok</a>
+        <a href="https://www.instagram.com/ppl.journal?igsh=djJvMXRvaWEzOXhq" target="_blank" rel="noopener" style="color:var(--sage);font-weight:600;display:inline-flex;align-items:center;gap:4px;vertical-align:middle;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> Instagram</a> · 
+        <a href="https://www.tiktok.com/@cpplgenz?_r=1&_t=ZS-94DA5fI75j5" target="_blank" rel="noopener" style="color:var(--sage);font-weight:600;display:inline-flex;align-items:center;gap:4px;vertical-align:middle;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg> TikTok</a>
       </p>
     </div>
   </section>
@@ -1523,95 +1613,15 @@ body.dark-mode #adminModalBox { background: #1a2e1a; }
 
       <div class="gilink-grid">
 
-        <a href="https://drive.google.com/drive/folders/1XoboNvM3Ay5KLGZ2A8ohslWPmzOJt1t0?usp=drive_link" target="_blank" rel="noopener" class="gl-card" style="border-color:var(--jade);">
+        <a href="#" onclick="gilinkAuth('https://drive.google.com/drive/folders/1XoboNvM3Ay5KLGZ2A8ohslWPmzOJt1t0?usp=drive_link');return false;" class="gl-card" style="border-color:var(--jade);">
           <span class="gl-icon">📁</span>
           <div class="gl-body">
             <h3>Google Drive BPP Gilireng</h3>
             <p>Folder utama dokumen, laporan, dan arsip internal BPP Gilireng</p>
           </div>
-          <span class="gl-arrow">↗</span>
+          <span class="gl-arrow">🔒 ↗</span>
         </a>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- PENYULUH — hanya via hamburger -->
-  <section class="sec penyuluh-sec hidden-section" id="penyuluh">
-    <div class="wrap">
-      <div class="sec-hd">
-        <span class="sec-tag">Tim Kami</span>
-        <h2 class="sec-title">Penyuluh Pertanian</h2>
-        <p class="sec-desc">Tenaga penyuluh aktif BPP Gilireng yang mendampingi petani di seluruh wilayah binaan Kecamatan Gilireng.</p>
-      </div>
-      <div class="penyuluh-grid">
-        <div class="py-card py-koordinator">
-          <div class="py-badge-top">&#11088; Koordinator BPP</div>
-          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
-          <h3>Muhammad Firdaus, S.Pt</h3>
-          <span class="py-jabatan">Penyuluh Pertanian Ahli Madya</span>
-          <div class="py-meta">
-            <span>&#x1F4CD; Desa Lamata</span>
-            <span>&#x1F4CD; Desa Polewali</span>
-          </div>
-        </div>
-        <div class="py-card">
-          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
-          <h3>Afradillah, S.P.</h3>
-          <span class="py-jabatan">Penyuluh Pertanian Ahli Pertama</span>
-          <div class="py-meta">
-            <span>&#x1F4CD; Desa Alausalo</span>
-            <span>&#x1F4CD; Desa Mamminasae</span>
-          </div>
-        </div>
-        <div class="py-card">
-          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
-          <h3>Suhady Hamdan, S.P.</h3>
-          <span class="py-jabatan">Penyuluh Pertanian Ahli Pertama</span>
-          <div class="py-meta">
-            <span>&#x1F4CD; Desa Paselloreng</span>
-            <span>&#x1F4CD; Kel. Gilireng</span>
-          </div>
-        </div>
-        <div class="py-card">
-          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
-          <h3>Muhammad Jafar, S.P.</h3>
-          <span class="py-jabatan">Penyuluh Pertanian Ahli Pertama</span>
-          <div class="py-meta">
-            <span>&#x1F4CD; Desa Arajang</span>
-          </div>
-        </div>
-        <div class="py-card">
-          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
-          <h3>Muhammad Yunus, S.P.</h3>
-          <span class="py-jabatan">Ahli Pertama - Penyuluh Pertanian</span>
-          <div class="py-meta">
-            <span>&#x1F4CD; Desa Abbatireng</span>
-            <span>&#x1F4CD; Desa Poleonro</span>
-          </div>
-        </div>
-      </div>
-      <div class="pppk-section">
-        <div class="pppk-label">
-          <span class="pppk-tag">PPPK Paruh Waktu</span>
-          <p class="pppk-note">Staf dari Dinas Pertanian Kabupaten Wajo yang berkantor di BPP Gilireng</p>
-        </div>
-        <div class="pppk-grid">
-          <div class="pppk-card">
-            <span class="pppk-ava">&#x1F468;&#x200D;&#x1F4BC;</span>
-            <div>
-              <h4>Mudara, S.P.</h4>
-              <span>PPPK Paruh Waktu &middot; Dinas Pertanian Kab. Wajo</span>
-            </div>
-          </div>
-          <div class="pppk-card">
-            <span class="pppk-ava">&#x1F469;&#x200D;&#x1F4BC;</span>
-            <div>
-              <h4>Sumarti, S.P.</h4>
-              <span>PPPK Paruh Waktu &middot; Dinas Pertanian Kab. Wajo</span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1649,12 +1659,91 @@ body.dark-mode #adminModalBox { background: #1a2e1a; }
     </div>
   </section>
 
+  <!-- PENYULUH — tampil di halaman muka antara GiLink dan Kontak -->
+  <section class="sec penyuluh-sec" id="penyuluh">
+    <div class="wrap">
+      <div class="sec-hd">
+        <span class="sec-tag">Tim Kami</span>
+        <h2 class="sec-title">Penyuluh Pertanian</h2>
+        <p class="sec-desc">Tenaga penyuluh aktif BPP Gilireng yang mendampingi petani di seluruh wilayah binaan Kecamatan Gilireng.</p>
+      </div>
+      <div class="penyuluh-grid">
+        <div class="py-card py-koordinator">
+          <div class="py-badge-top">&#11088; Koordinator BPP</div>
+          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
+          <h3>Muhammad Firdaus, S.Pt</h3>
+          <span class="py-jabatan">Penyuluh Pertanian Ahli Madya</span>
+          <div class="py-meta">
+            <span>&#x1F4CD; Desa Lamata</span>
+            <span>&#x1F4CD; Desa Polewalie</span>
+          </div>
+        </div>
+        <div class="py-card">
+          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
+          <h3>Suhady Hamdan, S.P.</h3>
+          <span class="py-jabatan">Penyuluh Pertanian Ahli Pertama</span>
+          <div class="py-meta">
+            <span>&#x1F4CD; Desa Paselloreng</span>
+            <span>&#x1F4CD; Kel. Gilireng</span>
+          </div>
+        </div>
+        <div class="py-card">
+          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
+          <h3>Muhammad Jafar, S.P.</h3>
+          <span class="py-jabatan">Penyuluh Pertanian Ahli Pertama</span>
+          <div class="py-meta">
+            <span>&#x1F4CD; Desa Arajang</span>
+          </div>
+        </div>
+        <div class="py-card">
+          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
+          <h3>Muhammad Yunus, S.P.</h3>
+          <span class="py-jabatan">Ahli Pertama - Penyuluh Pertanian</span>
+          <div class="py-meta">
+            <span>&#x1F4CD; Desa Abbatireng</span>
+            <span>&#x1F4CD; Desa Poleonro</span>
+          </div>
+        </div>
+        <div class="py-card">
+          <div class="py-ava">&#x1F469;&#x200D;&#x1F33E;</div>
+          <h3>Afradillah, S.P.</h3>
+          <span class="py-jabatan">Penyuluh Pertanian Ahli Pertama</span>
+          <div class="py-meta">
+            <span>&#x1F4CD; Desa Alausalo</span>
+            <span>&#x1F4CD; Desa Mamminasae</span>
+          </div>
+        </div>
+      </div>
+      <div class="pppk-section">
+        <div class="pppk-label">
+          <span class="pppk-tag">PPPK Paruh Waktu</span>
+          <p class="pppk-note">Staf dari Dinas Pertanian Kabupaten Wajo yang berkantor di BPP Gilireng</p>
+        </div>
+        <div class="pppk-grid">
+          <div class="pppk-card">
+            <span class="pppk-ava">&#x1F468;&#x200D;&#x1F4BC;</span>
+            <div>
+              <h4>Mudara, S.P.</h4>
+              <span>PPPK Paruh Waktu &middot; Dinas Pertanian Kab. Wajo</span>
+            </div>
+          </div>
+          <div class="pppk-card">
+            <span class="pppk-ava">&#x1F469;&#x200D;&#x1F4BC;</span>
+            <div>
+              <h4>Sumarti, S.P.</h4>
+              <span>PPPK Paruh Waktu &middot; Dinas Pertanian Kab. Wajo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- KONTAK -->
   <section class="sec kontak-sec" id="kontak">
     <div class="wrap">
       <div class="sec-hd">
         <span class="sec-tag">Hubungi Kami</span>
-        <h2 class="sec-title">Informasi Kontak</h2>
       </div>
       <div class="kontak-layout">
         <div class="kontak-list">
@@ -1727,125 +1816,27 @@ body.dark-mode #adminModalBox { background: #1a2e1a; }
 
 
 </div>
-<div id="page-evidence-lcs">
-
-
-  <!-- TOP BAR -->
+<div id="page-evidence-lcs" style="display:none;flex-direction:column;height:100vh;">
   <header class="topbar">
     <div class="topbar-inner">
       <a href="#" onclick="event.preventDefault();showPage('main')" class="back-btn">← Kembali</a>
-      <span class="topbar-title">📋 Buat Evidence LCS — BPP Gilireng</span>
-      <div style="width:90px"></div>
+      <span class="topbar-title">📋 Eviden LCS Digital</span>
+      <a href="https://www.bpptomoni.my.id/p/eviden-lcs-digital.html" target="_blank"
+         style="font-size:12px;color:var(--harvest);font-weight:600;white-space:nowrap;text-decoration:none;">
+        🔗 Buka Tab Baru
+      </a>
     </div>
   </header>
-
-  <!-- SIDEBAR ACTIONS -->
-  <div class="sidebar-actions">
-    <button class="sa-btn pdf"   onclick="cetakPDF()">⬇ PDF</button>
-    <button class="sa-btn reset" onclick="resetForm()">↺ RESET</button>
-    <button class="sa-btn lcs"   onclick="simpanLCS()">📄 LCS</button>
-    <button class="sa-btn help"  onclick="toggleHelp()">? HELP</button>
-  </div>
-
-  <!-- MAIN -->
-  <div class="main">
-    <div class="doc-wrapper">
-
-      <!-- HEADER DOKUMEN -->
-      <div class="doc-header">
-        <h2>
-          LAPORAN PENDERASAN INFORMASI DAN PEMBANGUNAN PERTANIAN<br/>
-          PENYULUH PERTANIAN TAHUN <span id="tahunHeader">2026</span>
-        </h2>
-      </div>
-
-      <!-- META INFO -->
-      <div class="meta-grid">
-        <div class="meta-row">
-          <span class="meta-label">PERIODE</span>
-          <span class="meta-colon">:</span>
-          <select class="meta-select" id="metaBulan" onchange="updateTahun()">
-            <option value="JANUARI">JANUARI</option>
-            <option value="FEBRUARI">FEBRUARI</option>
-            <option value="MARET" selected>MARET</option>
-            <option value="APRIL">APRIL</option>
-            <option value="MEI">MEI</option>
-            <option value="JUNI">JUNI</option>
-            <option value="JULI">JULI</option>
-            <option value="AGUSTUS">AGUSTUS</option>
-            <option value="SEPTEMBER">SEPTEMBER</option>
-            <option value="OKTOBER">OKTOBER</option>
-            <option value="NOVEMBER">NOVEMBER</option>
-            <option value="DESEMBER">DESEMBER</option>
-          </select>
-          &nbsp;
-          <input class="meta-input" id="metaTahun" type="number" value="2026" style="width:70px;flex:none;" onchange="updateTahun()"/>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Nama Penyuluh</span>
-          <span class="meta-colon">:</span>
-          <input class="meta-input" id="metaNama" placeholder="Contoh : NAMA LENGKAP, S.P."/>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">NIP.</span>
-          <span class="meta-colon">:</span>
-          <input class="meta-input" id="metaNIP" placeholder="Contoh : 19990919 201909 1 009"/>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Wilayah Binaan</span>
-          <span class="meta-colon">:</span>
-          <input class="meta-input" id="metaWilayah" placeholder="Contoh : Desa ... Kec. Gilireng Kab. Wajo"/>
-        </div>
-      </div>
-
-      <!-- TABLE -->
-      <table class="evidence-table" id="evidenceTable">
-        <thead>
-          <tr>
-            <th rowspan="2" style="width:110px">TANGGAL</th>
-            <th rowspan="2">JUDUL KONTEN</th>
-            <th colspan="3" class="eviden-header">EVIDEN</th>
-          </tr>
-          <tr>
-            <th style="width:120px">LIKE</th>
-            <th style="width:120px">COMEN</th>
-            <th style="width:120px">SHARE</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody">
-          <!-- Baris akan diisi JS -->
-        </tbody>
-      </table>
-
-      <!-- TABLE CONTROLS -->
-      <div class="table-controls">
-        <button class="tbl-btn add" onclick="tambahBaris()">+ Tambah Baris</button>
-        <button class="tbl-btn rem" onclick="hapusBarisTerakhir()">− Hapus Baris</button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- HELP MODAL -->
-  <div class="modal-overlay" id="helpModal" onclick="if(event.target===this)toggleHelp()">
-    <div class="modal">
-      <h3>📋 Cara Menggunakan</h3>
-      <ol>
-        <li>Isi <b>Periode, Nama Penyuluh, NIP</b> dan <b>Wilayah Binaan</b></li>
-        <li>Isi <b>Tanggal</b> dan <b>Judul Konten</b> di tiap baris</li>
-        <li>Klik area foto (Like/Comen/Share) untuk upload screenshot</li>
-        <li>Tambah baris baru dengan <b>+ Tambah Baris</b> atau tombol 📋 di tiap baris</li>
-        <li>Klik <b>⬇ PDF</b> untuk mencetak/simpan sebagai PDF</li>
-        <li>Klik <b>📄 LCS</b> untuk menyimpan data ke file LCS</li>
-        <li>Klik <b>↺ RESET</b> untuk mengosongkan semua data</li>
-      </ol>
-      <button class="modal-close" onclick="toggleHelp()">Tutup</button>
-    </div>
-  </div>
-
-  
-
+  <iframe
+    id="evidenceLcsFrame"
+    src=""
+    data-src="https://www.bpptomoni.my.id/p/eviden-lcs-digital.html"
+    style="flex:1;width:100%;border:none;height:calc(100vh - 58px);"
+    allowfullscreen
+    title="Eviden LCS Digital - BPP Tomoni">
+  </iframe>
 </div>
+
 <div id="page-profil-bpp">
 
 
@@ -1961,7 +1952,7 @@ body.dark-mode #adminModalBox { background: #1a2e1a; }
           <span class="py-jabatan">Penyuluh Pertanian Ahli Madya</span>
           <div class="py-meta">
             <span>📍 Desa Lamata</span>
-            <span>📍 Desa Polewali</span>
+            <span>📍 Desa Polewalie</span>
           </div>
         </div>
 
@@ -2113,6 +2104,928 @@ body.dark-mode #adminModalBox { background: #1a2e1a; }
     width:90%; max-width:480px; box-shadow:0 20px 60px rgba(0,0,0,0.3); max-height:85vh; overflow-y:auto;"></div>
 </div>
 
+<style id="opencam-styles">
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* Space Grotesk font for opencam */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap');
+#opencam-app {
+  font-family: 'Space Grotesk', sans-serif;
+  background: #0d0f14;
+  min-height: calc(100vh - 58px);
+}
+
+  
+  
+  
+
+  
+
+  /* Grid background */
+  
+
+  #opencam-app header {
+    padding: 20px 32px;
+    border-bottom: 1px solid #2a2f3d;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(22,25,32,.8);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+#opencam-app .logo-icon {
+    width: 36px; height: 36px;
+    background: #00e5a0;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+  }
+
+#opencam-app header h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .05em;
+  }
+
+#opencam-app header span {
+    color: #00e5a0;
+  }
+
+#opencam-app .badge {
+    margin-left: auto;
+    background: #1e2230;
+    border: 1px solid #2a2f3d;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: #636b80;
+    letter-spacing: .08em;
+  }
+
+#opencam-app .app {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    min-height: calc(100vh - 65px);
+  }
+
+  /* ---- PANEL ---- */
+#opencam-app .panel {
+    background: #161920;
+    border-right: 1px solid #2a2f3d;
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+#opencam-app .section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .15em;
+    color: #636b80;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+#opencam-app .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2a2f3d;
+  }
+
+  /* Upload zone */
+#opencam-app .upload-zone {
+    border: 2px dashed #2a2f3d;
+    border-radius: 12px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all .2s;
+    position: relative;
+    overflow: hidden;
+  }
+#opencam-app .upload-zone:hover, #opencam-app .upload-zone.drag {
+    border-color: #00e5a0;
+    background: rgba(0,229,160,.04);
+  }
+#opencam-app .upload-zone input {
+    position: absolute; inset: 0; opacity: 0; cursor: pointer;
+  }
+#opencam-app .upload-zone .icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+    display: block;
+  }
+#opencam-app .upload-zone p {
+    font-size: 14px;
+    color: #636b80;
+    line-height: 1.6;
+  }
+#opencam-app .upload-zone strong {
+    color: #00e5a0;
+    font-weight: 600;
+  }
+
+  /* Form fields */
+#opencam-app .field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+#opencam-app label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #636b80;
+    letter-spacing: .04em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+#opencam-app label .licon { font-size: 14px; }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="time"],
+  input[type="number"],
+#opencam-app select, #opencam-app textarea {
+    background: #1e2230;
+    border: 1px solid #2a2f3d;
+    border-radius: 8px;
+    color: #e8eaf0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color .2s;
+    width: 100%;
+  }
+#opencam-app input:focus, #opencam-app select:focus, #opencam-app textarea:focus {
+    border-color: #00e5a0;
+    box-shadow: 0 0 0 3px rgba(0,229,160,.1);
+  }
+#opencam-app input[type="color"] {
+    padding: 4px 6px;
+    width: 48px; height: 36px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #2a2f3d;
+    background: #1e2230;
+  }
+
+#opencam-app .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+#opencam-app .row3 { display: grid; grid-template-columns: 1fr 1fr 48px; gap: 12px; align-items: end; }
+
+  /* Toggle */
+#opencam-app .toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #1e2230;
+    border-radius: 8px;
+    border: 1px solid #2a2f3d;
+  }
+#opencam-app .toggle-row span { font-size: 13px; }
+#opencam-app .toggle {
+    width: 40px; height: 22px;
+    background: #2a2f3d;
+    border-radius: 11px;
+    position: relative;
+    cursor: pointer;
+    transition: background .2s;
+  }
+#opencam-app .toggle.on { background: #00e5a0; }
+#opencam-app .toggle::after {
+    content: '';
+    width: 16px; height: 16px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px; left: 3px;
+    transition: left .2s;
+  }
+#opencam-app .toggle.on::after { left: 21px; }
+
+  /* Range */
+#opencam-app input[type="range"] {
+    -webkit-appearance: none;
+    background: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
+#opencam-app input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    background: #2a2f3d;
+    border-radius: 2px;
+  }
+#opencam-app input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px; height: 16px;
+    background: #00e5a0;
+    border-radius: 50%;
+    margin-top: -6px;
+    cursor: pointer;
+  }
+#opencam-app .range-row {
+    display: flex; gap: 12px; align-items: center;
+  }
+#opencam-app .range-row input[type="range"] { flex: 1; }
+#opencam-app .range-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #00e5a0;
+    min-width: 30px;
+    text-align: right;
+  }
+
+  /* Position grid */
+#opencam-app .pos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    width: 120px;
+  }
+#opencam-app .pos-btn {
+    aspect-ratio: 1;
+    background: #1e2230;
+    border: 1px solid #2a2f3d;
+    border-radius: 6px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 10px;
+    color: #636b80;
+    transition: all .15s;
+  }
+#opencam-app .pos-btn:hover { border-color: #00e5a0; color: #00e5a0; }
+#opencam-app .pos-btn.active { background: #00e5a0; border-color: #00e5a0; color: #000; font-weight: 700; }
+
+  /* Buttons */
+#opencam-app .btn {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: .02em;
+  }
+#opencam-app .btn-primary {
+    background: #00e5a0;
+    color: #000;
+  }
+#opencam-app .btn-primary:hover { background: #00ffb3; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,229,160,.3); }
+#opencam-app .btn-secondary {
+    background: #1e2230;
+    color: #e8eaf0;
+    border: 1px solid #2a2f3d;
+  }
+#opencam-app .btn-secondary:hover { border-color: #0090ff; color: #0090ff; }
+#opencam-app .btn:disabled { opacity: .4; cursor: not-allowed; transform: none !important; }
+
+  /* ---- PREVIEW ---- */
+#opencam-app .preview-area {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+#opencam-app .preview-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+#opencam-app .preview-wrap {
+    position: relative;
+    max-width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+#opencam-app #previewImg {
+    display: block;
+    max-width: min(700px, 100%);
+    max-height: 70vh;
+    object-fit: contain;
+  }
+
+#opencam-app .watermark-overlay {
+    position: absolute;
+    padding: 12px 16px;
+    pointer-events: none;
+  }
+
+#opencam-app .wm-box {
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+#opencam-app .wm-title { font-weight: 700; }
+#opencam-app .wm-meta { opacity: .85; }
+
+#opencam-app .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    min-height: 400px;
+    color: #636b80;
+    text-align: center;
+  }
+#opencam-app .empty-state .big-icon { font-size: 64px; opacity: .3; }
+#opencam-app .empty-state p { font-size: 15px; }
+
+#opencam-app canvas { display: none; }
+
+  /* Preset chips */
+#opencam-app .presets {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+#opencam-app .preset-chip {
+    background: #1e2230;
+    border: 1px solid #2a2f3d;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: 'JetBrains Mono', monospace;
+  }
+#opencam-app .preset-chip:hover { border-color: #00e5a0; color: #00e5a0; }
+
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; }
+    .preview-area { padding: 16px; }
+  }
+
+
+</style>
+<div id="page-opencam" style="display:none;min-height:100vh;background:#0d0f14;color:#e8eaf0;font-family:'Space Grotesk',sans-serif;">
+  <!-- TOP BAR BPP style -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#" onclick="event.preventDefault();showPage('main')" class="back-btn">← Kembali</a>
+      <span class="topbar-title">📸 Open Camera Custom</span>
+      <div style="width:90px"></div>
+    </div>
+  </header>
+  <!-- Grid background -->
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(0,229,160,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.03) 1px,transparent 1px);background-size:40px 40px;top:58px;"></div>
+  <!-- App content -->
+  <div id="opencam-app" style="position:relative;z-index:1;padding-top:58px;">
+
+
+
+
+<div class="app">
+
+  <!-- ===== LEFT PANEL ===== -->
+  <div class="panel">
+
+    <div class="section-title">Upload Foto</div>
+
+    <div class="upload-zone" id="oc_uploadZone">
+      <input type="file" accept="image/*" id="oc_fileInput">
+      <span class="icon">🖼️</span>
+      <p><strong>Klik atau drag foto</strong><br>JPG, PNG, WEBP — bebas resolusi</p>
+    </div>
+
+    <div class="section-title">Informasi Watermark</div>
+
+    <div class="field">
+      <label><span class="licon">📋</span> Judul / Keterangan</label>
+      <input type="text" id="oc_wTitle" placeholder="Nama lokasi, deskripsi, dll." maxlength="80">
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label><span class="licon">📅</span> Tanggal</label>
+        <input type="date" id="oc_wDate">
+      </div>
+      <div class="field">
+        <label><span class="licon">⏰</span> Waktu</label>
+        <input type="time" id="oc_wTime">
+      </div>
+    </div>
+
+    <div class="field">
+      <label><span class="licon">📍</span> Koordinat (Lat, Long)</label>
+      <input type="text" id="oc_wCoord" placeholder="cth: -5.1477, 119.4327">
+    </div>
+
+    <div class="toggle-row">
+      <span>📅 Tampilkan Tanggal & Waktu</span>
+      <div class="toggle on" id="oc_togDateTime" onclick="toggleFeature(this,'showDateTime')"></div>
+    </div>
+    <div class="toggle-row">
+      <span>📍 Tampilkan Koordinat</span>
+      <div class="toggle on" id="oc_togCoord" onclick="toggleFeature(this,'showCoord')"></div>
+    </div>
+    <div class="toggle-row">
+      <span>📋 Tampilkan Judul</span>
+      <div class="toggle on" id="oc_togTitle" onclick="toggleFeature(this,'showTitle')"></div>
+    </div>
+
+    <div class="section-title">Tampilan Teks</div>
+
+    <div class="row">
+      <div class="field">
+        <label>Ukuran Font</label>
+        <div class="range-row">
+          <input type="range" id="oc_fontSize" min="8" max="40" value="14" oninput="updateFontSize(this)">
+          <span class="range-val" id="oc_fontSizeVal">14</span>
+        </div>
+      </div>
+      <div class="field">
+        <label>Opacity BG</label>
+        <div class="range-row">
+          <input type="range" id="oc_bgOpacity" min="0" max="100" value="55" oninput="renderPreview()" id="oc_bgOpacitySlider">
+          <span class="range-val" id="oc_bgOpacityVal">55%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="toggle-row">
+      <span>🚫 Tanpa Background Box</span>
+      <div class="toggle" id="oc_togNoBg" onclick="toggleFeature(this,'noBg')"></div>
+    </div>
+
+    <div id="oc_shadowRow" style="display:none">
+      <div class="toggle-row">
+        <span>🌑 Bayangan Teks (agar tetap terbaca)</span>
+        <div class="toggle on" id="oc_togShadow" onclick="toggleFeature(this,'textShadow')"></div>
+      </div>
+    </div>
+
+    <div class="row3">
+      <div class="field">
+        <label>Warna Teks</label>
+        <input type="color" id="oc_textColor" value="#ffffff" oninput="renderPreview()">
+      </div>
+      <div class="field">
+        <label>Warna BG Box</label>
+        <input type="color" id="oc_bgColor" value="#000000" oninput="renderPreview()">
+      </div>
+      <div class="field">
+        <label>Font</label>
+        <select id="oc_fontSelect" onchange="renderPreview()">
+          <option value="Arial">Arial</option>
+          <option value="JetBrains Mono">Monospace</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Verdana">Verdana</option>
+          <option value="Tahoma">Tahoma</option>
+          <option value="Courier New">Courier</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section-title">Posisi Watermark</div>
+
+    <div style="display:flex;gap:16px;align-items:center">
+      <div class="pos-grid" id="oc_posGrid">
+        <div class="pos-btn" data-pos="top-left">↖</div>
+        <div class="pos-btn" data-pos="top-center">↑</div>
+        <div class="pos-btn" data-pos="top-right">↗</div>
+        <div class="pos-btn" data-pos="mid-left">←</div>
+        <div class="pos-btn" data-pos="center">·</div>
+        <div class="pos-btn" data-pos="mid-right">→</div>
+        <div class="pos-btn" data-pos="bot-left">↙</div>
+        <div class="pos-btn" data-pos="bot-center">↓</div>
+        <div class="pos-btn active" data-pos="bot-right">↘</div>
+      </div>
+      <div style="font-size:12px;color:var(--text-muted);line-height:1.7">
+        Pilih posisi<br>watermark<br>pada foto
+      </div>
+    </div>
+
+    <div class="section-title">Preset Cepat</div>
+    <div class="presets">
+      <div class="preset-chip" onclick="applyPreset('survey')">📏 Survey</div>
+      <div class="preset-chip" onclick="applyPreset('field')">🏗️ Lapangan</div>
+      <div class="preset-chip" onclick="applyPreset('gps')">🛰️ GPS Tracking</div>
+      <div class="preset-chip" onclick="applyPreset('dokumentasi')">📄 Dokumentasi</div>
+    </div>
+
+    <div style="display:flex;gap:10px;margin-top:4px">
+      <button class="btn btn-primary" id="oc_downloadBtn" onclick="downloadImage()" disabled>
+        ⬇️ Download Foto
+      </button>
+      <button class="btn btn-secondary" onclick="resetAll()">🔄 Reset</button>
+    </div>
+
+  </div>
+
+  <!-- ===== RIGHT PREVIEW ===== -->
+  <div class="preview-area">
+    <div class="preview-header">
+      <div class="section-title" style="flex:1">Preview</div>
+    </div>
+
+    <div class="preview-wrap" id="oc_previewWrap">
+      <div class="empty-state" id="oc_emptyState">
+        <div class="big-icon">📸</div>
+        <p>Upload foto untuk memulai<br><span style="font-size:12px;opacity:.6">Watermark akan otomatis muncul di sini</span></p>
+      </div>
+      <img id="oc_previewImg" style="display:none">
+      <div class="watermark-overlay" id="oc_wmOverlay" style="display:none">
+        <div class="wm-box" id="oc_wmBox">
+          <div class="wm-title" id="oc_wmTitleEl"></div>
+          <div class="wm-meta" id="oc_wmMetaEl"></div>
+          <div class="wm-meta" id="oc_wmCoordEl"></div>
+        </div>
+      </div>
+    </div>
+
+    <canvas id="oc_canvas"></canvas>
+  </div>
+
+</div>
+
+<script>
+const state = {
+  image: null,
+  showDateTime: true,
+  showCoord: true,
+  showTitle: true,
+  position: 'bot-right',
+  noBg: false,
+  textShadow: true,
+};
+
+// ---- File upload
+document.getElementById('fileInput').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  loadImage(file);
+});
+
+const uploadZone = document.getElementById('uploadZone');
+uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag'); });
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag'));
+uploadZone.addEventListener('drop', e => {
+  e.preventDefault();
+  uploadZone.classList.remove('drag');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) loadImage(file);
+});
+
+function loadImage(file) {
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    state.image = ev.target.result;
+    const img = document.getElementById('previewImg');
+    img.src = state.image;
+    img.style.display = 'block';
+    document.getElementById('emptyState').style.display = 'none';
+    document.getElementById('wmOverlay').style.display = 'block';
+    document.getElementById('downloadBtn').disabled = false;
+    renderPreview();
+  };
+  reader.readAsDataURL(file);
+}
+
+// Date & time: kosong, bebas diisi manual
+
+// ---- All inputs trigger re-render
+['wTitle','wDate','wTime','wCoord','bgOpacity','textColor','bgColor','fontSelect'].forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener('input', renderPreview);
+  el.addEventListener('change', renderPreview);
+});
+
+function updateFontSize(el) {
+  document.getElementById('fontSizeVal').textContent = el.value;
+  renderPreview();
+}
+
+function renderPreview() {
+  if (!state.image) return;
+  
+  const title = document.getElementById('wTitle').value.trim();
+  const date  = document.getElementById('wDate').value;
+  const time  = document.getElementById('wTime').value;
+  const coord = document.getElementById('wCoord').value.trim();
+  const fontSize = parseInt(document.getElementById('fontSize').value);
+  const opacity = parseInt(document.getElementById('bgOpacity').value);
+  const textColor = document.getElementById('textColor').value;
+  const bgColor = document.getElementById('bgColor').value;
+  document.getElementById('bgOpacityVal').textContent = opacity + '%';
+
+  // Update overlay display
+  const wmTitleEl = document.getElementById('wmTitleEl');
+  const wmMetaEl  = document.getElementById('wmMetaEl');
+  const wmCoordEl = document.getElementById('wmCoordEl');
+  const wmBox     = document.getElementById('wmBox');
+  const overlay   = document.getElementById('wmOverlay');
+
+  wmBox.style.fontSize = fontSize + 'px';
+  wmBox.style.color = textColor;
+  
+  // Parse bgColor hex to rgb
+  const r = parseInt(bgColor.slice(1,3),16);
+  const g = parseInt(bgColor.slice(3,5),16);
+  const b = parseInt(bgColor.slice(5,7),16);
+
+  if (state.noBg) {
+    wmBox.style.background = 'transparent';
+    wmBox.style.backdropFilter = 'none';
+    wmBox.style.padding = '4px 0';
+    const shadow = state.textShadow ? '1px 1px 4px rgba(0,0,0,.9), 0 0 8px rgba(0,0,0,.7)' : 'none';
+    wmBox.style.textShadow = shadow;
+  } else {
+    wmBox.style.background = `rgba(${r},${g},${b},${opacity/100})`;
+    wmBox.style.backdropFilter = 'blur(4px)';
+    wmBox.style.padding = '8px 12px';
+    wmBox.style.textShadow = 'none';
+  }
+
+  wmTitleEl.textContent = state.showTitle && title ? title : '';
+  wmTitleEl.style.display = (state.showTitle && title) ? 'block' : 'none';
+  
+  let dateStr = '';
+  if (state.showDateTime) {
+    if (date) dateStr += formatDate(date);
+    if (time) dateStr += (dateStr ? '  ' : '') + time;
+  }
+  wmMetaEl.textContent = dateStr;
+  wmMetaEl.style.display = dateStr ? 'block' : 'none';
+
+  wmCoordEl.textContent = (state.showCoord && coord) ? coord : '';
+  wmCoordEl.style.display = (state.showCoord && coord) ? 'block' : 'none';
+
+  // Show/hide box
+  const hasContent = (state.showTitle && title) || dateStr || (state.showCoord && coord);
+  overlay.style.display = hasContent ? 'block' : 'none';
+
+  // Position overlay
+  setOverlayPosition(overlay, state.position);
+}
+
+function setOverlayPosition(el, pos) {
+  el.style.top = el.style.bottom = el.style.left = el.style.right = 'auto';
+  el.style.textAlign = 'left';
+  const pad = '12px';
+  const map = {
+    'top-left':    { top: pad, left: pad },
+    'top-center':  { top: pad, left: '50%', transform: 'translateX(-50%)' },
+    'top-right':   { top: pad, right: pad, textAlign: 'right' },
+    'mid-left':    { top: '50%', left: pad, transform: 'translateY(-50%)' },
+    'center':      { top: '50%', left: '50%', transform: 'translate(-50%,-50%)' },
+    'mid-right':   { top: '50%', right: pad, transform: 'translateY(-50%)', textAlign: 'right' },
+    'bot-left':    { bottom: pad, left: pad },
+    'bot-center':  { bottom: pad, left: '50%', transform: 'translateX(-50%)' },
+    'bot-right':   { bottom: pad, right: pad, textAlign: 'right' },
+  };
+  const styles = map[pos] || map['bot-right'];
+  Object.assign(el.style, styles);
+  if (!styles.transform) el.style.transform = '';
+}
+
+// ---- Position grid
+document.querySelectorAll('.pos-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.pos-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    state.position = btn.dataset.pos;
+    renderPreview();
+  });
+});
+
+// ---- Toggles
+function toggleFeature(el, key) {
+  el.classList.toggle('on');
+  state[key] = el.classList.contains('on');
+  if (key === 'noBg') {
+    document.getElementById('shadowRow').style.display = state.noBg ? 'block' : 'none';
+  }
+  renderPreview();
+}
+
+// ---- Presets
+function applyPreset(type) {
+  const presets = {
+    survey: { title: 'Survey Lapangan', coord: '-5.1477, 119.4327' },
+    field:  { title: 'Dokumentasi Lapangan', coord: '-6.2088, 106.8456' },
+    gps:    { title: 'GPS Tracking Point', coord: '-7.7971, 110.3688' },
+    dokumentasi: { title: 'Dokumentasi Resmi', coord: '' },
+  };
+  const p = presets[type];
+  document.getElementById('wTitle').value = p.title;
+  document.getElementById('wCoord').value = p.coord;
+  renderPreview();
+}
+
+// ---- Download (canvas render)
+function downloadImage() {
+  if (!state.image) return;
+  
+  const img = new Image();
+  img.onload = () => {
+    const canvas = document.getElementById('canvas');
+    canvas.width  = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+
+    const fontSize = parseInt(document.getElementById('fontSize').value);
+    const textColor = document.getElementById('textColor').value;
+    const bgColor   = document.getElementById('bgColor').value;
+    const opacity   = parseInt(document.getElementById('bgOpacity').value);
+    const fontFace  = document.getElementById('fontSelect').value;
+
+    const title = document.getElementById('wTitle').value.trim();
+    const date  = document.getElementById('wDate').value;
+    const time  = document.getElementById('wTime').value;
+    const coord = document.getElementById('wCoord').value.trim();
+
+    const lines = [];
+    if (state.showTitle && title) lines.push({ text: title, bold: true });
+    if (state.showDateTime) {
+      let dt = '';
+      if (date) dt += formatDate(date);
+      if (time) dt += (dt ? '  ' : '') + time;
+      if (dt) lines.push({ text: dt, bold: false });
+    }
+    if (state.showCoord && coord) lines.push({ text: coord, bold: false });
+
+    if (!lines.length) {
+      download(canvas);
+      return;
+    }
+
+    // Scale font relative to image
+    const scale = Math.max(img.width, img.height) / 1000;
+    const fs = Math.round(fontSize * scale * 2);
+    ctx.font = `${fs}px ${fontFace}`;
+
+    const pad = 12 * scale * 2;
+    const lineH = fs * 1.4;
+    const maxW = lines.reduce((mx, l) => {
+      ctx.font = l.bold ? `bold ${fs}px ${fontFace}` : `${fs}px ${fontFace}`;
+      return Math.max(mx, ctx.measureText(l.text).width);
+    }, 0);
+
+    const bw = maxW + pad*2;
+    const bh = lines.length * lineH + pad*2;
+
+    // Position
+    const margin = 16 * scale * 2;
+    let bx, by;
+    const pos = state.position;
+    const cx = pos.includes('center') && !pos.includes('top') && !pos.includes('bot');
+    if (pos.startsWith('top'))    by = margin;
+    else if (pos.startsWith('bot')) by = img.height - bh - margin;
+    else                             by = (img.height - bh) / 2;
+
+    if (pos.endsWith('left'))   bx = margin;
+    else if (pos.endsWith('right')) bx = img.width - bw - margin;
+    else                             bx = (img.width - bw) / 2;
+
+    // BG
+    const r = parseInt(bgColor.slice(1,3),16);
+    const g = parseInt(bgColor.slice(3,5),16);
+    const b = parseInt(bgColor.slice(5,7),16);
+
+    if (!state.noBg) {
+      ctx.fillStyle = `rgba(${r},${g},${b},${opacity/100})`;
+      roundRect(ctx, bx, by, bw, bh, 8 * scale * 2);
+      ctx.fill();
+    }
+
+    // Text shadow when no bg
+    if (state.noBg && state.textShadow) {
+      ctx.shadowColor = 'rgba(0,0,0,0.9)';
+      ctx.shadowBlur = 8 * scale * 2;
+      ctx.shadowOffsetX = 1;
+      ctx.shadowOffsetY = 1;
+    } else {
+      ctx.shadowColor = 'transparent';
+      ctx.shadowBlur = 0;
+    }
+
+    // Text
+    ctx.fillStyle = textColor;
+    lines.forEach((line, i) => {
+      ctx.font = line.bold ? `bold ${fs}px ${fontFace}` : `${fs}px ${fontFace}`;
+      ctx.fillText(line.text, bx + pad, by + pad + (i * lineH) + fs);
+    });
+
+    ctx.shadowColor = 'transparent';
+    ctx.shadowBlur = 0;
+
+    download(canvas);
+  };
+  img.src = state.image;
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+function download(canvas) {
+  const a = document.createElement('a');
+  a.download = 'foto-watermark-' + Date.now() + '.jpg';
+  a.href = canvas.toDataURL('image/jpeg', 0.95);
+  a.click();
+}
+
+function formatDate(dateStr) {
+  const months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  const [y,m,d] = dateStr.split('-');
+  return `${parseInt(d)} ${months[parseInt(m)-1]} ${y}`;
+}
+
+function resetAll() {
+  document.getElementById('fileInput').value = '';
+  document.getElementById('previewImg').style.display = 'none';
+  document.getElementById('emptyState').style.display = 'flex';
+  document.getElementById('wmOverlay').style.display = 'none';
+  document.getElementById('downloadBtn').disabled = true;
+  document.getElementById('wTitle').value = '';
+  document.getElementById('wCoord').value = '';
+  state.image = null;
+  const now = new Date();
+  document.getElementById('wDate').value = now.toISOString().split('T')[0];
+  document.getElementById('wTime').value = now.toTimeString().slice(0,5);
+}
+</script>
+
+  </div>
+</div>
+
+<!-- GiLink Password Modal -->
+<div id="gilinkModal" onclick="if(event.target===this)gilinkClose()" style="
+  display:none; position:fixed; inset:0; z-index:9000;
+  background:rgba(0,0,0,0.55); align-items:center; justify-content:center;">
+  <div style="
+    background:#fff; border-radius:16px; padding:32px 28px; width:90%; max-width:380px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.3); text-align:center;">
+    <div style="font-size:32px; margin-bottom:12px;">🔒</div>
+    <h3 style="font-family:'DM Serif Display',serif; font-size:20px; color:#1c2b22; margin-bottom:8px;">Akses Internal</h3>
+    <p style="font-size:14px; color:#7a9485; margin-bottom:20px;">Masukkan password untuk mengakses GiLink BPP Gilireng</p>
+    <input id="gilinkPwdInput" type="password" placeholder="Password..."
+      onkeydown="if(event.key==='Enter')gilinkCheck()"
+      style="width:100%; padding:12px 16px; border:1.5px solid #d0ddd0; border-radius:10px;
+        font-size:15px; font-family:'DM Sans',sans-serif; outline:none; margin-bottom:8px;
+        text-align:center; letter-spacing:2px; color:#1c2b22;">
+    <p id="gilinkPwdError" style="color:#e74c3c; font-size:13px; min-height:18px; margin-bottom:12px;"></p>
+    <div style="display:flex; gap:10px;">
+      <button onclick="gilinkClose()" style="
+        flex:1; padding:11px; border:1.5px solid #d0ddd0; border-radius:8px;
+        background:#fff; color:#7a9485; font-size:14px; font-weight:600;
+        cursor:pointer; font-family:'DM Sans',sans-serif;">Batal</button>
+      <button onclick="gilinkCheck()" style="
+        flex:1; padding:11px; border:none; border-radius:8px;
+        background:#3d7a5c; color:#fff; font-size:14px; font-weight:600;
+        cursor:pointer; font-family:'DM Sans',sans-serif;">Masuk →</button>
+    </div>
+  </div>
+</div>
+
 <!-- Toast -->
 <style>
 .atab.active { color:#3d7a5c !important; border-bottom-color:#3d7a5c !important; background:#fff !important; }
@@ -2206,14 +3119,20 @@ document.addEventListener('keydown', e => {
 
 
 function showPage(page) {
-  ['main','evidence-lcs','profil-bpp','profil-penyuluh'].forEach(p => {
-    const el = document.getElementById('page-' + p);
-    if (el) el.style.display = (p === page) ? 'block' : 'none';
+  ['main','evidence-lcs','profil-bpp','profil-penyuluh','opencam'].forEach(p => {
+    var el = document.getElementById('page-' + p);
+    if (!el) return;
+    if (p === 'evidence-lcs') {
+      el.style.display = (p === page) ? 'flex' : 'none';
+      el.style.flexDirection = 'column';
+    } else {
+      el.style.display = (p === page) ? 'block' : 'none';
+    }
   });
   window.scrollTo(0,0);
-  if (page === 'evidence-lcs' && !window._evidenceInit) {
-    window._evidenceInit = true;
-    for (let i = 0; i < 3; i++) tambahBaris();
+  if (page === 'evidence-lcs') {
+    var fr = document.getElementById('evidenceLcsFrame');
+    if (fr && !fr.src) fr.src = fr.getAttribute('data-src');
   }
   if (typeof closeDrawer === 'function') closeDrawer();
 }
@@ -2351,37 +3270,43 @@ function showPage(page) {
           var cell   = document.getElementById(cellId);
           var imgEl  = cell ? cell.querySelector('.foto-preview') : null;
           if (imgEl) {
-            fotosHTML += '<td class="foto-cell"><img src="' + imgEl.src + '" style="width:100%;height:80px;object-fit:cover;display:block;"/></td>';
+            fotosHTML += '<td class="fc"><img src="' + imgEl.src + '" style="width:100%;height:80px;object-fit:cover;display:block;"/></td>';
           } else {
-            fotosHTML += '<td class="foto-cell"><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:80px;background:#f8f8f8;border:1px dashed #ccc;color:#aaa;font-size:10px;"><span>Foto</span><span>Eviden ' + t.charAt(0).toUpperCase() + t.slice(1) + '</span></div></td>';
+            fotosHTML += '<td class="fc"><div class="fp"><span>📷</span><span>Foto ' + t.charAt(0).toUpperCase() + t.slice(1) + '</span></div></td>';
           }
         });
-        rowsHTML += '<tr><td style="width:100px;text-align:center;font-size:12px;padding:8px 4px;border:1px solid #333;">' + tgl + '</td>'
-          + '<td style="border:1px solid #333;"><div style="font-size:12px;padding:6px 8px;min-height:50px;">' + konten + '</div></td>'
+        rowsHTML += '<tr>'
+          + '<td class="td-tgl">' + tgl + '</td>'
+          + '<td class="td-konten"><div class="kont">' + konten + '</div></td>'
           + fotosHTML + '</tr>';
       });
 
-      var css = '@page{margin:10mm;size:A4 portrait}'
+      var printCSS = '@page{margin:15mm 15mm 15mm 20mm;size:A4 portrait}'
         + '*{box-sizing:border-box;margin:0;padding:0}'
-        + 'body{font-family:Arial,sans-serif;font-size:13px}'
-        + '.header{text-align:center;margin-bottom:18px;border-bottom:2px solid #333;padding-bottom:12px}'
-        + '.header h2{font-size:13px;font-weight:700;text-transform:uppercase;line-height:1.5}'
+        + 'body{font-family:Arial,sans-serif;font-size:13px;color:#000}'
+        + '.hdr{text-align:center;margin-bottom:18px;border-bottom:2px solid #333;padding-bottom:12px}'
+        + '.hdr h2{font-size:13px;font-weight:700;text-transform:uppercase;line-height:1.6}'
         + '.meta{margin-bottom:16px}'
-        + '.meta-row{display:flex;margin-bottom:5px}'
-        + '.lbl{font-size:12.5px;font-weight:700;width:130px;flex-shrink:0}'
-        + '.col{font-size:12.5px;margin-right:8px}'
-        + '.val{font-size:12.5px}'
+        + '.mr{display:flex;margin-bottom:5px}'
+        + '.ml{font-size:12.5px;font-weight:700;width:130px;flex-shrink:0}'
+        + '.mc{font-size:12.5px;margin-right:8px}'
+        + '.mv{font-size:12.5px}'
         + 'table{width:100%;border-collapse:collapse}'
         + 'th{background:#3d3d3d;color:#fff;text-align:center;font-size:11px;font-weight:700;text-transform:uppercase;padding:8px 6px;border:1px solid #555}'
         + 'th.ev{background:#2c2c2c}'
-        + '.foto-cell{width:110px;min-height:80px;border:1px solid #333;padding:0}';
+        + 'td{border:1px solid #333;vertical-align:middle;padding:0}'
+        + '.td-tgl{width:100px;text-align:center;font-size:12px;padding:8px 4px}'
+        + '.td-konten{padding:0}'
+        + '.kont{font-size:12px;padding:6px 8px;min-height:50px}'
+        + '.fc{width:110px;min-height:80px;padding:0}'
+        + '.fp{display:flex;flex-direction:column;align-items:center;justify-content:center;height:80px;background:#f8f8f8;color:#aaa;font-size:10px;gap:3px}';
 
-      var body = '<div class="header"><h2>LAPORAN PENDERASAN INFORMASI DAN PEMBANGUNAN PERTANIAN<br/>PENYULUH PERTANIAN TAHUN ' + tahun + '</h2></div>'
+      var printBody = '<div class="hdr"><h2>LAPORAN PENDERASAN INFORMASI DAN PEMBANGUNAN PERTANIAN<br/>PENYULUH PERTANIAN TAHUN ' + tahun + '</h2></div>'
         + '<div class="meta">'
-        + '<div class="meta-row"><span class="lbl">PERIODE</span><span class="col">:</span><span class="val">' + bulan + ' ' + tahun + '</span></div>'
-        + '<div class="meta-row"><span class="lbl">Nama Penyuluh</span><span class="col">:</span><span class="val">' + nama + '</span></div>'
-        + '<div class="meta-row"><span class="lbl">NIP.</span><span class="col">:</span><span class="val">' + nip + '</span></div>'
-        + '<div class="meta-row"><span class="lbl">Wilayah Binaan</span><span class="col">:</span><span class="val">' + wilayah + '</span></div>'
+        + '<div class="mr"><span class="ml">PERIODE</span><span class="mc">:</span><span class="mv">' + bulan + ' ' + tahun + '</span></div>'
+        + '<div class="mr"><span class="ml">Nama Penyuluh</span><span class="mc">:</span><span class="mv">' + nama + '</span></div>'
+        + '<div class="mr"><span class="ml">NIP.</span><span class="mc">:</span><span class="mv">' + nip + '</span></div>'
+        + '<div class="mr"><span class="ml">Wilayah Binaan</span><span class="mc">:</span><span class="mv">' + wilayah + '</span></div>'
         + '</div>'
         + '<table><thead><tr>'
         + '<th rowspan="2" style="width:100px">TANGGAL</th>'
@@ -2390,10 +3315,39 @@ function showPage(page) {
         + '<th style="width:110px">LIKE</th><th style="width:110px">COMEN</th><th style="width:110px">SHARE</th>'
         + '</tr></thead><tbody>' + rowsHTML + '</tbody></table>';
 
-      var pw = window.open('', '_blank', 'width=900,height=700');
-      pw.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"/><title>Evidence LCS - BPP Gilireng</title><style>' + css + '</style></head><body>' + body + '</body></html>');
-      pw.document.close();
-      pw.onload = function() { setTimeout(function() { pw.focus(); pw.print(); }, 400); };
+      var fullHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"/><title>Evidence LCS - BPP Gilireng</title>'
+        + '<style>' + printCSS + '</style></head><body>' + printBody + '</body></html>';
+
+      // Gunakan iframe tersembunyi agar tidak terblokir popup blocker
+      var iframe = document.getElementById('printFrame');
+      if (!iframe) {
+        iframe = document.createElement('iframe');
+        iframe.id = 'printFrame';
+        iframe.style.cssText = 'position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;border:none;';
+        document.body.appendChild(iframe);
+      }
+      iframe.srcdoc = fullHTML;
+      iframe.onload = function() {
+        try {
+          iframe.contentWindow.focus();
+          iframe.contentWindow.print();
+          // Setelah print, tawarkan buka Google Drive
+          setTimeout(function() {
+            if (confirm('Cetak/simpan PDF selesai.\n\nBuka folder Google Drive untuk upload file PDF?')) {
+              window.open('https://drive.google.com/drive/folders/17SLWTK74rffzdldrnleE-eHA0ynAYRdz', '_blank');
+            }
+          }, 1500);
+        } catch(e) {
+          var pw = window.open('', '_blank');
+          if (pw) {
+            pw.document.write(fullHTML);
+            pw.document.close();
+            setTimeout(function() { pw.print(); }, 500);
+          } else {
+            alert('Aktifkan popup di browser untuk cetak PDF, atau gunakan Ctrl+P / Cmd+P secara manual.');
+          }
+        }
+      };
     }
 
     // ===================== RESET =====================
@@ -2447,11 +3401,11 @@ const STORAGE_KEY    = 'bppgilireng_data';
 // ---- Default data (fallback jika belum ada di localStorage) ----
 const DEFAULT_DATA = {
   penyuluh: [
-    { nama: 'Muhammad Firdaus, S.Pt', jabatan: 'Penyuluh Pertanian Ahli Madya', wilayah: 'Desa Lamata, Desa Polewali', koordinator: true },
-    { nama: 'Afradillah, S.P.',       jabatan: 'Penyuluh Pertanian Ahli Pertama', wilayah: 'Desa Alausalo, Desa Mamminasae', koordinator: false },
+    { nama: 'Muhammad Firdaus, S.Pt', jabatan: 'Penyuluh Pertanian Ahli Madya', wilayah: 'Desa Lamata, Desa Polewalie', koordinator: true },
     { nama: 'Suhady Hamdan, S.P.',    jabatan: 'Penyuluh Pertanian Ahli Pertama', wilayah: 'Desa Paselloreng, Kel. Gilireng', koordinator: false },
     { nama: 'Muhammad Jafar, S.P.',   jabatan: 'Penyuluh Pertanian Ahli Pertama', wilayah: 'Desa Arajang', koordinator: false },
     { nama: 'Muhammad Yunus, S.P.',   jabatan: 'Ahli Pertama - Penyuluh Pertanian', wilayah: 'Desa Abbatireng, Desa Poleonro', koordinator: false },
+    { nama: 'Afradillah, S.P.',       jabatan: 'Penyuluh Pertanian Ahli Pertama', wilayah: 'Desa Alausalo, Desa Mamminasae', koordinator: false },
   ],
   pppk: [
     { nama: 'Mudara, S.P.',  jabatan: 'PPPK Paruh Waktu · Dinas Pertanian Kab. Wajo' },
@@ -2462,7 +3416,7 @@ const DEFAULT_DATA = {
     { nama: 'E-PERSONAL',          url: 'https://epersonal.pertanian.go.id/login', icon: '👤', kategori: 'kepegawaian', deskripsi: 'Sistem Informasi Kepegawaian Pertanian' },
     { nama: 'E-PUSLUH',            url: 'https://dev.epusluh.id',                icon: '💻', kategori: 'nasional',    deskripsi: 'Sistem Informasi Penyuluhan Pertanian' },
     { nama: 'E-PUSLUH Admin',      url: 'https://2025.epusluh.id/admin/login',   icon: '🛡️', kategori: 'nasional',    deskripsi: 'Panel Administrasi Pusat Penyuluhan 2025' },
-    { nama: 'EVIDENCE LCS',        url: '__internal__evidence-lcs',              icon: '📋', kategori: 'daerah',      deskripsi: 'Form Laporan Penderasan Informasi & Bukti Interaksi Konten', internal: true },
+    { nama: 'EVIDENCE LCS',        url: 'https://www.bpptomoni.my.id/p/eviden-lcs-digital.html', icon: '📋', kategori: 'daerah', deskripsi: 'Form Laporan Penderasan Informasi & Bukti Interaksi Konten' },
     { nama: 'EVIDEN LCS Wajo',     url: 'https://drive.google.com/drive/folders/17SLWTK74rffzdldrnleE-eHA0ynAYRdz', icon: '📁', kategori: 'daerah', deskripsi: 'Folder Dokumen Evidensi & LCS Kabupaten Wajo' },
     { nama: 'EVERVAL',             url: 'https://everval.pertanian.go.id/',      icon: '🌿', kategori: 'nasional',    deskripsi: 'Verifikasi & Validasi Data Pupuk Bersubsidi' },
     { nama: 'GEOPORTAL',           url: 'https://geoportal.pertanian.go.id/',    icon: '🗺️', kategori: 'nasional',    deskripsi: 'Sistem Pemetaan & Informasi Geospasial Pertanian' },
@@ -2511,7 +3465,7 @@ function renderPortal() {
     const badgeClass = item.kategori === 'nasional' ? 'nasional' : item.kategori === 'kepegawaian' ? 'kepeg' : 'daerah';
     const badgeLabel = item.kategori === 'nasional' ? 'Nasional' : item.kategori === 'kepegawaian' ? 'Kepegawaian' : (item.nama.includes('Wajo') || item.kategori === 'daerah' ? (item.nama.includes('BPP') || item.internal ? 'BPP Gilireng' : 'Wajo') : 'Daerah');
     const urlLabel  = item.internal ? 'BPP Gilireng · Internal' : new URL(item.url.startsWith('http') ? item.url : 'https://'+item.url).hostname;
-    const onclick   = item.internal ? `onclick="event.preventDefault();showPage('evidence-lcs')"` : `target="_blank" rel="noopener"`;
+    const onclick = 'target="_blank" rel="noopener"';
     const href      = item.internal ? '#' : item.url;
     const style     = item.internal ? 'style="border-color:var(--harvest)"' : '';
     return `<a href="${href}" ${onclick} class="p-card" data-cat="${item.kategori}" ${style}>
@@ -2726,7 +3680,15 @@ function adminAddPortal() {
     <div class="admin-form">
       <label>Nama</label><input id="fp_nama" placeholder="Nama sistem"/>
       <label>URL</label><input id="fp_url" placeholder="https://..."/>
-      <label>Icon (emoji)</label><input id="fp_icon" value="🔗" style="width:60px"/>
+      <label>Icon</label>
+      <div>
+        <input id="fp_icon" value="🔗" style="width:50px;font-size:18px;text-align:center;border:1.5px solid #d0ddd0;border-radius:6px;padding:4px;"/>
+        <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px;">
+          ${['📋','📊','📈','📁','📂','📄','📝','🗂️','🗃️','💻','🖥️','📱','🌐','🔗','🔍','📌','🗺️','🌿','🌾','💧','🚜','🌱','🐄','👤','🏛️','🛡️','⚙️','📞','✅','🔑'].map(e =>
+          `<button type="button" onclick="document.getElementById('fp_icon').value='${e}'" style="background:#f0f7f0;border:1px solid #d0ddd0;border-radius:4px;padding:3px 5px;cursor:pointer;font-size:16px;">${e}</button>`
+        ).join('')}
+        </div>
+      </div>
       <label>Kategori</label>
       <select id="fp_kat"><option value="nasional">Nasional</option><option value="daerah">Daerah/Wajo</option><option value="kepegawaian">Kepegawaian</option></select>
       <label>Deskripsi</label><input id="fp_desk" placeholder="Keterangan singkat"/>
@@ -2743,7 +3705,15 @@ function adminEditPortal(i) {
     <div class="admin-form">
       <label>Nama</label><input id="fp_nama" value="${item.nama}"/>
       <label>URL</label><input id="fp_url" value="${item.url}"/>
-      <label>Icon</label><input id="fp_icon" value="${item.icon}" style="width:60px"/>
+      <label>Icon</label>
+      <div>
+        <input id="fp_icon" value="${item.icon}" style="width:50px;font-size:18px;text-align:center;border:1.5px solid #d0ddd0;border-radius:6px;padding:4px;"/>
+        <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px;">
+          ${['📋','📊','📈','📁','📂','📄','📝','🗂️','🗃️','💻','🖥️','📱','🌐','🔗','🔍','📌','🗺️','🌿','🌾','💧','🚜','🌱','🐄','👤','🏛️','🛡️','⚙️','📞','✅','🔑'].map(e =>
+          `<button type="button" onclick="document.getElementById('fp_icon').value='${e}'" style="background:#f0f7f0;border:1px solid #d0ddd0;border-radius:4px;padding:3px 5px;cursor:pointer;font-size:16px;">${e}</button>`
+        ).join('')}
+        </div>
+      </div>
       <label>Kategori</label>
       <select id="fp_kat">
         <option value="nasional" ${item.kategori==='nasional'?'selected':''}>Nasional</option>
@@ -2956,6 +3926,370 @@ function toggleTheme() {
     if (btn) btn.textContent = '☀️';
   }
 })();
+
+// ===================== GILINK AUTH =====================
+var _gilinkTarget = '';
+function gilinkAuth(url) {
+  _gilinkTarget = url;
+  var modal = document.getElementById('gilinkModal');
+  var input = document.getElementById('gilinkPwdInput');
+  var err   = document.getElementById('gilinkPwdError');
+  if (!modal) return;
+  if (input) input.value = '';
+  if (err)   err.textContent = '';
+  modal.style.display = 'flex';
+  setTimeout(function() { if (input) input.focus(); }, 100);
+}
+function gilinkClose() {
+  var modal = document.getElementById('gilinkModal');
+  if (modal) modal.style.display = 'none';
+  _gilinkTarget = '';
+}
+function gilinkCheck() {
+  var input = document.getElementById('gilinkPwdInput');
+  var err   = document.getElementById('gilinkPwdError');
+  if (!input) return;
+  if (input.value.trim() === 'Bppgilireng2026') {
+    gilinkClose();
+    if (_gilinkTarget) window.open(_gilinkTarget, '_blank');
+  } else {
+    if (err) err.textContent = 'Password salah. Coba lagi.';
+    input.value = '';
+    input.focus();
+    input.style.borderColor = '#e74c3c';
+    setTimeout(function() {
+      if (input) input.style.borderColor = '#d0ddd0';
+      if (err)   err.textContent = '';
+    }, 2000);
+  }
+}
+
+
+// === OPEN CAMERA CUSTOM ===
+
+(function() {
+// === OPEN CAMERA CUSTOM APP ===
+
+const state = {
+  image: null,
+  showDateTime: true,
+  showCoord: true,
+  showTitle: true,
+  position: 'bot-right',
+  noBg: false,
+  textShadow: true,
+};
+
+// ---- File upload
+document.getElementById('oc_fileInput').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  loadImage(file);
+});
+
+const uploadZone = document.getElementById('oc_uploadZone');
+uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag'); });
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag'));
+uploadZone.addEventListener('drop', e => {
+  e.preventDefault();
+  uploadZone.classList.remove('drag');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) loadImage(file);
+});
+
+function loadImage(file) {
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    state.image = ev.target.result;
+    const img = document.getElementById('oc_previewImg');
+    img.src = state.image;
+    img.style.display = 'block';
+    document.getElementById('oc_emptyState').style.display = 'none';
+    document.getElementById('oc_wmOverlay').style.display = 'block';
+    document.getElementById('oc_downloadBtn').disabled = false;
+    renderPreview();
+  };
+  reader.readAsDataURL(file);
+}
+
+// Date & time: kosong, bebas diisi manual
+
+// ---- All inputs trigger re-render
+['wTitle','wDate','wTime','wCoord','bgOpacity','textColor','bgColor','fontSelect'].forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener('input', renderPreview);
+  el.addEventListener('change', renderPreview);
+});
+
+function updateFontSize(el) {
+  document.getElementById('oc_fontSizeVal').textContent = el.value;
+  renderPreview();
+}
+
+function renderPreview() {
+  if (!state.image) return;
+  
+  const title = document.getElementById('oc_wTitle').value.trim();
+  const date  = document.getElementById('oc_wDate').value;
+  const time  = document.getElementById('oc_wTime').value;
+  const coord = document.getElementById('oc_wCoord').value.trim();
+  const fontSize = parseInt(document.getElementById('oc_fontSize').value);
+  const opacity = parseInt(document.getElementById('oc_bgOpacity').value);
+  const textColor = document.getElementById('oc_textColor').value;
+  const bgColor = document.getElementById('oc_bgColor').value;
+  document.getElementById('oc_bgOpacityVal').textContent = opacity + '%';
+
+  // Update overlay display
+  const wmTitleEl = document.getElementById('oc_wmTitleEl');
+  const wmMetaEl  = document.getElementById('oc_wmMetaEl');
+  const wmCoordEl = document.getElementById('oc_wmCoordEl');
+  const wmBox     = document.getElementById('oc_wmBox');
+  const overlay   = document.getElementById('oc_wmOverlay');
+
+  wmBox.style.fontSize = fontSize + 'px';
+  wmBox.style.color = textColor;
+  
+  // Parse bgColor hex to rgb
+  const r = parseInt(bgColor.slice(1,3),16);
+  const g = parseInt(bgColor.slice(3,5),16);
+  const b = parseInt(bgColor.slice(5,7),16);
+
+  if (state.noBg) {
+    wmBox.style.background = 'transparent';
+    wmBox.style.backdropFilter = 'none';
+    wmBox.style.padding = '4px 0';
+    const shadow = state.textShadow ? '1px 1px 4px rgba(0,0,0,.9), 0 0 8px rgba(0,0,0,.7)' : 'none';
+    wmBox.style.textShadow = shadow;
+  } else {
+    wmBox.style.background = `rgba(${r},${g},${b},${opacity/100})`;
+    wmBox.style.backdropFilter = 'blur(4px)';
+    wmBox.style.padding = '8px 12px';
+    wmBox.style.textShadow = 'none';
+  }
+
+  wmTitleEl.textContent = state.showTitle && title ? title : '';
+  wmTitleEl.style.display = (state.showTitle && title) ? 'block' : 'none';
+  
+  let dateStr = '';
+  if (state.showDateTime) {
+    if (date) dateStr += formatDate(date);
+    if (time) dateStr += (dateStr ? '  ' : '') + time;
+  }
+  wmMetaEl.textContent = dateStr;
+  wmMetaEl.style.display = dateStr ? 'block' : 'none';
+
+  wmCoordEl.textContent = (state.showCoord && coord) ? coord : '';
+  wmCoordEl.style.display = (state.showCoord && coord) ? 'block' : 'none';
+
+  // Show/hide box
+  const hasContent = (state.showTitle && title) || dateStr || (state.showCoord && coord);
+  overlay.style.display = hasContent ? 'block' : 'none';
+
+  // Position overlay
+  setOverlayPosition(overlay, state.position);
+}
+
+function setOverlayPosition(el, pos) {
+  el.style.top = el.style.bottom = el.style.left = el.style.right = 'auto';
+  el.style.textAlign = 'left';
+  const pad = '12px';
+  const map = {
+    'top-left':    { top: pad, left: pad },
+    'top-center':  { top: pad, left: '50%', transform: 'translateX(-50%)' },
+    'top-right':   { top: pad, right: pad, textAlign: 'right' },
+    'mid-left':    { top: '50%', left: pad, transform: 'translateY(-50%)' },
+    'center':      { top: '50%', left: '50%', transform: 'translate(-50%,-50%)' },
+    'mid-right':   { top: '50%', right: pad, transform: 'translateY(-50%)', textAlign: 'right' },
+    'bot-left':    { bottom: pad, left: pad },
+    'bot-center':  { bottom: pad, left: '50%', transform: 'translateX(-50%)' },
+    'bot-right':   { bottom: pad, right: pad, textAlign: 'right' },
+  };
+  const styles = map[pos] || map['bot-right'];
+  Object.assign(el.style, styles);
+  if (!styles.transform) el.style.transform = '';
+}
+
+// ---- Position grid
+document.querySelectorAll('.pos-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.pos-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    state.position = btn.dataset.pos;
+    renderPreview();
+  });
+});
+
+// ---- Toggles
+function toggleFeature(el, key) {
+  el.classList.toggle('on');
+  state[key] = el.classList.contains('on');
+  if (key === 'noBg') {
+    document.getElementById('oc_shadowRow').style.display = state.noBg ? 'block' : 'none';
+  }
+  renderPreview();
+}
+
+// ---- Presets
+function applyPreset(type) {
+  const presets = {
+    survey: { title: 'Survey Lapangan', coord: '-5.1477, 119.4327' },
+    field:  { title: 'Dokumentasi Lapangan', coord: '-6.2088, 106.8456' },
+    gps:    { title: 'GPS Tracking Point', coord: '-7.7971, 110.3688' },
+    dokumentasi: { title: 'Dokumentasi Resmi', coord: '' },
+  };
+  const p = presets[type];
+  document.getElementById('oc_wTitle').value = p.title;
+  document.getElementById('oc_wCoord').value = p.coord;
+  renderPreview();
+}
+
+// ---- Download (canvas render)
+function downloadImage() {
+  if (!state.image) return;
+  
+  const img = new Image();
+  img.onload = () => {
+    const canvas = document.getElementById('oc_canvas');
+    canvas.width  = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+
+    const fontSize = parseInt(document.getElementById('oc_fontSize').value);
+    const textColor = document.getElementById('oc_textColor').value;
+    const bgColor   = document.getElementById('oc_bgColor').value;
+    const opacity   = parseInt(document.getElementById('oc_bgOpacity').value);
+    const fontFace  = document.getElementById('oc_fontSelect').value;
+
+    const title = document.getElementById('oc_wTitle').value.trim();
+    const date  = document.getElementById('oc_wDate').value;
+    const time  = document.getElementById('oc_wTime').value;
+    const coord = document.getElementById('oc_wCoord').value.trim();
+
+    const lines = [];
+    if (state.showTitle && title) lines.push({ text: title, bold: true });
+    if (state.showDateTime) {
+      let dt = '';
+      if (date) dt += formatDate(date);
+      if (time) dt += (dt ? '  ' : '') + time;
+      if (dt) lines.push({ text: dt, bold: false });
+    }
+    if (state.showCoord && coord) lines.push({ text: coord, bold: false });
+
+    if (!lines.length) {
+      download(canvas);
+      return;
+    }
+
+    // Scale font relative to image
+    const scale = Math.max(img.width, img.height) / 1000;
+    const fs = Math.round(fontSize * scale * 2);
+    ctx.font = `${fs}px ${fontFace}`;
+
+    const pad = 12 * scale * 2;
+    const lineH = fs * 1.4;
+    const maxW = lines.reduce((mx, l) => {
+      ctx.font = l.bold ? `bold ${fs}px ${fontFace}` : `${fs}px ${fontFace}`;
+      return Math.max(mx, ctx.measureText(l.text).width);
+    }, 0);
+
+    const bw = maxW + pad*2;
+    const bh = lines.length * lineH + pad*2;
+
+    // Position
+    const margin = 16 * scale * 2;
+    let bx, by;
+    const pos = state.position;
+    const cx = pos.includes('center') && !pos.includes('top') && !pos.includes('bot');
+    if (pos.startsWith('top'))    by = margin;
+    else if (pos.startsWith('bot')) by = img.height - bh - margin;
+    else                             by = (img.height - bh) / 2;
+
+    if (pos.endsWith('left'))   bx = margin;
+    else if (pos.endsWith('right')) bx = img.width - bw - margin;
+    else                             bx = (img.width - bw) / 2;
+
+    // BG
+    const r = parseInt(bgColor.slice(1,3),16);
+    const g = parseInt(bgColor.slice(3,5),16);
+    const b = parseInt(bgColor.slice(5,7),16);
+
+    if (!state.noBg) {
+      ctx.fillStyle = `rgba(${r},${g},${b},${opacity/100})`;
+      roundRect(ctx, bx, by, bw, bh, 8 * scale * 2);
+      ctx.fill();
+    }
+
+    // Text shadow when no bg
+    if (state.noBg && state.textShadow) {
+      ctx.shadowColor = 'rgba(0,0,0,0.9)';
+      ctx.shadowBlur = 8 * scale * 2;
+      ctx.shadowOffsetX = 1;
+      ctx.shadowOffsetY = 1;
+    } else {
+      ctx.shadowColor = 'transparent';
+      ctx.shadowBlur = 0;
+    }
+
+    // Text
+    ctx.fillStyle = textColor;
+    lines.forEach((line, i) => {
+      ctx.font = line.bold ? `bold ${fs}px ${fontFace}` : `${fs}px ${fontFace}`;
+      ctx.fillText(line.text, bx + pad, by + pad + (i * lineH) + fs);
+    });
+
+    ctx.shadowColor = 'transparent';
+    ctx.shadowBlur = 0;
+
+    download(canvas);
+  };
+  img.src = state.image;
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+function download(canvas) {
+  const a = document.createElement('a');
+  a.download = 'foto-watermark-' + Date.now() + '.jpg';
+  a.href = canvas.toDataURL('image/jpeg', 0.95);
+  a.click();
+}
+
+function formatDate(dateStr) {
+  const months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  const [y,m,d] = dateStr.split('-');
+  return `${parseInt(d)} ${months[parseInt(m)-1]} ${y}`;
+}
+
+function resetAll() {
+  document.getElementById('oc_fileInput').value = '';
+  document.getElementById('oc_previewImg').style.display = 'none';
+  document.getElementById('oc_emptyState').style.display = 'flex';
+  document.getElementById('oc_wmOverlay').style.display = 'none';
+  document.getElementById('oc_downloadBtn').disabled = true;
+  document.getElementById('oc_wTitle').value = '';
+  document.getElementById('oc_wCoord').value = '';
+  state.image = null;
+  const now = new Date();
+  document.getElementById('oc_wDate').value = now.toISOString().split('T')[0];
+  document.getElementById('oc_wTime').value = now.toTimeString().slice(0,5);
+}
+
+})();
+
+
 
 </script>
 </body>
