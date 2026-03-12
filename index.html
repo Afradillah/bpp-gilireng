@@ -1487,22 +1487,10 @@ body.dark-mode .admin-section-title { color: #deeede; }
         <span>Profil Penyuluh</span>
       </a>
       <div class="drawer-divider"></div>
-      <p class="drawer-section-label">Program Unggulan Kementan</p>
-      <a href="https://www.pertanian.go.id" target="_blank" class="drawer-link">
+      <p class="drawer-section-label">Program Strategis Kementan TA 2026</p>
+      <a href="https://www.pertanian.go.id/?show=page&act=view&idcat=28&id=131" target="_blank" rel="noopener" class="drawer-link">
         <span class="dl-icon">🌾</span>
-        <span>Swasembada Pangan</span>
-      </a>
-      <a href="https://www.pertanian.go.id" target="_blank" class="drawer-link">
-        <span class="dl-icon">🚜</span>
-        <span>Mekanisasi Pertanian</span>
-      </a>
-      <a href="https://www.pertanian.go.id" target="_blank" class="drawer-link">
-        <span class="dl-icon">💧</span>
-        <span>Pompanisasi</span>
-      </a>
-      <a href="https://www.pertanian.go.id" target="_blank" class="drawer-link">
-        <span class="dl-icon">🌱</span>
-        <span>Oplah (Optimasi Lahan)</span>
+        <span>Program Strategis Kementerian Pertanian TA 2026</span>
       </a>
       <div class="drawer-divider"></div>
       <p class="drawer-section-label">Alat Bantu Penyuluh</p>
@@ -1758,7 +1746,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
             <span class="k-icon">⏰</span>
             <div>
               <b>Jam Operasional</b>
-              <p>Senin – Jumat: 07.30 – 16.00 WITA<br/>Sabtu – Minggu: Tutup</p>
+              <p>Senin – Kamis: 08.00 – 16.00 WITA<br/>Jumat: 08.00 – 16.30 WITA<br/>Sabtu – Minggu: Tutup</p>
             </div>
           </div>
         </div>
@@ -1886,7 +1874,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
         </div>
         <div class="ib">
           <span class="ib-icon">⏰</span>
-          <div><b>Jam Operasional</b><p>Senin – Jumat · 07.30 – 16.00 WITA</p></div>
+          <div><b>Jam Operasional</b><p>Senin – Kamis · 08.00 – 16.00 WITA<br/>Jumat · 08.00 – 16.30 WITA</p></div>
         </div>
         <div class="ib">
           <span class="ib-icon">🏢</span>
@@ -3430,7 +3418,7 @@ const DEFAULT_DATA = {
   stats: { penyuluh: 5, desa: 9, gapoktan: 157, poktan: 9 },
   kontak: {
     alamat: '35C9+8M2, Poleonro, Kecamatan Gilireng, Kabupaten Wajo, Sulawesi Selatan 90954',
-    jam: 'Senin – Jumat: 07.30 – 16.00 WITA · Sabtu – Minggu: Tutup'
+    jam: 'Senin – Kamis: 08.00 – 16.00 WITA · Jumat: 08.00 – 16.30 WITA · Sabtu – Minggu: Tutup'
   },
   profil: {
     kepala: '[Nama Kepala BPP]',
@@ -3928,9 +3916,9 @@ function toggleTheme() {
 })();
 
 // ===================== GILINK AUTH =====================
-var _gilinkTarget = '';
+window._gilinkTarget = '';
 function gilinkAuth(url) {
-  _gilinkTarget = url;
+  window._gilinkTarget = url;
   var modal = document.getElementById('gilinkModal');
   var input = document.getElementById('gilinkPwdInput');
   var err   = document.getElementById('gilinkPwdError');
@@ -3943,24 +3931,33 @@ function gilinkAuth(url) {
 function gilinkClose() {
   var modal = document.getElementById('gilinkModal');
   if (modal) modal.style.display = 'none';
-  _gilinkTarget = '';
+  window._gilinkTarget = '';
 }
 function gilinkCheck() {
   var input = document.getElementById('gilinkPwdInput');
   var err   = document.getElementById('gilinkPwdError');
   if (!input) return;
-  if (input.value.trim() === 'Bppgilireng2026') {
+  var pwd = input.value.trim();
+  if (pwd === 'Bppgilireng2026') {
+    var url = window._gilinkTarget;
     gilinkClose();
-    if (_gilinkTarget) window.open(_gilinkTarget, '_blank');
+    // Buka link — pakai anchor click agar tidak diblokir popup blocker
+    var a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   } else {
-    if (err) err.textContent = 'Password salah. Coba lagi.';
+    if (err) err.textContent = '❌ Password salah. Coba lagi.';
     input.value = '';
     input.focus();
     input.style.borderColor = '#e74c3c';
     setTimeout(function() {
       if (input) input.style.borderColor = '#d0ddd0';
       if (err)   err.textContent = '';
-    }, 2000);
+    }, 2500);
   }
 }
 
