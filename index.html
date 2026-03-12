@@ -4,19 +4,15 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BPP Gilireng — Balai Penyuluhan Pertanian</title>
-  <meta name="description" content="Website resmi Balai Penyuluhan Pertanian Kecamatan Gilireng, Kabupaten Wajo, Sulawesi Selatan. Portal informasi dan pelaporan penyuluhan pertanian.">
-  <meta name="theme-color" content="#2a4a38">
-  <!-- Preconnect untuk percepat font loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <!-- Satu font request saja, display=swap agar tidak blocking -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 /* ================================================
    BPP GILIRENG — STYLE.CSS
    Tema: Earth & Harvest · DM Serif Display + DM Sans
    ================================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 :root {
   /* Palette — Tanah & Panen */
@@ -73,7 +69,7 @@ img { max-width: 100%; display: block; }
   height: 66px; display: flex; align-items: center; justify-content: space-between;
 }
 .nav-brand { display: flex; align-items: center; gap: 12px; }
-.brand-emblem { font-size: 26px; line-height: 1; display:flex; align-items:center; }
+.brand-emblem { font-size: 26px; line-height: 1; }
 .brand-name { font-family: 'DM Serif Display', serif; font-size: 19px; color: #fff; line-height: 1.1; }
 .brand-tagline { font-size: 10px; color: var(--sage); letter-spacing: 0.8px; text-transform: uppercase; }
 
@@ -404,33 +400,36 @@ img { max-width: 100%; display: block; }
 }
 
 /* ===================== ANIMATIONS ===================== */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; will-change: opacity, transform; }
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .reveal.in-view { opacity: 1; transform: translateY(0); }
 
 /* ===================== HERO HAMBURGER ===================== */
 .hero-hamburger {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  background: rgba(255,255,255,0.08);
-  border: 1.5px solid rgba(255,255,255,0.15);
-  border-radius: 10px;
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  width: 46px;
+  height: 46px;
+  background: rgba(28,43,34,0.82);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  border-radius: 12px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 5px;
-  flex-shrink: 0;
+  z-index: 950;
+  backdrop-filter: blur(8px);
   transition: background 0.2s, transform 0.15s;
 }
 .hero-hamburger:hover {
-  background: rgba(255,255,255,0.16);
+  background: rgba(28,43,34,0.97);
   transform: scale(1.06);
 }
 .hero-hamburger span {
   display: block;
-  width: 18px;
+  width: 20px;
   height: 2px;
   background: #fff;
   border-radius: 2px;
@@ -717,7 +716,7 @@ img { max-width: 100%; display: block; }
   /* Navbar */
   .nav-inner { height: 58px; }
   .brand-name { font-size: 16px; }
-  .brand-tagline { font-size: 9px; }
+  .brand-tagline { display: none; }
   .nm-link { font-size: 14px; padding: 8px 10px; }
   .nm-report, .nm-gilink { padding: 7px 12px; font-size: 13px; }
 
@@ -769,7 +768,7 @@ img { max-width: 100%; display: block; }
   .footer-bottom { font-size: 12px; }
 
   /* Hamburger */
-  .hero-hamburger { width: 38px; height: 38px; }
+  .hero-hamburger { top: 10px; left: 10px; width: 42px; height: 42px; }
 
   /* Admin trigger */
   #adminTrigger { bottom: 16px; right: 16px; width: 44px; height: 44px; font-size: 18px; }
@@ -794,140 +793,27 @@ img { max-width: 100%; display: block; }
   .penyuluh-grid { grid-template-columns: 1fr; }
 }
 
-
-
-/* ===================== DARK MODE — COMPREHENSIVE ===================== */
-body.dark-mode {
-  --cream: #111d14;
-  --rice:  #172119;
-  --ink:   #1a2e1d;
-  --text:  #deeede;
-  --text-2:#b0ccb4;
-  --text-3:#7a9a80;
-  --border:rgba(100,180,120,0.18);
-  --sh-sm: 0 2px 12px rgba(0,0,0,0.4);
-  --sh-md: 0 6px 32px rgba(0,0,0,0.55);
-  --sh-lg: 0 16px 56px rgba(0,0,0,0.65);
-  background: #111d14;
-  color: #deeede;
-  transition: background 0.3s, color 0.3s;
+/* ===================== FOOTER SOSMED ===================== */
+.f-medsos {
+  display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;
 }
-
-/* Sections */
-body.dark-mode .sec                 { background: #111d14; }
-body.dark-mode .profil-sec          { background: #172119; }
-body.dark-mode .gilink-sec          { background: #111d14; }
-body.dark-mode .kontak-sec          { background: #172119; }
-body.dark-mode .penyuluh-sec        { background: #111d14; }
-body.dark-mode .galeri-sec          { background: #172119; }
-body.dark-mode .wilayah-sec         { background: #111d14; }
-
-/* Typography */
-body.dark-mode .sec-title           { color: #deeede; }
-body.dark-mode .sec-desc            { color: #7a9a80; }
-body.dark-mode .sec-tag             { color: #6aab88; }
-body.dark-mode .lead                { color: #b0ccb4; }
-body.dark-mode p                    { color: #b0ccb4; }
-
-/* Cards */
-body.dark-mode .w-card              { background: #1e2f20; border-color: rgba(100,180,120,0.18); }
-body.dark-mode .w-card:hover        { border-color: #6aab88; }
-body.dark-mode .w-num               { color: #2a4a30; }
-body.dark-mode .w-body h3           { color: #deeede; }
-body.dark-mode .w-body p            { color: #7a9a80; }
-body.dark-mode .w-body span         { color: #6aab88; }
-body.dark-mode .add-card            { background: #172119; }
-
-body.dark-mode .ib                  { background: #1e2f20; border-color: rgba(100,180,120,0.18); }
-body.dark-mode .ib b                { color: #7a9a80; }
-body.dark-mode .ib p                { color: #b0ccb4; }
-
-body.dark-mode .gl-card             { background: #1e2f20; border-color: rgba(100,180,120,0.18); }
-body.dark-mode .gl-card.gl-add      { background: #172119; }
-body.dark-mode .gl-body h3          { color: #deeede; }
-body.dark-mode .gl-body p           { color: #7a9a80; }
-
-body.dark-mode .py-card             { background: #1e2f20; border-color: rgba(100,180,120,0.18); }
-body.dark-mode .py-card.py-koordinator { background: linear-gradient(135deg,#1a3020,#1e2f20); border-color: #3d7a5c; }
-body.dark-mode .py-card h3          { color: #deeede; }
-body.dark-mode .py-jabatan          { background: rgba(61,122,92,0.25); color: #6aab88; }
-body.dark-mode .py-meta span        { color: #7a9a80; }
-
-body.dark-mode .pppk-section        { border-top-color: #2a4030; }
-body.dark-mode .pppk-card           { background: #1e2f20; border-color: rgba(100,180,120,0.18); }
-body.dark-mode .pppk-card h4        { color: #deeede; }
-body.dark-mode .pppk-card span      { color: #7a9a80; }
-body.dark-mode .pppk-tag            { background: #1a3020; color: #6aab88; border-color: #2a4030; }
-body.dark-mode .pppk-note           { color: #7a9a80; }
-
-/* Portal cards */
-body.dark-mode .p-card              { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
-body.dark-mode .p-card:hover        { background: rgba(255,255,255,0.08); border-color: #e8b84b; }
-body.dark-mode .p-card h3           { color: #fff; }
-body.dark-mode .p-card p            { color: rgba(255,255,255,0.55); }
-body.dark-mode .p-url               { color: rgba(255,255,255,0.25); }
-body.dark-mode .p-note              { color: rgba(255,255,255,0.4); }
-
-/* Tabs */
-body.dark-mode .ptab                { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); }
-body.dark-mode .ptab:hover          { border-color: #e8b84b; color: #e8b84b; }
-body.dark-mode .ptab.active         { background: #e8b84b; border-color: #e8b84b; color: #1c2b22; }
-
-/* Kontak */
-body.dark-mode .kontak-map          { border-color: rgba(100,180,120,0.2); }
-body.dark-mode .map-ph              { background: #1e2f20; color: #7a9a80; }
-body.dark-mode .k-icon              { opacity: 0.8; }
-body.dark-mode .k-item b            { color: #7a9a80; }
-body.dark-mode .k-item p            { color: #b0ccb4; }
-
-/* VM box */
-body.dark-mode .vm-box              { background: linear-gradient(140deg, #0d1e10, #172119); }
-
-/* Galeri */
-body.dark-mode .g-ph                { background: linear-gradient(135deg,#1a2e1a,#1e2f20); color: #7a9a80; }
-body.dark-mode .g-note              { color: #7a9a80; }
-body.dark-mode .g-note code         { background: #1e2f20; color: #b0ccb4; }
-
-/* Footer */
-body.dark-mode .footer              { background: #0d1610; }
-body.dark-mode .f-brand p           { color: rgba(255,255,255,0.4); }
-body.dark-mode .f-col ul li a       { color: rgba(255,255,255,0.45); }
-body.dark-mode .footer-bottom       { color: rgba(255,255,255,0.25); border-top-color: rgba(255,255,255,0.06); }
-
-/* Drawer */
-body.dark-mode .side-drawer         { background: #172119; }
-body.dark-mode .drawer-link         { color: #b0ccb4; }
-body.dark-mode .drawer-link:hover   { background: #1e2f20; color: #6aab88; }
-body.dark-mode .drawer-divider      { background: #2a4030; }
-body.dark-mode .drawer-section-label { color: #4a6a50; }
-
-/* Hero cards */
-body.dark-mode .hero-cards          { background: rgba(0,0,0,0.25); border-color: rgba(255,255,255,0.08); }
-body.dark-mode .hcard               { border-right-color: rgba(255,255,255,0.06); }
-
-/* Modals */
-body.dark-mode .modal               { background: #1e2f20; }
-body.dark-mode .modal h3            { color: #deeede; }
-body.dark-mode .modal ol            { color: #b0ccb4; }
-body.dark-mode .modal-close         { background: #3d7a5c; }
-
-/* Admin panel */
-body.dark-mode #adminPanel div[style*="background:#f5f5f5"] { background: #172119 !important; }
-body.dark-mode #adminContent        { background: #172119; color: #deeede; }
-body.dark-mode .admin-section-title { color: #deeede; }
-body.dark-mode .admin-item          { background: #1e2f20; border-color: rgba(100,180,120,0.2); }
-body.dark-mode .admin-item-info strong { color: #deeede; }
-body.dark-mode .admin-item-info small  { color: #7a9a80; }
-body.dark-mode .admin-form label    { color: #b0ccb4; }
-body.dark-mode .admin-form input,
-body.dark-mode .admin-form select,
-body.dark-mode .admin-form textarea { background: #111d14; border-color: rgba(100,180,120,0.3); color: #deeede; }
-body.dark-mode #adminModalBox       { background: #1e2f20; }
-body.dark-mode .admin-section-title { color: #deeede; }
-
-/* Theme toggle */
-#themeToggle:hover { background: rgba(255,255,255,0.2) !important; }
-
+.f-sosmed-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: 20px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8); font-size: 13px; font-weight: 500;
+  transition: all 0.2s;
+}
+.f-sosmed-btn:hover {
+  background: rgba(255,255,255,0.16); color: #fff;
+  border-color: rgba(255,255,255,0.3);
+}
+.f-admin-info {
+  margin-top: 10px;
+}
+.f-admin-info small {
+  font-size: 11.5px; color: rgba(255,255,255,0.35);
+}
 
 
     :root {
@@ -976,7 +862,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
     .btn-help:hover { background:#d68910; }
 
     /* MAIN LAYOUT */
-    .main { margin-top:66px; padding:24px 20px 60px; max-width:1200px; margin-left:auto; margin-right:auto; }
+    .main { margin-top:56px; padding:24px 20px 60px; max-width:1200px; margin-left:auto; margin-right:auto; }
 
     /* SIDEBAR ACTIONS */
     .sidebar-actions {
@@ -1126,64 +1012,30 @@ body.dark-mode .admin-section-title { color: #deeede; }
 
     /* PRINT */
     @page {
-      margin: 15mm 15mm 15mm 20mm;
+      margin: 10mm;
       size: A4 portrait;
     }
     @media print {
-      .topbar, .sidebar-actions, .table-controls, .row-actions,
-      .remove-foto, #adminTrigger, #adminOverlay { display:none !important; }
-      html, body { background:#fff !important; color:#000 !important;
-        -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-      .doc-wrapper { margin:0 !important; box-shadow:none !important;
-        padding:0 !important; border-radius:0 !important; max-width:100% !important; }
+      html, body { margin: 0 !important; padding: 0 !important; }
+      .topbar, .sidebar-actions, .table-controls, .row-actions, .remove-foto,
+      #adminTrigger, #adminOverlay, #adminModal { display:none !important; }
+      body { background:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .doc-wrapper { margin:0 !important; box-shadow:none !important; padding:0 !important; border-radius:0 !important; max-width:100% !important; }
       .main { margin:0 !important; padding:0 !important; max-width:100% !important; }
-      .foto-placeholder { border:1px dashed #ccc !important; }
-      .evidence-table, .evidence-table td,
-      .evidence-table th { border:1px solid #333 !important; }
-      .evidence-table { page-break-inside:auto; width:100%; }
-      tr { page-break-inside:avoid; page-break-after:auto; }
-      .doc-header h2 { font-size:13px !important; }
+      .foto-placeholder { border:1px dashed #ccc; }
+      .evidence-table td, .evidence-table th { border:1px solid #333 !important; }
+      .evidence-table { page-break-inside: auto; width:100%; }
+      tr { page-break-inside: avoid; }
     }
 
     @media(max-width:700px) {
-      .sidebar-actions {
-        position:fixed; bottom:0; left:0; right:0; top:auto;
-        flex-direction:row; justify-content:space-around;
-        background:rgba(28,43,34,0.97); backdrop-filter:blur(10px);
-        padding:10px 16px; border-top:1px solid rgba(255,255,255,0.1);
-        z-index:900; gap:8px;
-      }
-      .sa-btn { min-width:0; flex:1; justify-content:center; padding:8px 6px; font-size:11px; }
-      .sa-btn:hover { transform:none; }
-      .doc-wrapper { margin-left:0; padding:16px 12px 80px; border-radius:0; box-shadow:none; }
-      .main { padding:8px 0 80px; }
-      .meta-label { width:110px; font-size:12px; }
-      .meta-colon { margin-right:6px; font-size:12px; }
-      .meta-input, .meta-select { font-size:12px; }
-      .doc-header h2 { font-size:13px; }
-      /* Stack table horizontally — hide eviden on mobile, show per row */
-      .evidence-table { font-size:11px; }
-      .evidence-table th { padding:6px 4px; font-size:10px; }
-      .foto-cell { width:80px; min-height:70px; }
-      .foto-placeholder { height:70px; font-size:10px; }
-      .foto-placeholder span { font-size:16px; }
-      .foto-preview { height:70px; }
-      .row-tanggal { width:80px; }
-      .row-tanggal input { font-size:11px; padding:6px 2px; }
-      .konten-input { font-size:11px; min-height:40px; }
-      .table-controls { gap:8px; }
-      .tbl-btn { padding:8px 14px; font-size:12px; }
-    }
-
-    @media(max-width:420px) {
-      /* On very small phones, hide foto columns & show simplified table */
-      .evidence-table .foto-cell { width:60px; }
-      .evidence-table .foto-placeholder span:first-child { display:none; }
-      .meta-label { width:90px; font-size:11px; }
+      .sidebar-actions { position:static; flex-direction:row; flex-wrap:wrap; margin-bottom:16px; }
+      .doc-wrapper { margin-left:0; padding:20px 12px; }
     }
   
 
     /* === BASE === */
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
     :root {
       --ink:#1c2b22; --forest:#2a4a38; --jade:#3d7a5c; --sage:#6aab88;
       --mist:#d4edd9; --rice:#f5f9f1; --harvest:#e8b84b; --harvest-dk:#c99a2e;
@@ -1196,7 +1048,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
       --t:all 0.28s cubic-bezier(0.4,0,0.2,1);
     }
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; font-size:16px; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior:smooth; font-size:16px; }
     body { font-family:'DM Sans',sans-serif; color:var(--text); background:var(--cream); line-height:1.7; overflow-x:hidden; }
     a { text-decoration:none; color:inherit; }
     ul { list-style:none; }
@@ -1408,71 +1260,6 @@ body.dark-mode .admin-section-title { color: #deeede; }
     .py-card { animation:fadeUp 0.5s ease both; }
   
 [id^="page-"]{display:none}#page-main{display:block}
-
-
-.atab.active { color:#3d7a5c !important; border-bottom-color:#3d7a5c !important; background:#fff !important; }
-.atab:hover  { color:#3d7a5c !important; background:#efefef !important; }
-.admin-section-title { font-weight:700; font-size:14px; color:#1c2b22; margin:0 0 12px; display:flex; align-items:center; justify-content:space-between; }
-.admin-list { display:flex; flex-direction:column; gap:8px; }
-.admin-item { display:flex; align-items:center; justify-content:space-between; background:#f8faf8; border:1px solid #e0ece0; border-radius:8px; padding:10px 14px; gap:12px; }
-.admin-item-info { display:flex; flex-direction:column; gap:2px; flex:1; min-width:0; }
-.admin-item-info strong { font-size:13.5px; color:#1c2b22; }
-.admin-item-info small { font-size:11.5px; color:#7a9485; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.admin-badge { display:inline-block; font-size:10px; padding:1px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; width:fit-content; }
-.admin-badge.nasional    { background:#fff3cd; color:#856404; }
-.admin-badge.daerah      { background:#d1e7dd; color:#155724; }
-.admin-badge.kepegawaian { background:#f8d7da; color:#721c24; }
-.admin-item-actions { display:flex; gap:6px; flex-shrink:0; }
-.abtn { padding:6px 12px; border:none; border-radius:6px; font-size:12px; font-weight:600; cursor:pointer; font-family:'DM Sans',sans-serif; transition:opacity 0.2s; }
-.abtn:hover { opacity:0.85; }
-.abtn-green { background:#27ae60; color:#fff; }
-.abtn-blue  { background:#2980b9; color:#fff; }
-.abtn-red   { background:#e74c3c; color:#fff; }
-.abtn-gray  { background:#95a5a6; color:#fff; }
-.admin-form { display:grid; grid-template-columns:1fr 2fr; gap:8px 12px; align-items:center; }
-.admin-form label { font-size:13px; font-weight:600; color:#3d5547; text-align:right; }
-.admin-form input, .admin-form select, .admin-form textarea {
-  width:100%; padding:8px 10px; border:1.5px solid #d0ddd0; border-radius:6px;
-  font-size:13.5px; font-family:'DM Sans',sans-serif; outline:none; color:#1c2b22;
-  transition:border-color 0.2s;
-}
-.admin-form input:focus, .admin-form select:focus, .admin-form textarea:focus { border-color:#3d7a5c; }
-.admin-form h3 { grid-column:1/-1; font-family:'DM Serif Display',serif; font-size:20px; color:#1c2b22; margin-bottom:8px; }
-.amodal-actions { display:flex; gap:8px; margin-top:16px; justify-content:flex-end; }
-.admin-toast { position:fixed; bottom:80px; right:22px; z-index:99999; background:#1c2b22; color:#fff; padding:10px 18px; border-radius:8px; font-size:14px; font-weight:600; opacity:0; transition:opacity 0.3s; pointer-events:none; }
-.admin-toast.show { opacity:1; }
-
-
-/* ===== MOBILE POLISH ===== */
-@media (max-width: 480px) {
-  /* Navbar brand lebih compact */
-  .brand-name { font-size: 15px; }
-  .brand-tagline { font-size: 8.5px; }
-  /* Hero */
-  .hero { padding: 80px 14px 48px; }
-  /* Penyuluh section visible */
-  .penyuluh-sec { padding: 60px 0; }
-  /* Kontak section */
-  .kontak-sec { padding: 60px 0; }
-  /* GiLink */
-  .gilink-sec { padding: 60px 0; }
-  /* P-tabs scroll tanpa scrollbar */
-  .p-tabs::-webkit-scrollbar { display: none; }
-  .p-tabs { -ms-overflow-style: none; scrollbar-width: none; }
-  /* Admin panel lebih kecil */
-  #adminPanel { width: 98% !important; max-width: 98% !important; }
-}
-
-@media (max-width: 360px) {
-  .nav-inner { padding: 0 10px; }
-  .brand-name { font-size: 14px; }
-  .hero-h1 { font-size: 24px; }
-  .sec-title { font-size: 22px; }
-  .p-card h3 { font-size: 12px; }
-  .penyuluh-grid { grid-template-columns: 1fr; }
-  .portal-grid { grid-template-columns: 1fr; }
-}
-
 </style>
 </head>
 <body>
@@ -1482,14 +1269,11 @@ body.dark-mode .admin-section-title { color: #deeede; }
   <!-- NAVBAR -->
   <header class="navbar" id="navbar">
     <div class="nav-inner">
-      <button class="hero-hamburger" id="heroHamburger" onclick="openDrawer()" aria-label="Buka menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
       <a href="#beranda" class="nav-brand">
         <div class="brand-emblem">
-          <img id="siteLogo" src="https://www.pertanian.go.id/assets/img/logo.png" alt="Logo Kementan" style="width:40px;height:40px;object-fit:contain;display:block;" onerror="this.style.display='none';document.getElementById('siteLogoEmoji').style.display='block'">
+          <img id="siteLogo" src="https://www.pertanian.go.id/assets/img/logo.png" alt="Logo Kementan"
+            style="width:40px;height:40px;object-fit:contain;display:block;"
+            onerror="this.style.display='none';document.getElementById('siteLogoEmoji').style.display='block'">
           <span id="siteLogoEmoji" style="display:none;">🌾</span>
         </div>
         <div>
@@ -1503,11 +1287,6 @@ body.dark-mode .admin-section-title { color: #deeede; }
         <a href="#gilink"    class="nm-link nm-gilink">🔗 GiLink</a>
         <a href="#kontak"    class="nm-link">Alamat</a>
       </nav>
-      <button id="themeToggle" onclick="toggleTheme()" aria-label="Toggle tema" title="Ganti tema terang/gelap" style="
-        background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
-        color:#fff; width:36px; height:36px; border-radius:8px; cursor:pointer;
-        font-size:16px; display:flex; align-items:center; justify-content:center;
-        transition:all 0.2s; flex-shrink:0;">🌙</button>
     </div>
   </header>
 
@@ -1515,11 +1294,16 @@ body.dark-mode .admin-section-title { color: #deeede; }
   <!-- SIDE DRAWER MENU -->
   <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
 
-  <!-- Hamburger dipindah ke dalam navbar -->
+  <!-- Hamburger Button FIXED -->
+  <button class="hero-hamburger" id="heroHamburger" onclick="openDrawer()" aria-label="Buka menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
   <div class="side-drawer" id="sideDrawer">
     <div class="drawer-header">
-      <img class="drawer-logo" src="https://www.pertanian.go.id/assets/img/logo.png" alt="Logo" style="width:36px;height:36px;object-fit:contain;" onerror="this.style.display='none'">
+      <span class="drawer-logo">🌾</span>
       <span class="drawer-title">BPP Gilireng</span>
       <button class="drawer-close" onclick="closeDrawer()" aria-label="Tutup menu">✕</button>
     </div>
@@ -1545,15 +1329,13 @@ body.dark-mode .admin-section-title { color: #deeede; }
         <span class="dl-icon">🗺️</span>
         <span>Geoportal Pertanian</span>
       </a>
-
       <a href="https://ais.pertanian.go.id/sipandu/" target="_blank" class="drawer-link">
         <span class="dl-icon">📋</span>
         <span>SIPANDU</span>
       </a>
-
       <div class="drawer-divider"></div>
       <p class="drawer-section-label">Lainnya</p>
-      <a href="https://www.bpptomoni.my.id/p/eviden-lcs-digital.html" target="_blank" rel="noopener" class="drawer-link" style="color:var(--harvest-dk);font-weight:600;" onclick="closeDrawer()">
+      <a href="evidence-lcs.html" class="drawer-link" style="color:var(--harvest-dk);font-weight:600;" onclick="event.preventDefault();window.open('https://www.bpptomoni.my.id/p/eviden-lcs-digital.html','_blank')">
         <span class="dl-icon">📋</span>
         <span>Buat Evidence LCS</span>
       </a>
@@ -1567,7 +1349,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
       </a>
       <a href="#kontak" class="drawer-link" onclick="closeDrawer()">
         <span class="dl-icon">📞</span>
-        <span>Alamat</span>
+        <span>Kontak</span>
       </a>
     </nav>
   </div>
@@ -1622,8 +1404,8 @@ body.dark-mode .admin-section-title { color: #deeede; }
         </div>
       <p class="p-note">💡 Semua link membuka di tab baru. Hubungi admin jika ada link yang tidak aktif — 
         <a href="https://wa.me/62081340034193" target="_blank" rel="noopener" style="color:var(--sage);font-weight:600;">📞 WA Admin</a> · 
-        <a href="https://www.instagram.com/ppl.journal?igsh=djJvMXRvaWEzOXhq" target="_blank" rel="noopener" style="color:var(--sage);font-weight:600;display:inline-flex;align-items:center;gap:4px;vertical-align:middle;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> Instagram</a> · 
-        <a href="https://www.tiktok.com/@cpplgenz?_r=1&_t=ZS-94DA5fI75j5" target="_blank" rel="noopener" style="color:var(--sage);font-weight:600;display:inline-flex;align-items:center;gap:4px;vertical-align:middle;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg> TikTok</a>
+        <a href="https://www.instagram.com/ppl.journal?igsh=djJvMXRvaWEzOXhq" target="_blank" rel="noopener" style="color:var(--sage);font-weight:600;">📸 Instagram</a> · 
+        <a href="https://www.tiktok.com/@cpplgenz?_r=1&_t=ZS-94DA5fI75j5" target="_blank" rel="noopener" style="color:var(--sage);font-weight:600;">🎵 TikTok</a>
       </p>
     </div>
   </section>
@@ -1642,15 +1424,98 @@ body.dark-mode .admin-section-title { color: #deeede; }
 
       <div class="gilink-grid">
 
-        <a href="#" onclick="gilinkAuth('https://drive.google.com/drive/folders/1XoboNvM3Ay5KLGZ2A8ohslWPmzOJt1t0?usp=drive_link');return false;" class="gl-card" style="border-color:var(--jade);">
+        <div role="button" tabindex="0" class="gl-card" style="border-color:var(--jade);cursor:pointer;user-select:none;"
+          onclick="gilinkAuth('https://drive.google.com/drive/folders/1XoboNvM3Ay5KLGZ2A8ohslWPmzOJt1t0?usp=drive_link')"
+          ontouchend="event.preventDefault();gilinkAuth('https://drive.google.com/drive/folders/1XoboNvM3Ay5KLGZ2A8ohslWPmzOJt1t0?usp=drive_link')"
+          onkeydown="if(event.key==='Enter')gilinkAuth('https://drive.google.com/drive/folders/1XoboNvM3Ay5KLGZ2A8ohslWPmzOJt1t0?usp=drive_link')">
           <span class="gl-icon">📁</span>
           <div class="gl-body">
             <h3>Google Drive BPP Gilireng</h3>
             <p>Folder utama dokumen, laporan, dan arsip internal BPP Gilireng</p>
           </div>
           <span class="gl-arrow">🔒 ↗</span>
-        </a>
+        </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- PENYULUH — hanya via hamburger -->
+  <section class="sec penyuluh-sec hidden-section" id="penyuluh">
+    <div class="wrap">
+      <div class="sec-hd">
+        <span class="sec-tag">Tim Kami</span>
+        <h2 class="sec-title">Penyuluh Pertanian</h2>
+        <p class="sec-desc">Tenaga penyuluh aktif BPP Gilireng yang mendampingi petani di seluruh wilayah binaan Kecamatan Gilireng.</p>
+      </div>
+      <div class="penyuluh-grid">
+        <div class="py-card py-koordinator">
+          <div class="py-badge-top">&#11088; Koordinator BPP</div>
+          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
+          <h3>Muhammad Firdaus, S.Pt</h3>
+          <span class="py-jabatan">Penyuluh Pertanian Ahli Madya</span>
+          <div class="py-meta">
+            <span>&#x1F4CD; Desa Lamata</span>
+            <span>&#x1F4CD; Desa Polewali</span>
+          </div>
+        </div>
+        <div class="py-card">
+          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
+          <h3>Afradillah, S.P.</h3>
+          <span class="py-jabatan">Penyuluh Pertanian Ahli Pertama</span>
+          <div class="py-meta">
+            <span>&#x1F4CD; Desa Alausalo</span>
+            <span>&#x1F4CD; Desa Mamminasae</span>
+          </div>
+        </div>
+        <div class="py-card">
+          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
+          <h3>Suhady Hamdan, S.P.</h3>
+          <span class="py-jabatan">Penyuluh Pertanian Ahli Pertama</span>
+          <div class="py-meta">
+            <span>&#x1F4CD; Desa Paselloreng</span>
+            <span>&#x1F4CD; Kel. Gilireng</span>
+          </div>
+        </div>
+        <div class="py-card">
+          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
+          <h3>Muhammad Jafar, S.P.</h3>
+          <span class="py-jabatan">Penyuluh Pertanian Ahli Pertama</span>
+          <div class="py-meta">
+            <span>&#x1F4CD; Desa Arajang</span>
+          </div>
+        </div>
+        <div class="py-card">
+          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
+          <h3>Muhammad Yunus, S.P.</h3>
+          <span class="py-jabatan">Ahli Pertama - Penyuluh Pertanian</span>
+          <div class="py-meta">
+            <span>&#x1F4CD; Desa Abbatireng</span>
+            <span>&#x1F4CD; Desa Poleonro</span>
+          </div>
+        </div>
+      </div>
+      <div class="pppk-section">
+        <div class="pppk-label">
+          <span class="pppk-tag">PPPK Paruh Waktu</span>
+          <p class="pppk-note">Staf dari Dinas Pertanian Kabupaten Wajo yang berkantor di BPP Gilireng</p>
+        </div>
+        <div class="pppk-grid">
+          <div class="pppk-card">
+            <span class="pppk-ava">&#x1F468;&#x200D;&#x1F4BC;</span>
+            <div>
+              <h4>Mudara, S.P.</h4>
+              <span>PPPK Paruh Waktu &middot; Dinas Pertanian Kab. Wajo</span>
+            </div>
+          </div>
+          <div class="pppk-card">
+            <span class="pppk-ava">&#x1F469;&#x200D;&#x1F4BC;</span>
+            <div>
+              <h4>Sumarti, S.P.</h4>
+              <span>PPPK Paruh Waktu &middot; Dinas Pertanian Kab. Wajo</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1688,91 +1553,12 @@ body.dark-mode .admin-section-title { color: #deeede; }
     </div>
   </section>
 
-  <!-- PENYULUH — tampil di halaman muka antara GiLink dan Kontak -->
-  <section class="sec penyuluh-sec" id="penyuluh">
-    <div class="wrap">
-      <div class="sec-hd">
-        <span class="sec-tag">Tim Kami</span>
-        <h2 class="sec-title">Penyuluh Pertanian</h2>
-        <p class="sec-desc">Tenaga penyuluh aktif BPP Gilireng yang mendampingi petani di seluruh wilayah binaan Kecamatan Gilireng.</p>
-      </div>
-      <div class="penyuluh-grid">
-        <div class="py-card py-koordinator">
-          <div class="py-badge-top">&#11088; Koordinator BPP</div>
-          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
-          <h3>Muhammad Firdaus, S.Pt</h3>
-          <span class="py-jabatan">Penyuluh Pertanian Ahli Madya</span>
-          <div class="py-meta">
-            <span>&#x1F4CD; Desa Lamata</span>
-            <span>&#x1F4CD; Desa Polewalie</span>
-          </div>
-        </div>
-        <div class="py-card">
-          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
-          <h3>Suhady Hamdan, S.P.</h3>
-          <span class="py-jabatan">Penyuluh Pertanian Ahli Pertama</span>
-          <div class="py-meta">
-            <span>&#x1F4CD; Desa Paselloreng</span>
-            <span>&#x1F4CD; Kel. Gilireng</span>
-          </div>
-        </div>
-        <div class="py-card">
-          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
-          <h3>Muhammad Jafar, S.P.</h3>
-          <span class="py-jabatan">Penyuluh Pertanian Ahli Pertama</span>
-          <div class="py-meta">
-            <span>&#x1F4CD; Desa Arajang</span>
-          </div>
-        </div>
-        <div class="py-card">
-          <div class="py-ava">&#x1F468;&#x200D;&#x1F33E;</div>
-          <h3>Muhammad Yunus, S.P.</h3>
-          <span class="py-jabatan">Ahli Pertama - Penyuluh Pertanian</span>
-          <div class="py-meta">
-            <span>&#x1F4CD; Desa Abbatireng</span>
-            <span>&#x1F4CD; Desa Poleonro</span>
-          </div>
-        </div>
-        <div class="py-card">
-          <div class="py-ava">&#x1F469;&#x200D;&#x1F33E;</div>
-          <h3>Afradillah, S.P.</h3>
-          <span class="py-jabatan">Penyuluh Pertanian Ahli Pertama</span>
-          <div class="py-meta">
-            <span>&#x1F4CD; Desa Alausalo</span>
-            <span>&#x1F4CD; Desa Mamminasae</span>
-          </div>
-        </div>
-      </div>
-      <div class="pppk-section">
-        <div class="pppk-label">
-          <span class="pppk-tag">PPPK Paruh Waktu</span>
-          <p class="pppk-note">Staf dari Dinas Pertanian Kabupaten Wajo yang berkantor di BPP Gilireng</p>
-        </div>
-        <div class="pppk-grid">
-          <div class="pppk-card">
-            <span class="pppk-ava">&#x1F468;&#x200D;&#x1F4BC;</span>
-            <div>
-              <h4>Mudara, S.P.</h4>
-              <span>PPPK Paruh Waktu &middot; Dinas Pertanian Kab. Wajo</span>
-            </div>
-          </div>
-          <div class="pppk-card">
-            <span class="pppk-ava">&#x1F469;&#x200D;&#x1F4BC;</span>
-            <div>
-              <h4>Sumarti, S.P.</h4>
-              <span>PPPK Paruh Waktu &middot; Dinas Pertanian Kab. Wajo</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- KONTAK -->
   <section class="sec kontak-sec" id="kontak">
     <div class="wrap">
       <div class="sec-hd">
         <span class="sec-tag">Kunjungi Kami</span>
+        <h2 class="sec-title">Informasi Kontak</h2>
       </div>
       <div class="kontak-layout">
         <div class="kontak-list">
@@ -1787,7 +1573,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
             <span class="k-icon">⏰</span>
             <div>
               <b>Jam Operasional</b>
-              <p>Senin – Kamis: 08.00 – 16.00 WITA<br/>Jumat: 08.00 – 16.30 WITA<br/>Sabtu – Minggu: Tutup</p>
+              <p>Senin – Kamis: 08.00 – 16.00 WITA / Jumat: 08.00 – 16.30 WITA / Sabtu – Minggu: Tutup</p>
             </div>
           </div>
         </div>
@@ -1817,7 +1603,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
             <li><a href="#beranda">Beranda</a></li>
             <li><a href="#pelaporan">Portal Pelaporan</a></li>
             <li><a href="#gilink">GiLink</a></li>
-            <li><a href="#kontak">Kontak</a></li>
+            <li><a href="#kontak">Alamat</a></li>
           </ul>
         </div>
         <div class="f-col">
@@ -1831,9 +1617,11 @@ body.dark-mode .admin-section-title { color: #deeede; }
           </ul>
         </div>
         <div class="f-col">
-          <h4>Alamat</h4>
+          <h4>Kontak</h4>
           <ul>
             <li><a href="https://wa.me/6281342906277" target="_blank">📞 0813-4290-6277</a></li>
+            <li><a href="https://www.instagram.com/ppl.journal?igsh=djJvMXRvaWEzOXhq" target="_blank">📸 ppl.journal</a></li>
+            <li><a href="https://www.tiktok.com/@cpplgenz?_r=1&_t=ZS-94DA5fI75j5" target="_blank">🎵 @cpplgenz</a></li>
           </ul>
         </div>
       </div>
@@ -1844,25 +1632,37 @@ body.dark-mode .admin-section-title { color: #deeede; }
   </footer>
 
 
+
+<div id="gilinkModal" onclick="if(event.target===this)gilinkClose()"
+  style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;padding:20px;">
+  <div onclick="event.stopPropagation()" style="background:#fff;border-radius:18px;padding:28px 24px;width:100%;max-width:360px;box-shadow:0 20px 60px rgba(0,0,0,0.35);text-align:center;">
+    <div style="font-size:36px;margin-bottom:10px;">🔒</div>
+    <h3 style="font-family:'DM Serif Display',serif;font-size:19px;color:#1c2b22;margin-bottom:6px;">Akses Internal</h3>
+    <p style="font-size:13px;color:#7a9485;margin-bottom:18px;">Masukkan password untuk mengakses GiLink BPP Gilireng</p>
+    <input id="gilinkPwdInput" type="password" placeholder="Password..."
+      onkeydown="if(event.key==='Enter')gilinkCheck()"
+      style="width:100%;padding:14px 16px;border:1.5px solid #d0ddd0;border-radius:10px;font-size:16px;font-family:'DM Sans',sans-serif;outline:none;margin-bottom:8px;text-align:center;letter-spacing:3px;color:#1c2b22;box-sizing:border-box;">
+    <p id="gilinkPwdError" style="color:#e74c3c;font-size:13px;min-height:18px;margin-bottom:14px;"></p>
+    <div style="display:flex;gap:10px;">
+      <button onclick="gilinkClose()" ontouchend="event.preventDefault();gilinkClose()" style="flex:1;padding:14px;border:1.5px solid #d0ddd0;border-radius:10px;background:#fff;color:#7a9485;font-size:15px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;">Batal</button>
+      <button onclick="gilinkCheck()" ontouchend="event.preventDefault();gilinkCheck()" style="flex:1;padding:14px;border:none;border-radius:10px;background:#3d7a5c;color:#fff;font-size:15px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;">Masuk →</button>
+    </div>
+  </div>
 </div>
+
+</div>
+
 <div id="page-evidence-lcs" style="display:none;flex-direction:column;height:100vh;">
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a href="#" onclick="event.preventDefault();showPage('main')" class="back-btn">← Kembali</a>
-      <span class="topbar-title">📋 Eviden LCS Digital</span>
-      <a href="https://www.bpptomoni.my.id/p/eviden-lcs-digital.html" target="_blank"
-         style="font-size:12px;color:var(--harvest);font-weight:600;white-space:nowrap;text-decoration:none;">
-        🔗 Buka Tab Baru
-      </a>
+  <header style="position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(28,43,34,0.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(104,171,136,0.15);">
+    <div style="max-width:1180px;margin:0 auto;padding:0 24px;height:66px;display:flex;align-items:center;justify-content:space-between;">
+      <a href="#" onclick="event.preventDefault();showPage('main')" style="color:#fff;text-decoration:none;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;">← Kembali</a>
+      <span style="color:#fff;font-weight:700;font-size:15px;">📋 Eviden LCS Digital — BPP Gilireng</span>
+      <a href="https://www.bpptomoni.my.id/p/eviden-lcs-digital.html" target="_blank" style="font-size:12px;color:#e8b84b;font-weight:600;text-decoration:none;">🔗 Buka Tab Baru</a>
     </div>
   </header>
-  <iframe
-    id="evidenceLcsFrame"
-    src=""
-    data-src="https://www.bpptomoni.my.id/p/eviden-lcs-digital.html"
-    style="flex:1;width:100%;border:none;height:calc(100vh - 58px);"
-    allowfullscreen
-    title="Eviden LCS Digital - BPP Tomoni">
+  <iframe id="evidenceLcsFrame" src="" data-src="https://www.bpptomoni.my.id/p/eviden-lcs-digital.html"
+    style="flex:1;width:100%;border:none;height:calc(100vh - 66px);margin-top:66px;"
+    loading="lazy" allowfullscreen title="Eviden LCS Digital - BPP Tomoni">
   </iframe>
 </div>
 
@@ -1872,7 +1672,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
   <!-- TOP BAR -->
   <header class="topbar">
     <div class="topbar-inner">
-      <a href="#" onclick="event.preventDefault();showPage('main')" class="back-btn">← Kembali</a>
+      <a href="index.html" class="back-btn">← Kembali</a>
       <span class="topbar-title">🌾 BPP Gilireng</span>
     </div>
   </header>
@@ -1915,7 +1715,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
         </div>
         <div class="ib">
           <span class="ib-icon">⏰</span>
-          <div><b>Jam Operasional</b><p>Senin – Kamis · 08.00 – 16.00 WITA<br/>Jumat · 08.00 – 16.30 WITA</p></div>
+          <div><b>Jam Operasional</b><p>Senin – Jumat · 07.30 – 16.00 WITA</p></div>
         </div>
         <div class="ib">
           <span class="ib-icon">🏢</span>
@@ -1953,7 +1753,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
   <!-- TOP BAR -->
   <header class="topbar">
     <div class="topbar-inner">
-      <a href="#" onclick="event.preventDefault();showPage('main')" class="back-btn">← Kembali</a>
+      <a href="index.html" class="back-btn">← Kembali</a>
       <span class="topbar-title">🌾 BPP Gilireng</span>
     </div>
   </header>
@@ -1981,7 +1781,7 @@ body.dark-mode .admin-section-title { color: #deeede; }
           <span class="py-jabatan">Penyuluh Pertanian Ahli Madya</span>
           <div class="py-meta">
             <span>📍 Desa Lamata</span>
-            <span>📍 Desa Polewalie</span>
+            <span>📍 Desa Polewali</span>
           </div>
         </div>
 
@@ -2117,7 +1917,6 @@ body.dark-mode .admin-section-title { color: #deeede; }
       <button class="atab"        data-tab="penyuluh" onclick="switchAdminTab('penyuluh')" style="padding:12px 18px; border:none; background:transparent; cursor:pointer; font-size:13.5px; font-weight:600; color:#555; border-bottom:2px solid transparent; font-family:'DM Sans',sans-serif;">👨‍🌾 Penyuluh</button>
       <button class="atab"        data-tab="stats"    onclick="switchAdminTab('stats')"    style="padding:12px 18px; border:none; background:transparent; cursor:pointer; font-size:13.5px; font-weight:600; color:#555; border-bottom:2px solid transparent; font-family:'DM Sans',sans-serif;">📈 Statistik</button>
       <button class="atab"        data-tab="kontak"   onclick="switchAdminTab('kontak')"   style="padding:12px 18px; border:none; background:transparent; cursor:pointer; font-size:13.5px; font-weight:600; color:#555; border-bottom:2px solid transparent; font-family:'DM Sans',sans-serif;">📞 Kontak</button>
-      <button class="atab"        data-tab="tampilan" onclick="switchAdminTab('tampilan')" style="padding:12px 18px; border:none; background:transparent; cursor:pointer; font-size:13.5px; font-weight:600; color:#555; border-bottom:2px solid transparent; font-family:'DM Sans',sans-serif;">🎨 Tampilan</button>
     </div>
     <input type="hidden" id="adminActiveTab" value="portal"/>
 
@@ -2135,7 +1934,39 @@ body.dark-mode .admin-section-title { color: #deeede; }
 </div>
 
 <!-- Toast -->
-
+<style>
+.atab.active { color:#3d7a5c !important; border-bottom-color:#3d7a5c !important; background:#fff !important; }
+.atab:hover  { color:#3d7a5c !important; background:#efefef !important; }
+.admin-section-title { font-weight:700; font-size:14px; color:#1c2b22; margin:0 0 12px; display:flex; align-items:center; justify-content:space-between; }
+.admin-list { display:flex; flex-direction:column; gap:8px; }
+.admin-item { display:flex; align-items:center; justify-content:space-between; background:#f8faf8; border:1px solid #e0ece0; border-radius:8px; padding:10px 14px; gap:12px; }
+.admin-item-info { display:flex; flex-direction:column; gap:2px; flex:1; min-width:0; }
+.admin-item-info strong { font-size:13.5px; color:#1c2b22; }
+.admin-item-info small { font-size:11.5px; color:#7a9485; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.admin-badge { display:inline-block; font-size:10px; padding:1px 8px; border-radius:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; width:fit-content; }
+.admin-badge.nasional    { background:#fff3cd; color:#856404; }
+.admin-badge.daerah      { background:#d1e7dd; color:#155724; }
+.admin-badge.kepegawaian { background:#f8d7da; color:#721c24; }
+.admin-item-actions { display:flex; gap:6px; flex-shrink:0; }
+.abtn { padding:6px 12px; border:none; border-radius:6px; font-size:12px; font-weight:600; cursor:pointer; font-family:'DM Sans',sans-serif; transition:opacity 0.2s; }
+.abtn:hover { opacity:0.85; }
+.abtn-green { background:#27ae60; color:#fff; }
+.abtn-blue  { background:#2980b9; color:#fff; }
+.abtn-red   { background:#e74c3c; color:#fff; }
+.abtn-gray  { background:#95a5a6; color:#fff; }
+.admin-form { display:grid; grid-template-columns:1fr 2fr; gap:8px 12px; align-items:center; }
+.admin-form label { font-size:13px; font-weight:600; color:#3d5547; text-align:right; }
+.admin-form input, .admin-form select, .admin-form textarea {
+  width:100%; padding:8px 10px; border:1.5px solid #d0ddd0; border-radius:6px;
+  font-size:13.5px; font-family:'DM Sans',sans-serif; outline:none; color:#1c2b22;
+  transition:border-color 0.2s;
+}
+.admin-form input:focus, .admin-form select:focus, .admin-form textarea:focus { border-color:#3d7a5c; }
+.admin-form h3 { grid-column:1/-1; font-family:'DM Serif Display',serif; font-size:20px; color:#1c2b22; margin-bottom:8px; }
+.amodal-actions { display:flex; gap:8px; margin-top:16px; justify-content:flex-end; }
+.admin-toast { position:fixed; bottom:80px; right:22px; z-index:99999; background:#1c2b22; color:#fff; padding:10px 18px; border-radius:8px; font-size:14px; font-weight:600; opacity:0; transition:opacity 0.3s; pointer-events:none; }
+.admin-toast.show { opacity:1; }
+</style>
 
 <script>
 
@@ -2189,14 +2020,12 @@ function closeDrawer() {
   document.getElementById('drawerOverlay').classList.remove('active');
   document.body.style.overflow = '';
 }
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeDrawer();
-});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 
 
 function showPage(page) {
   ['main','evidence-lcs','profil-bpp','profil-penyuluh'].forEach(p => {
-    var el = document.getElementById('page-' + p);
+    const el = document.getElementById('page-' + p);
     if (!el) return;
     if (p === 'evidence-lcs') {
       el.style.display = (p === page) ? 'flex' : 'none';
@@ -2212,6 +2041,62 @@ function showPage(page) {
   }
   if (typeof closeDrawer === 'function') closeDrawer();
 }
+
+
+// ===================== GILINK AUTH =====================
+window._gilinkTarget = '';
+function gilinkAuth(url) {
+  window._gilinkTarget = url;
+  var modal = document.getElementById('gilinkModal');
+  var input = document.getElementById('gilinkPwdInput');
+  var err   = document.getElementById('gilinkPwdError');
+  if (!modal) return;
+  if (input) input.value = '';
+  if (err)   err.textContent = '';
+  modal.style.display = 'flex';
+  setTimeout(function() { if (input) input.focus(); }, 150);
+}
+function gilinkClose() {
+  var modal = document.getElementById('gilinkModal');
+  if (modal) modal.style.display = 'none';
+  window._gilinkTarget = '';
+}
+function gilinkCheck() {
+  var input = document.getElementById('gilinkPwdInput');
+  var err   = document.getElementById('gilinkPwdError');
+  if (!input) return;
+  if (input.value.trim() === 'Bppgilireng2026') {
+    var url = window._gilinkTarget;
+    gilinkClose();
+    var a = document.createElement('a');
+    a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  } else {
+    if (err) err.textContent = '❌ Password salah. Coba lagi.';
+    input.value = ''; input.focus();
+    input.style.borderColor = '#e74c3c';
+    setTimeout(function() {
+      if (input) input.style.borderColor = '#d0ddd0';
+      if (err)   err.textContent = '';
+    }, 2500);
+  }
+}
+document.addEventListener('keydown', function(e) {
+  var modal = document.getElementById('gilinkModal');
+  if (e.key === 'Escape' && modal && modal.style.display === 'flex') gilinkClose();
+});
+// Load logo
+(function() {
+  var saved = localStorage.getItem('bpp_logo_url') || localStorage.getItem('bpp_logo');
+  if (saved) {
+    var logoImg = document.getElementById('siteLogo');
+    var logoEmoji = document.getElementById('siteLogoEmoji');
+    var drawerLogo = document.querySelector('.drawer-logo');
+    if (logoImg) { logoImg.src = saved; logoImg.style.display = 'block'; }
+    if (logoEmoji) logoEmoji.style.display = 'none';
+    if (drawerLogo) drawerLogo.innerHTML = '<img src="' + saved + '" style="width:28px;height:28px;object-fit:contain;border-radius:4px;">';
+  }
+})();
 
 
     // ===================== STATE =====================
@@ -2343,86 +2228,63 @@ function showPage(page) {
         var fotosHTML = '';
         ['like','comen','share'].forEach(function(t) {
           var cellId = row.id.replace('row-', 'foto-' + t + '-');
-          var cell   = document.getElementById(cellId);
-          var imgEl  = cell ? cell.querySelector('.foto-preview') : null;
+          var imgEl  = document.getElementById(cellId) ? document.getElementById(cellId).querySelector('.foto-preview') : null;
           if (imgEl) {
-            fotosHTML += '<td class="fc"><img src="' + imgEl.src + '" style="width:100%;height:80px;object-fit:cover;display:block;"/></td>';
+            fotosHTML += '<td class="foto-cell"><img src="' + imgEl.src + '" class="foto-preview"/></td>';
           } else {
-            fotosHTML += '<td class="fc"><div class="fp"><span>📷</span><span>Foto ' + t.charAt(0).toUpperCase() + t.slice(1) + '</span></div></td>';
+            fotosHTML += '<td class="foto-cell"><div class="foto-ph"><span>📷</span><span>Foto ' + t.charAt(0).toUpperCase() + t.slice(1) + '</span></div></td>';
           }
         });
-        rowsHTML += '<tr>'
-          + '<td class="td-tgl">' + tgl + '</td>'
-          + '<td class="td-konten"><div class="kont">' + konten + '</div></td>'
-          + fotosHTML + '</tr>';
+        rowsHTML += '<tr><td class="row-tanggal">' + tgl + '</td><td><div class="konten-text">' + konten + '</div></td>' + fotosHTML + '</tr>';
       });
 
-      var printCSS = '@page{margin:15mm 15mm 15mm 20mm;size:A4 portrait}'
+      var printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"/><title>Evidence LCS</title><style>'
+        + '@page{margin:10mm;size:A4 portrait}'
         + '*{box-sizing:border-box;margin:0;padding:0}'
-        + 'body{font-family:Arial,sans-serif;font-size:13px;color:#000}'
-        + '.hdr{text-align:center;margin-bottom:18px;border-bottom:2px solid #333;padding-bottom:12px}'
-        + '.hdr h2{font-size:13px;font-weight:700;text-transform:uppercase;line-height:1.6}'
-        + '.meta{margin-bottom:16px}'
-        + '.mr{display:flex;margin-bottom:5px}'
-        + '.ml{font-size:12.5px;font-weight:700;width:130px;flex-shrink:0}'
-        + '.mc{font-size:12.5px;margin-right:8px}'
-        + '.mv{font-size:12.5px}'
+        + 'body{font-family:Arial,sans-serif;font-size:13px;background:#fff}'
+        + '.doc-header{text-align:center;margin-bottom:20px;border-bottom:2px solid #333;padding-bottom:12px}'
+        + '.doc-header h2{font-size:13px;font-weight:700;text-transform:uppercase;line-height:1.5}'
+        + '.meta-grid{margin-bottom:16px}'
+        + '.meta-row{display:flex;align-items:baseline;margin-bottom:5px}'
+        + '.meta-label{font-size:12.5px;font-weight:700;width:130px;flex-shrink:0}'
+        + '.meta-colon{font-size:12.5px;font-weight:700;margin-right:8px}'
+        + '.meta-value{font-size:12.5px}'
         + 'table{width:100%;border-collapse:collapse}'
         + 'th{background:#3d3d3d;color:#fff;text-align:center;font-size:11px;font-weight:700;text-transform:uppercase;padding:8px 6px;border:1px solid #555}'
         + 'th.ev{background:#2c2c2c}'
-        + 'td{border:1px solid #333;vertical-align:middle;padding:0}'
-        + '.td-tgl{width:100px;text-align:center;font-size:12px;padding:8px 4px}'
-        + '.td-konten{padding:0}'
-        + '.kont{font-size:12px;padding:6px 8px;min-height:50px}'
-        + '.fc{width:110px;min-height:80px;padding:0}'
-        + '.fp{display:flex;flex-direction:column;align-items:center;justify-content:center;height:80px;background:#f8f8f8;color:#aaa;font-size:10px;gap:3px}';
-
-      var printBody = '<div class="hdr"><h2>LAPORAN PENDERASAN INFORMASI DAN PEMBANGUNAN PERTANIAN<br/>PENYULUH PERTANIAN TAHUN ' + tahun + '</h2></div>'
-        + '<div class="meta">'
-        + '<div class="mr"><span class="ml">PERIODE</span><span class="mc">:</span><span class="mv">' + bulan + ' ' + tahun + '</span></div>'
-        + '<div class="mr"><span class="ml">Nama Penyuluh</span><span class="mc">:</span><span class="mv">' + nama + '</span></div>'
-        + '<div class="mr"><span class="ml">NIP.</span><span class="mc">:</span><span class="mv">' + nip + '</span></div>'
-        + '<div class="mr"><span class="ml">Wilayah Binaan</span><span class="mc">:</span><span class="mv">' + wilayah + '</span></div>'
+        + 'td{border:1px solid #333;vertical-align:middle;padding:4px}'
+        + '.row-tanggal{width:100px;text-align:center;font-size:12px;padding:8px 4px}'
+        + '.konten-text{font-size:12px;padding:6px 8px;min-height:50px}'
+        + '.foto-cell{width:110px;min-height:80px;text-align:center}'
+        + '.foto-preview{width:100%;height:80px;object-fit:cover;display:block}'
+        + '.foto-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;height:80px;background:#f8f8f8;border:1px dashed #ccc;color:#aaa;font-size:10px}'
+        + '</style></head><body>'
+        + '<div class="doc-header"><h2>LAPORAN PENDERASAN INFORMASI DAN PEMBANGUNAN PERTANIAN<br/>PENYULUH PERTANIAN TAHUN ' + tahun + '</h2></div>'
+        + '<div class="meta-grid">'
+        + '<div class="meta-row"><span class="meta-label">PERIODE</span><span class="meta-colon">:</span><span class="meta-value">' + bulan + ' ' + tahun + '</span></div>'
+        + '<div class="meta-row"><span class="meta-label">Nama Penyuluh</span><span class="meta-colon">:</span><span class="meta-value">' + nama + '</span></div>'
+        + '<div class="meta-row"><span class="meta-label">NIP.</span><span class="meta-colon">:</span><span class="meta-value">' + nip + '</span></div>'
+        + '<div class="meta-row"><span class="meta-label">Wilayah Binaan</span><span class="meta-colon">:</span><span class="meta-value">' + wilayah + '</span></div>'
         + '</div>'
         + '<table><thead><tr>'
         + '<th rowspan="2" style="width:100px">TANGGAL</th>'
         + '<th rowspan="2">JUDUL KONTEN</th>'
-        + '<th colspan="3" class="ev">EVIDEN</th></tr><tr>'
-        + '<th style="width:110px">LIKE</th><th style="width:110px">COMEN</th><th style="width:110px">SHARE</th>'
-        + '</tr></thead><tbody>' + rowsHTML + '</tbody></table>';
+        + '<th colspan="3" class="ev">EVIDEN</th>'
+        + '</tr><tr>'
+        + '<th style="width:110px">LIKE</th>'
+        + '<th style="width:110px">COMEN</th>'
+        + '<th style="width:110px">SHARE</th>'
+        + '</tr></thead><tbody>' + rowsHTML + '</tbody></table>'
+        + '</body></html>';
 
-      var fullHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"/><title>Evidence LCS - BPP Gilireng</title>'
-        + '<style>' + printCSS + '</style></head><body>' + printBody + '</body></html>';
-
-      // Gunakan iframe tersembunyi agar tidak terblokir popup blocker
-      var iframe = document.getElementById('printFrame');
-      if (!iframe) {
-        iframe = document.createElement('iframe');
-        iframe.id = 'printFrame';
-        iframe.style.cssText = 'position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;border:none;';
-        document.body.appendChild(iframe);
-      }
-      iframe.srcdoc = fullHTML;
-      iframe.onload = function() {
-        try {
-          iframe.contentWindow.focus();
-          iframe.contentWindow.print();
-          // Setelah print, tawarkan buka Google Drive
-          setTimeout(function() {
-            if (confirm('Cetak/simpan PDF selesai.\n\nBuka folder Google Drive untuk upload file PDF?')) {
-              window.open('https://drive.google.com/drive/folders/17SLWTK74rffzdldrnleE-eHA0ynAYRdz', '_blank');
-            }
-          }, 1500);
-        } catch(e) {
-          var pw = window.open('', '_blank');
-          if (pw) {
-            pw.document.write(fullHTML);
-            pw.document.close();
-            setTimeout(function() { pw.print(); }, 500);
-          } else {
-            alert('Aktifkan popup di browser untuk cetak PDF, atau gunakan Ctrl+P / Cmd+P secara manual.');
-          }
-        }
+      var printWindow = window.open('', '_blank', 'width=900,height=700');
+      printWindow.document.write(printHTML);
+      printWindow.document.close();
+      printWindow.onload = function() {
+        setTimeout(function() {
+          printWindow.focus();
+          printWindow.print();
+        }, 500);
       };
     }
 
@@ -2477,11 +2339,11 @@ const STORAGE_KEY    = 'bppgilireng_data';
 // ---- Default data (fallback jika belum ada di localStorage) ----
 const DEFAULT_DATA = {
   penyuluh: [
-    { nama: 'Muhammad Firdaus, S.Pt', jabatan: 'Penyuluh Pertanian Ahli Madya', wilayah: 'Desa Lamata, Desa Polewalie', koordinator: true },
+    { nama: 'Muhammad Firdaus, S.Pt', jabatan: 'Penyuluh Pertanian Ahli Madya', wilayah: 'Desa Lamata, Desa Polewali', koordinator: true },
+    { nama: 'Afradillah, S.P.',       jabatan: 'Penyuluh Pertanian Ahli Pertama', wilayah: 'Desa Alausalo, Desa Mamminasae', koordinator: false },
     { nama: 'Suhady Hamdan, S.P.',    jabatan: 'Penyuluh Pertanian Ahli Pertama', wilayah: 'Desa Paselloreng, Kel. Gilireng', koordinator: false },
     { nama: 'Muhammad Jafar, S.P.',   jabatan: 'Penyuluh Pertanian Ahli Pertama', wilayah: 'Desa Arajang', koordinator: false },
     { nama: 'Muhammad Yunus, S.P.',   jabatan: 'Ahli Pertama - Penyuluh Pertanian', wilayah: 'Desa Abbatireng, Desa Poleonro', koordinator: false },
-    { nama: 'Afradillah, S.P.',       jabatan: 'Penyuluh Pertanian Ahli Pertama', wilayah: 'Desa Alausalo, Desa Mamminasae', koordinator: false },
   ],
   pppk: [
     { nama: 'Mudara, S.P.',  jabatan: 'PPPK Paruh Waktu · Dinas Pertanian Kab. Wajo' },
@@ -2489,22 +2351,22 @@ const DEFAULT_DATA = {
   ],
   portal: [
     { nama: 'Adm. Kepegawaian',    url: 'https://linktr.ee/admkepeg4',          icon: '🗂️', kategori: 'kepegawaian', deskripsi: 'Administrasi & Informasi Kepegawaian Terpadu' },
-    { nama: 'e-PERSONAL',          url: 'https://epersonal.pertanian.go.id/login', icon: '👤', kategori: 'kepegawaian', deskripsi: 'Sistem Informasi Kepegawaian Pertanian' },
-    { nama: 'e-PUSLUH LTT',        url: 'https://dev.epusluh.id',                icon: '💻', kategori: 'nasional',    deskripsi: 'Sistem Pelaporan Penyuluh Pertanian' },
-    { nama: 'e-PUSLUH Admin',      url: 'https://2025.epusluh.id/admin/login',   icon: '🛡️', kategori: 'nasional',    deskripsi: 'Admin BPP - Sistem Informasi Penyuluh Pertanian' },
     { nama: 'Buat Eviden LCS',     url: 'https://www.bpptomoni.my.id/p/eviden-lcs-digital.html', icon: '📋', kategori: 'daerah', deskripsi: 'Form Laporan Penderasan Informasi & Bukti Interaksi Konten' },
-    { nama: 'Rekap LCS Wajo',      url: 'https://drive.google.com/drive/folders/17SLWTK74rffzdldrnleE-eHA0ynAYRdz', icon: '📁', kategori: 'daerah', deskripsi: 'Folder Dokumen Evidensi & LCS Kabupaten Wajo' },
+    { nama: 'Cek Subsidi Pupuk',   url: 'https://pupukbersubsidi.pertanian.go.id/ceksubsidi/search', icon: '🌱', kategori: 'nasional', deskripsi: 'Cek alokasi & realisasi pupuk bersubsidi petani' },
+    { nama: 'e-PERSONAL',          url: 'https://epersonal.pertanian.go.id/login', icon: '👤', kategori: 'kepegawaian', deskripsi: 'Sistem Informasi Kepegawaian Pertanian' },
+    { nama: 'e-PUSLUH Admin',      url: 'https://2025.epusluh.id/admin/login',   icon: '🛡️', kategori: 'nasional',    deskripsi: 'Admin BPP - Sistem Informasi Penyuluh Pertanian' },
+    { nama: 'e-PUSLUH LTT',        url: 'https://dev.epusluh.id',                icon: '💻', kategori: 'nasional',    deskripsi: 'Sistem Pelaporan Penyuluh Pertanian' },
+    { nama: 'e-RDKK',              url: 'https://erdkk25.pertanian.go.id/',      icon: '📋', kategori: 'nasional',    deskripsi: 'Rencana Definitif Kebutuhan Kelompok Pupuk Bersubsidi' },
     { nama: 'EVERVAL',             url: 'https://everval.pertanian.go.id/',      icon: '🌿', kategori: 'nasional',    deskripsi: 'Verifikasi & Validasi Data Pupuk Bersubsidi' },
     { nama: 'GEOPORTAL',           url: 'https://geoportal.pertanian.go.id/',    icon: '🗺️', kategori: 'nasional',    deskripsi: 'Sistem Pemetaan & Informasi Geospasial Pertanian' },
     { nama: 'KELOMPENCAPIR',       url: 'https://survey.pertanian.go.id/kelompencapir/', icon: '📋', kategori: 'nasional', deskripsi: 'KELOMPENCAPIR DIGITAL KEMENTAN' },
     { nama: 'KELOMPENCAPIR WAJO',  url: 'https://docs.google.com/spreadsheets/d/1dzgIrY8iUTyOZOUtzNeSCSi3AbZzRf3mZ3b7kYfIrNE/edit?gid=621037645#gid=621037645', icon: '📊', kategori: 'daerah', deskripsi: 'Rekapitulasi Data Kelompencapir Kabupaten Wajo' },
+    { nama: 'Prediksi Kemarau 2026',url: 'https://content.bmkg.go.id/wp-content/uploads/Buku-PMK26.pdf', icon: '☀️', kategori: 'nasional', deskripsi: 'Buku Prediksi Musim Kemarau 2026 — BMKG' },
+    { nama: 'Rekap LCS Wajo',      url: 'https://drive.google.com/drive/folders/17SLWTK74rffzdldrnleE-eHA0ynAYRdz', icon: '📁', kategori: 'daerah', deskripsi: 'Folder Dokumen Evidensi & LCS Kabupaten Wajo' },
     { nama: 'SIAPLUH',             url: 'https://siapluh.id/',                   icon: '📊', kategori: 'nasional',    deskripsi: 'Sistem Aplikasi Penyuluhan' },
     { nama: 'SIMLUHTAN',           url: 'https://simluh.pertanian.go.id/',       icon: '🗂️', kategori: 'nasional',    deskripsi: 'Sistem Informasi Manajemen Penyuluhan Pertanian' },
     { nama: 'SIPANDU',             url: 'https://ais.pertanian.go.id/sipandu/',  icon: '📋', kategori: 'nasional',    deskripsi: 'Sistem Informasi Prakiraan Cuaca Dan Produksi Padi Terpadu' },
     { nama: 'SIPEDAS',             url: 'https://sipedas.pertanian.go.id/',      icon: '📈', kategori: 'nasional',    deskripsi: 'Sistem Penyediaan Data Statistik Pertanian Hortikultura' },
-    { nama: 'e-RDKK',               url: 'https://erdkk25.pertanian.go.id/',      icon: '📋', kategori: 'nasional',    deskripsi: 'Rencana Definitif Kebutuhan Kelompok Pupuk Bersubsidi' },
-    { nama: 'Cek Subsidi Pupuk',    url: 'https://pupukbersubsidi.pertanian.go.id/ceksubsidi/search', icon: '🌱', kategori: 'nasional', deskripsi: 'Cek alokasi & realisasi pupuk bersubsidi petani' },
-    { nama: 'Prediksi Kemarau 2026',url: 'https://content.bmkg.go.id/wp-content/uploads/Buku-PMK26.pdf', icon: '☀️', kategori: 'nasional', deskripsi: 'Buku Prediksi Musim Kemarau 2026 — BMKG' },
   ],
   stats: { penyuluh: 5, desa: 9, gapoktan: 157, poktan: 9 },
   kontak: {
@@ -2544,12 +2406,22 @@ function renderPortal() {
     const badgeClass = item.kategori === 'nasional' ? 'nasional' : item.kategori === 'kepegawaian' ? 'kepeg' : 'daerah';
     const badgeLabel = item.kategori === 'nasional' ? 'Nasional' : item.kategori === 'kepegawaian' ? 'Kepegawaian' : (item.nama.includes('Wajo') || item.kategori === 'daerah' ? (item.nama.includes('BPP') || item.internal ? 'BPP Gilireng' : 'Wajo') : 'Daerah');
     const urlLabel  = item.internal ? 'BPP Gilireng · Internal' : new URL(item.url.startsWith('http') ? item.url : 'https://'+item.url).hostname;
-    const onclick = 'target="_blank" rel="noopener"';
+    const onclick   = item.internal ? `onclick="event.preventDefault();showPage('evidence-lcs')"` : `target="_blank" rel="noopener"`;
     const href      = item.internal ? '#' : item.url;
     const style     = item.internal ? 'style="border-color:var(--harvest)"' : '';
+    // Ambil favicon otomatis dari domain tujuan
+    let faviconUrl = '';
+    try {
+      const domain = new URL(item.url.startsWith('http') ? item.url : 'https://'+item.url).hostname;
+      faviconUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+    } catch(e) {}
     const iconHtml = item.logoUrl
       ? `<img src="${item.logoUrl}" alt="${item.nama}" style="width:32px;height:32px;object-fit:contain;border-radius:6px;">`
-      : `<span class="p-icon">${item.icon}</span>`;
+      : faviconUrl
+        ? `<img src="${faviconUrl}" alt="${item.nama}" style="width:28px;height:28px;object-fit:contain;border-radius:4px;"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"
+           ><span class="p-icon" style="display:none;">${item.icon}</span>`
+        : `<span class="p-icon">${item.icon}</span>`;
     return `<a href="${href}" ${onclick} class="p-card" data-cat="${item.kategori}" ${style}>
       <div class="p-card-top">${iconHtml}<span class="p-badge ${badgeClass}">${badgeLabel}</span></div>
       <h3>${item.nama}</h3><p>${item.deskripsi}</p>
@@ -2679,7 +2551,7 @@ function renderAdminContent(tab) {
         ${[...data.portal].sort((a,b)=>a.nama.localeCompare(b.nama)).map((item,i) => `
           <div class="admin-item">
             <div class="admin-item-info">
-              ${item.logoUrl ? `<img src="${item.logoUrl}" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;border-radius:3px;margin-right:4px;">` : item.icon + ' '}<strong style="vertical-align:middle">${item.nama}</strong>
+              <strong>${item.icon} ${item.nama}</strong>
               <span class="admin-badge ${item.kategori}">${item.kategori}</span>
               <small>${item.internal ? 'Internal' : item.url}</small>
             </div>
@@ -2752,88 +2624,7 @@ function renderAdminContent(tab) {
         <input type="text" id="pr_email" value="${pr.email}"/>
         <button class="abtn abtn-green" style="grid-column:1/-1;margin-top:8px" onclick="adminSaveKontak()">💾 Simpan</button>
       </div>`;
-
-  } else if (tab === 'tampilan') {
-    const savedLogo = localStorage.getItem('bpp_logo_url') || '';
-    area.innerHTML = `
-      <div class="admin-section-title">🎨 Logo Website</div>
-      <p style="font-size:13px;color:#7a9485;margin-bottom:16px;">
-        Masukkan URL gambar untuk logo BPP Gilireng di header dan drawer. 
-        Upload gambar dulu ke <a href="https://imgur.com/upload" target="_blank" style="color:var(--jade)">Imgur</a> 
-        atau <a href="https://drive.google.com" target="_blank" style="color:var(--jade)">Google Drive</a>, 
-        lalu paste link-nya di sini.
-      </p>
-
-      <!-- Preview saat ini -->
-      <div style="display:flex;align-items:center;gap:16px;padding:14px;background:#f5f9f1;border-radius:10px;border:1px solid #d0ddd0;margin-bottom:20px;">
-        <div style="width:56px;height:56px;border-radius:10px;background:#e8f0e8;display:flex;align-items:center;justify-content:center;overflow:hidden;border:2px solid #d0ddd0;flex-shrink:0;">
-          ${savedLogo ? `<img src="${savedLogo}" style="width:100%;height:100%;object-fit:contain;">` : `<span style="font-size:28px">🌾</span>`}
-        </div>
-        <div>
-          <p style="font-size:13px;font-weight:600;color:#1c2b22;">${savedLogo ? '✅ Logo kustom aktif' : '🌾 Menggunakan ikon default'}</p>
-          <p style="font-size:11px;color:#7a9485;word-break:break-all;">${savedLogo || 'Belum ada logo yang dipasang.'}</p>
-        </div>
-      </div>
-
-      <!-- Input URL -->
-      <div style="margin-bottom:16px;">
-        <label style="display:block;font-size:13px;font-weight:600;color:#3d5547;margin-bottom:6px;">URL Gambar Logo</label>
-        <input id="logoUrlInput" type="url" value="${savedLogo}"
-          placeholder="https://i.imgur.com/xxxx.png"
-          style="width:100%;padding:10px 12px;border:1.5px solid #d0ddd0;border-radius:8px;font-size:13px;font-family:'DM Sans',sans-serif;color:#1c2b22;outline:none;"
-          oninput="previewSiteLogo(this.value)">
-        <p style="font-size:11px;color:#7a9485;margin-top:4px;">
-          Tips: Di Imgur klik kanan gambar → "Copy image address". Di Google Drive, gunakan link direct viewer.
-        </p>
-      </div>
-
-      <!-- Preview baru -->
-      <div id="siteLogoNewPreview" style="${savedLogo ? '' : 'display:none;'}margin-bottom:16px;padding:10px;background:#f0f7f0;border-radius:8px;border:1px solid #b8d4b8;display:flex;align-items:center;gap:12px;">
-        <img id="siteLogoNewImg" src="${savedLogo}" style="width:48px;height:48px;object-fit:contain;border-radius:8px;border:1px solid #d0ddd0;background:#fff;">
-        <span style="font-size:12px;color:#3d7a5c;font-weight:600;">Preview logo baru</span>
-      </div>
-
-      <div style="display:flex;gap:10px;">
-        <button class="abtn abtn-green" onclick="adminSaveLogoUrl()" style="flex:2;">💾 Simpan Logo</button>
-        ${savedLogo ? `<button class="abtn abtn-red" onclick="adminRemoveLogoUrl()" style="flex:1;">🗑 Hapus</button>` : ''}
-      </div>`;
   }
-}
-
-// ---- Logo helper ----
-function previewPortalLogo(inputId, previewDivId, imgId) {
-  const url = (document.getElementById(inputId) || {}).value?.trim();
-  const div = document.getElementById(previewDivId);
-  const img = document.getElementById(imgId);
-  if (!div || !img) return;
-  if (url) { img.src = url; div.style.display = 'block'; }
-  else { div.style.display = 'none'; }
-}
-
-function previewSiteLogo(url) {
-  const preview = document.getElementById('siteLogoNewPreview');
-  const img     = document.getElementById('siteLogoNewImg');
-  if (!preview || !img) return;
-  if (url) { img.src = url; preview.style.display = 'flex'; }
-  else { preview.style.display = 'none'; }
-}
-
-function adminSaveLogoUrl() {
-  const url = (document.getElementById('logoUrlInput') || {}).value?.trim();
-  if (!url) { alert('Masukkan URL gambar terlebih dahulu.'); return; }
-  localStorage.setItem('bpp_logo_url', url);
-  applyLogo(url);
-  showAdminToast('✅ Logo berhasil disimpan!');
-  renderAdminContent('tampilan');
-}
-
-function adminRemoveLogoUrl() {
-  if (!confirm('Hapus logo dan kembali ke ikon 🌾?')) return;
-  localStorage.removeItem('bpp_logo_url');
-  localStorage.removeItem('bpp_logo');
-  applyLogo('');
-  showAdminToast('Logo dihapus.');
-  renderAdminContent('tampilan');
 }
 
 // ---- PORTAL CRUD ----
@@ -2843,23 +2634,7 @@ function adminAddPortal() {
     <div class="admin-form">
       <label>Nama</label><input id="fp_nama" placeholder="Nama sistem"/>
       <label>URL</label><input id="fp_url" placeholder="https://..."/>
-      <label>Icon Emoji</label>
-      <div>
-        <input id="fp_icon" value="🔗" style="width:50px;font-size:18px;text-align:center;border:1.5px solid #d0ddd0;border-radius:6px;padding:4px;"/>
-        <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px;">
-          ${['📋','📊','📈','📁','📂','📄','📝','🗂️','🗃️','💻','🖥️','📱','🌐','🔗','🔍','📌','🗺️','🌿','🌾','💧','🚜','🌱','🐄','👤','🏛️','🛡️','⚙️','📞','✅','🔑'].map(e =>
-          `<button type="button" onclick="document.getElementById('fp_icon').value='${e}'" style="background:#f0f7f0;border:1px solid #d0ddd0;border-radius:4px;padding:3px 5px;cursor:pointer;font-size:16px;">${e}</button>`
-        ).join('')}
-        </div>
-      </div>
-      <label>URL Logo</label>
-      <div>
-        <input id="fp_logoUrl" placeholder="https://... (opsional, ganti emoji dengan gambar)" style="font-size:12px;"/>
-        <p style="font-size:11px;color:#7a9485;margin-top:4px;">Jika diisi, gambar akan ditampilkan menggantikan emoji. Gunakan link gambar langsung (JPG/PNG/SVG).</p>
-        <div id="fp_logoPreview" style="margin-top:6px;display:none;">
-          <img id="fp_logoImg" style="width:40px;height:40px;object-fit:contain;border:1px solid #d0ddd0;border-radius:6px;">
-        </div>
-      </div>
+      <label>Icon (emoji)</label><input id="fp_icon" value="🔗" style="width:60px"/>
       <label>Kategori</label>
       <select id="fp_kat"><option value="nasional">Nasional</option><option value="daerah">Daerah/Wajo</option><option value="kepegawaian">Kepegawaian</option></select>
       <label>Deskripsi</label><input id="fp_desk" placeholder="Keterangan singkat"/>
@@ -2868,11 +2643,6 @@ function adminAddPortal() {
       <button class="abtn abtn-green" onclick="adminSavePortal(-1)">💾 Simpan</button>
       <button class="abtn abtn-gray"  onclick="closeAdminModal()">Batal</button>
     </div>`);
-  // Preview logo saat URL diketik
-  setTimeout(() => {
-    const inp = document.getElementById('fp_logoUrl');
-    if (inp) inp.addEventListener('input', () => previewPortalLogo('fp_logoUrl','fp_logoPreview','fp_logoImg'));
-  }, 100);
 }
 function adminEditPortal(i) {
   const item = getData().portal[i];
@@ -2881,23 +2651,7 @@ function adminEditPortal(i) {
     <div class="admin-form">
       <label>Nama</label><input id="fp_nama" value="${item.nama}"/>
       <label>URL</label><input id="fp_url" value="${item.url}"/>
-      <label>Icon Emoji</label>
-      <div>
-        <input id="fp_icon" value="${item.icon}" style="width:50px;font-size:18px;text-align:center;border:1.5px solid #d0ddd0;border-radius:6px;padding:4px;"/>
-        <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px;">
-          ${['📋','📊','📈','📁','📂','📄','📝','🗂️','🗃️','💻','🖥️','📱','🌐','🔗','🔍','📌','🗺️','🌿','🌾','💧','🚜','🌱','🐄','👤','🏛️','🛡️','⚙️','📞','✅','🔑'].map(e =>
-          `<button type="button" onclick="document.getElementById('fp_icon').value='${e}'" style="background:#f0f7f0;border:1px solid #d0ddd0;border-radius:4px;padding:3px 5px;cursor:pointer;font-size:16px;">${e}</button>`
-        ).join('')}
-        </div>
-      </div>
-      <label>URL Logo</label>
-      <div>
-        <input id="fp_logoUrl" value="${item.logoUrl || ''}" placeholder="https://... (opsional)" style="font-size:12px;"/>
-        <p style="font-size:11px;color:#7a9485;margin-top:4px;">Jika diisi, gambar menggantikan emoji. Gunakan link gambar langsung.</p>
-        <div id="fp_logoPreview" style="margin-top:6px;${item.logoUrl ? '' : 'display:none;'}">
-          <img id="fp_logoImg" src="${item.logoUrl || ''}" style="width:40px;height:40px;object-fit:contain;border:1px solid #d0ddd0;border-radius:6px;">
-        </div>
-      </div>
+      <label>Icon</label><input id="fp_icon" value="${item.icon}" style="width:60px"/>
       <label>Kategori</label>
       <select id="fp_kat">
         <option value="nasional" ${item.kategori==='nasional'?'selected':''}>Nasional</option>
@@ -2910,19 +2664,13 @@ function adminEditPortal(i) {
       <button class="abtn abtn-green" onclick="adminSavePortal(${i})">💾 Simpan</button>
       <button class="abtn abtn-gray"  onclick="closeAdminModal()">Batal</button>
     </div>`);
-  setTimeout(() => {
-    const inp = document.getElementById('fp_logoUrl');
-    if (inp) inp.addEventListener('input', () => previewPortalLogo('fp_logoUrl','fp_logoPreview','fp_logoImg'));
-  }, 100);
 }
 function adminSavePortal(i) {
   const data = getData();
-  const logoUrl = (document.getElementById('fp_logoUrl') || {}).value?.trim() || '';
   const item = {
     nama: document.getElementById('fp_nama').value.trim(),
     url:  document.getElementById('fp_url').value.trim(),
     icon: document.getElementById('fp_icon').value.trim() || '🔗',
-    logoUrl: logoUrl,
     kategori: document.getElementById('fp_kat').value,
     deskripsi: document.getElementById('fp_desk').value.trim()
   };
@@ -3093,137 +2841,12 @@ function showAdminToast(msg) {
 }
 
 // ---- RESET TO DEFAULT ----
-// ---- LOGO ADMIN ----
-function adminPreviewLogo(input) {
-  if (!input.files || !input.files[0]) return;
-  var file = input.files[0];
-  if (file.size > 2 * 1024 * 1024) {
-    alert('Ukuran file terlalu besar. Maksimal 2MB.'); input.value = ''; return;
-  }
-  var reader = new FileReader();
-  reader.onload = function(e) {
-    var newPreview = document.getElementById('logoNewPreview');
-    var newImg = document.getElementById('logoNewImg');
-    if (newPreview) newPreview.style.display = 'block';
-    if (newImg) newImg.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
-}
-
-function adminSaveLogo() {
-  var newImg = document.getElementById('logoNewImg');
-  if (!newImg || !newImg.src || newImg.src === window.location.href) {
-    alert('Pilih file logo terlebih dahulu.'); return;
-  }
-  var dataUrl = newImg.src;
-  localStorage.setItem('bpp_logo', dataUrl);
-  applyLogo(dataUrl);
-  showAdminToast('✅ Logo berhasil disimpan!');
-  renderAdminContent('tampilan');
-}
-
-function adminRemoveLogo() {
-  if (!confirm('Hapus logo dan kembali ke ikon default 🌾?')) return;
-  localStorage.removeItem('bpp_logo');
-  applyLogo('');
-  showAdminToast('Logo dihapus, kembali ke ikon default.');
-  renderAdminContent('tampilan');
-}
-
-function applyLogo(dataUrl) {
-  var logoImg   = document.getElementById('siteLogo');
-  var logoEmoji = document.getElementById('siteLogoEmoji');
-  var drawerLogo = document.querySelector('.drawer-logo');
-  if (dataUrl) {
-    if (logoImg)   { logoImg.src = dataUrl; logoImg.style.display = 'block'; }
-    if (logoEmoji) logoEmoji.style.display = 'none';
-    if (drawerLogo) { drawerLogo.innerHTML = `<img src="${dataUrl}" style="width:28px;height:28px;object-fit:contain;border-radius:4px;">`; }
-  } else {
-    if (logoImg)   { logoImg.src = ''; logoImg.style.display = 'none'; }
-    if (logoEmoji) logoEmoji.style.display = 'block';
-    if (drawerLogo) drawerLogo.innerHTML = '🌾';
-  }
-}
-
-// Load logo on page start
-const DEFAULT_LOGO_SVG = 'https://www.pertanian.go.id/assets/img/logo.png';
-(function() {
-  var saved = localStorage.getItem('bpp_logo_url') || localStorage.getItem('bpp_logo');
-  if (saved) applyLogo(saved);
-  // Logo default sudah di-set di HTML, tidak perlu applyLogo untuk default
-})();
-
 function adminResetData() {
   if (!confirm('Reset SEMUA data ke default? Semua perubahan akan hilang!')) return;
   localStorage.removeItem(STORAGE_KEY);
   window._bppData = null;
   location.reload();
 }
-
-// ===================== DARK / LIGHT MODE =====================
-function toggleTheme() {
-  var isDark = document.body.classList.toggle('dark-mode');
-  var btn = document.getElementById('themeToggle');
-  if (btn) btn.textContent = isDark ? '☀️' : '🌙';
-  localStorage.setItem('bpp_theme', isDark ? 'dark' : 'light');
-}
-// Apply saved theme on load
-(function() {
-  var saved = localStorage.getItem('bpp_theme');
-  if (saved === 'dark') {
-    document.body.classList.add('dark-mode');
-    var btn = document.getElementById('themeToggle');
-    if (btn) btn.textContent = '☀️';
-  }
-})();
-
-// ===================== GILINK AUTH =====================
-window._gilinkTarget = '';
-function gilinkAuth(url) {
-  window._gilinkTarget = url;
-  var modal = document.getElementById('gilinkModal');
-  var input = document.getElementById('gilinkPwdInput');
-  var err   = document.getElementById('gilinkPwdError');
-  if (!modal) return;
-  if (input) input.value = '';
-  if (err)   err.textContent = '';
-  modal.style.display = 'flex';
-  setTimeout(function() { if (input) input.focus(); }, 100);
-}
-function gilinkClose() {
-  var modal = document.getElementById('gilinkModal');
-  if (modal) modal.style.display = 'none';
-  window._gilinkTarget = '';
-}
-function gilinkCheck() {
-  var input = document.getElementById('gilinkPwdInput');
-  var err   = document.getElementById('gilinkPwdError');
-  if (!input) return;
-  var pwd = input.value.trim();
-  if (pwd === 'Bppgilireng2026') {
-    var url = window._gilinkTarget;
-    gilinkClose();
-    // Buka link — pakai anchor click agar tidak diblokir popup blocker
-    var a = document.createElement('a');
-    a.href = url;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  } else {
-    if (err) err.textContent = '❌ Password salah. Coba lagi.';
-    input.value = '';
-    input.focus();
-    input.style.borderColor = '#e74c3c';
-    setTimeout(function() {
-      if (input) input.style.borderColor = '#d0ddd0';
-      if (err)   err.textContent = '';
-    }, 2500);
-  }
-}
-
-
 
 </script>
 </body>
